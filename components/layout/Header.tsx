@@ -85,7 +85,7 @@ export function Header() {
                     type="button"
                     onMouseEnter={() => setMegaOpen(true)}
                     onClick={() => setMegaOpen((v) => !v)}
-                    className="rounded-full px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
+                    className="rounded-full px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/20"
                     id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
                     aria-expanded={megaOpen}
                     aria-haspopup="true"
@@ -95,7 +95,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="rounded-full px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/20"
+                    className="rounded-full px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/20"
                     id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
                     onMouseEnter={() => setMegaOpen(false)}
                   >
