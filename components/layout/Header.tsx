@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { SITE_NAME } from "@/lib/constants";
-import { MAIN_NAV, SERVICES_MEGA_MENU } from "./header-data";
+import { mainNav, servicesMegaMenu } from "@/content/nav";
+import { site } from "@/content/site";
 
 /* Nav bar and panels use solid brand-secondary (#151515) */
 const NAV_PANEL_CLASSES =
@@ -75,7 +76,7 @@ export function Header() {
           </Link>
 
           <div className="flex items-center gap-1">
-            {MAIN_NAV.map((item) => (
+            {mainNav.map((item) => (
               <div key={item.label} className="relative flex">
                 {"hasMega" in item && item.hasMega ? (
                   <button
@@ -109,7 +110,7 @@ export function Header() {
             id="cta-talk-to-us"
             onMouseEnter={() => setMegaOpen(false)}
           >
-            Talk to us
+            {site.ctaTalkToUs}
           </Link>
         </nav>
 
@@ -129,7 +130,7 @@ export function Header() {
               <div className="grid grid-cols-3 gap-8">
                 <div>
                   <ul className="flex flex-col gap-2" role="none">
-                    {SERVICES_MEGA_MENU.column1.items.map((link) => (
+                    {servicesMegaMenu.column1.items.map((link) => (
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
@@ -144,7 +145,7 @@ export function Header() {
                 </div>
                 <div>
                   <ul className="flex flex-col gap-2" role="none">
-                    {SERVICES_MEGA_MENU.column2.items.map((link) => (
+                    {servicesMegaMenu.column2.items.map((link) => (
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
@@ -158,13 +159,13 @@ export function Header() {
                   </ul>
                 </div>
                 <div>
-                  {SERVICES_MEGA_MENU.column3.title && (
+                  {servicesMegaMenu.column3.title && (
                     <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-white/70">
-                      {SERVICES_MEGA_MENU.column3.title}
+                      {servicesMegaMenu.column3.title}
                     </p>
                   )}
                   <ul className="flex flex-col gap-2" role="none">
-                    {SERVICES_MEGA_MENU.column3.items.map((link) => (
+                    {servicesMegaMenu.column3.items.map((link) => (
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
@@ -272,7 +273,7 @@ export function Header() {
                           {item.label}
                         </span>
                         <ul className="flex flex-col gap-0.5 pl-2">
-                          {SERVICES_MEGA_MENU.column1.items.map((link) => (
+                          {servicesMegaMenu.column1.items.map((link) => (
                             <li key={link.label}>
                               <Link
                                 href={link.href}
@@ -283,7 +284,7 @@ export function Header() {
                               </Link>
                             </li>
                           ))}
-                          {SERVICES_MEGA_MENU.column2.items.map((link) => (
+                          {servicesMegaMenu.column2.items.map((link) => (
                             <li key={link.label}>
                               <Link
                                 href={link.href}
@@ -294,12 +295,12 @@ export function Header() {
                               </Link>
                             </li>
                           ))}
-                          {SERVICES_MEGA_MENU.column3.title && (
+                          {servicesMegaMenu.column3.title && (
                             <li className="mt-2 px-3 text-xs font-semibold text-white/70">
-                              {SERVICES_MEGA_MENU.column3.title}
+                              {servicesMegaMenu.column3.title}
                             </li>
                           )}
-                          {SERVICES_MEGA_MENU.column3.items.map((link) => (
+                          {servicesMegaMenu.column3.items.map((link) => (
                             <li key={link.label}>
                               <Link
                                 href={link.href}
@@ -329,7 +330,7 @@ export function Header() {
                     id="mobile-cta-talk-to-us"
                     onClick={() => setMobileOpen(false)}
                   >
-                    Talk to us
+                    {site.ctaTalkToUs}
                   </Link>
                 </nav>
               </motion.aside>

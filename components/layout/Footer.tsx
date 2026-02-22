@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Linkedin, Instagram } from "lucide-react";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
-import { FOOTER_LINKS } from "./footer-data";
+import { footerLinks } from "@/content/footer";
+import { site } from "@/content/site";
 
 const SOCIAL_LINKS = [
   {
@@ -69,7 +70,7 @@ export function Footer() {
             className="w-fit rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-brand-secondary transition-opacity hover:opacity-90"
             id="footer-cta"
           >
-            Talk to us
+            {site.ctaTalkToUs}
           </Link>
         </div>
 
@@ -80,10 +81,10 @@ export function Footer() {
         >
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/90">
-              {FOOTER_LINKS.services.title}
+              {footerLinks.services.title}
             </h3>
             <ul className="mt-4 flex flex-col gap-3" role="list">
-              {FOOTER_LINKS.services.items.map((item) => (
+              {footerLinks.services.items.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -97,10 +98,10 @@ export function Footer() {
           </div>
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/90">
-              {FOOTER_LINKS.solutions.title}
+              {footerLinks.solutions.title}
             </h3>
             <ul className="mt-4 flex flex-col gap-3" role="list">
-              {FOOTER_LINKS.solutions.items.map((item) => (
+              {footerLinks.solutions.items.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -114,10 +115,10 @@ export function Footer() {
           </div>
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-white/90">
-              {FOOTER_LINKS.company.title}
+              {footerLinks.company.title}
             </h3>
             <ul className="mt-4 flex flex-col gap-3" role="list">
-              {FOOTER_LINKS.company.items.map((item) => (
+              {footerLinks.company.items.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -142,7 +143,7 @@ export function Footer() {
                 href="#privacy"
                 className="text-white/60 transition-colors hover:text-white"
               >
-                Privacy Policy
+                {site.legal.privacy}
               </Link>
             </li>
             <li>
@@ -150,7 +151,7 @@ export function Footer() {
                 href="#terms"
                 className="text-white/60 transition-colors hover:text-white"
               >
-                Terms of Service
+                {site.legal.terms}
               </Link>
             </li>
           </ul>

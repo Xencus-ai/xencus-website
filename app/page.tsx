@@ -1,16 +1,15 @@
-/**
- * Home page. Single H1, semantic sections — uses brand typography colors.
- */
+import { Hero } from "@/components/sections/Hero";
+
 export default function Home() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16">
-      <h1 className="text-4xl font-bold tracking-tight text-heading">
-        Welcome to xencus
-      </h1>
-      <p className="mt-4 text-lg text-paragraph">
-        The Backbone of Scalable EdTech. We&apos;ll design and build the rest
-        here.
-      </p>
-    </div>
+    <>
+      <Hero />
+      {/* Next sections will go below; white bg so hero fade blends in */}
+      <section className="bg-background" aria-label="Page content">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+          {/* Placeholder for next sections */}
+        </div>
+      </section>
+    </>
   );
 }
