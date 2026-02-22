@@ -67,3 +67,67 @@
 html {
   color-scheme: light;
 }
+
+/* Stats section: moving gradient + gradient text */
+:root {
+  --stat-cyan: #16b0dd;
+  --stat-magenta: #974994;
+  --stat-red: #e43b37;
+  --stat-green: #68c74f;
+  --stat-orange: #f7bc24;
+  --stat-orange-deep: #fd931d;
+}
+
+@keyframes stats-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.stats-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    var(--stat-cyan) 0%,
+    var(--stat-magenta) 25%,
+    var(--stat-red) 50%,
+    var(--stat-green) 75%,
+    var(--stat-orange) 90%,
+    var(--stat-orange-deep) 100%
+  );
+  background-size: 200% 200%;
+  animation: stats-gradient-shift 12s ease infinite;
+}
+
+@keyframes stats-number-shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.stats-number-gradient {
+  font-weight: 900;
+  background: linear-gradient(
+    90deg,
+    var(--stat-cyan),
+    var(--stat-magenta),
+    var(--stat-red),
+    var(--stat-green),
+    var(--stat-orange),
+    var(--stat-cyan)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: stats-number-shine 8s linear infinite;
+}
+
