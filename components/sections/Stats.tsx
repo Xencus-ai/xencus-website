@@ -32,7 +32,7 @@ export function Stats() {
               <span className="text-3xl font-black tracking-tight text-brand-secondary sm:text-4xl">
                 {item.value}
               </span>
-              <span className="mt-1.5 text-sm font-medium text-paragraph sm:text-base">
+              <span className="mt-1.5 text-sm font-semibold text-brand-secondary sm:text-base">
                 {item.label}
               </span>
             </div>

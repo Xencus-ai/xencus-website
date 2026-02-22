@@ -1,4 +1,4 @@
-import Image from "next/image";
+  import Image from "next/image";
 import Link from "next/link";
 import { hero } from "@/content/hero";
 import { stats } from "@/content/stats";
@@ -8,7 +8,7 @@ const glassCard =
   "rounded-2xl border border-white/50 bg-white/30 backdrop-blur-[10px] backdrop-saturate-[1.4] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]";
 
 const dock =
-  "mx-auto flex w-full max-w-2xl flex-col items-center gap-2 rounded-2xl border border-white/50 bg-white/25 px-5 py-2 backdrop-blur-[12px] backdrop-saturate-[1.4] shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:flex-row sm:justify-between sm:gap-6 sm:px-6 sm:py-2";
+  "mx-auto flex w-full max-w-2xl flex-col items-center gap-1.5 rounded-2xl border border-white/50 bg-white/25 px-5 py-2 backdrop-blur-[12px] backdrop-saturate-[1.4] shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:flex-row sm:justify-between sm:gap-2 sm:px-6 sm:py-2";
 
 export function Hero() {
   return (
@@ -31,7 +31,7 @@ export function Hero() {
 
       {/* Full-bleed light glass over entire hero — image still visible */}
       <div
-        className="absolute inset-0 bg-white/15 backdrop-blur-[8px] backdrop-saturate-[1.2] pointer-events-none"
+        className="absolute inset-0 bg-white/15 backdrop-blur-[4px] backdrop-saturate-[1.2] pointer-events-none"
         aria-hidden
       />
 
@@ -86,7 +86,7 @@ export function Hero() {
               <span className="text-2xl font-black tracking-tight text-brand-secondary sm:text-3xl lg:text-4xl">
                 {item.value}
               </span>
-              <span className="mt-1 text-sm font-medium text-paragraph sm:text-base">
+              <span className="mt-1 text-sm font-semibold text-brand-secondary sm:text-base">
                 {item.label}
               </span>
             </div>
