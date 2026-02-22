@@ -1,7 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { hero } from "@/content/hero";
-import { site } from "@/content/site";
+import { stats } from "@/content/stats";
+import { ctaBlock, site } from "@/content/site";
+
+const glassCard =
+  "rounded-2xl border border-white/50 bg-white/30 backdrop-blur-[10px] backdrop-saturate-[1.4] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]";
+
+const dock =
+  "mx-auto flex w-full max-w-2xl flex-col items-center gap-2 rounded-2xl border border-white/50 bg-white/25 px-5 py-2 backdrop-blur-[12px] backdrop-saturate-[1.4] shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:flex-row sm:justify-between sm:gap-6 sm:px-6 sm:py-2";
 
 export function Hero() {
   return (
@@ -38,7 +45,7 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Content overlay — no panel, just text and CTA; extra pt so content clears header */}
+      {/* Content overlay: headline → subtext → stats → CTA */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-32 sm:px-6 sm:pb-32 sm:pt-36 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1
@@ -46,19 +53,58 @@ export function Hero() {
             style={{ textShadow: "0 2px 12px rgba(0,0,0,0.08), 0 4px 28px rgba(0,0,0,0.06)" }}
           >
             {hero.headline.before}{" "}
-            <span className="text-white">{hero.headline.highlight}</span>{" "}
+            <span className="text-brand">{hero.headline.highlight}</span>{" "}
             {hero.headline.after}
           </h1>
           <p className="mt-5 text-lg font-medium leading-relaxed text-heading sm:text-xl">
             {hero.subtext}
           </p>
-          <div className="mt-8 flex justify-center">
+        </div>
+
+        {/* Stats — between subtext and CTA */}
+        <div
+          className="mx-auto mt-8 grid max-w-6xl grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
+          id="stats"
+          aria-label="Our impact"
+        >
+          {stats.map((item) => (
+            <div
+              key={item.label}
+              className={`${glassCard} flex min-h-full flex-col justify-center px-4 py-5 text-center sm:px-6 sm:py-6`}
+            >
+              {item.illustration ? (
+                <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center sm:h-14 sm:w-14">
+                  <Image
+                    src={item.illustration}
+                    alt=""
+                    width={56}
+                    height={56}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              ) : null}
+              <span className="text-2xl font-black tracking-tight text-brand-secondary sm:text-3xl lg:text-4xl">
+                {item.value}
+              </span>
+              <span className="mt-1 text-sm font-medium text-paragraph sm:text-base">
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Dock: text + Book a demo CTA */}
+        <div className="mt-8 flex justify-center">
+          <div className={dock} id="hero-cta-dock">
+            <p className="text-center text-sm font-medium text-heading sm:text-left sm:text-base">
+              {ctaBlock.heading}
+            </p>
             <Link
-              href="#contact"
-              className="inline-flex min-w-[180px] justify-center rounded-full border border-white/50 bg-white/30 px-10 py-3 text-base font-semibold text-brand-secondary backdrop-blur-[10px] backdrop-saturate-[1.4] transition-opacity hover:bg-white/40"
+              href="#demo"
+              className="shrink-0 rounded-full border border-white/50 bg-white/40 px-4 py-1.5 text-sm font-semibold text-brand-secondary backdrop-blur-[10px] transition-opacity hover:bg-white/50"
               id="hero-cta"
             >
-              {hero.ctaLabel}
+              {site.ctaBookDemo}
             </Link>
           </div>
         </div>

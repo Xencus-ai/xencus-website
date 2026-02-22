@@ -29,7 +29,7 @@ export function Stats() {
                   />
                 </div>
               ) : null}
-              <span className="stats-number-gradient text-3xl font-black tracking-tight sm:text-4xl">
+              <span className="text-3xl font-black tracking-tight text-brand-secondary sm:text-4xl">
                 {item.value}
               </span>
               <span className="mt-1.5 text-sm font-medium text-paragraph sm:text-base">

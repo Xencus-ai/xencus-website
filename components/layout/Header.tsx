@@ -8,9 +8,7 @@ import { SITE_NAME } from "@/lib/constants";
 import { mainNav, servicesMegaMenu } from "@/content/nav";
 import { site } from "@/content/site";
 
-/* Nav bar and panels use solid brand-secondary (#151515) */
-const NAV_PANEL_CLASSES =
-  "bg-brand-secondary border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)]";
+/* Apple Dark Liquid: nav bar uses .nav-liquid; mega/drawer use .nav-liquid-panel */
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,12 +53,12 @@ export function Header() {
       >
         <nav
           ref={navRef}
-          className={`${NAV_PANEL_CLASSES} flex items-center justify-between gap-8 rounded-full px-6 py-2.5`}
+          className="nav-liquid flex items-center justify-between gap-8 rounded-full px-6 py-2.5"
           aria-label="Main navigation"
         >
           <Link
             href="/"
-            className="relative flex shrink-0 items-center transition-opacity hover:opacity-80"
+            className="relative flex shrink-0 items-center"
             id="header-brand"
             aria-label={`${SITE_NAME} home`}
             onMouseEnter={() => setMegaOpen(false)}
@@ -83,7 +81,7 @@ export function Header() {
                     type="button"
                     onMouseEnter={() => setMegaOpen(true)}
                     onClick={() => setMegaOpen((v) => !v)}
-                    className="rounded-full px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/20"
+                    className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
                     id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
                     aria-expanded={megaOpen}
                     aria-haspopup="true"
@@ -93,7 +91,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="rounded-full px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/20"
+                    className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
                     id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
                     onMouseEnter={() => setMegaOpen(false)}
                   >
@@ -123,7 +121,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className={`${NAV_PANEL_CLASSES} absolute left-1/2 top-full z-50 mt-2 w-[min(90vw,720px)] -translate-x-1/2 rounded-2xl p-6`}
+              className="nav-liquid-panel absolute left-1/2 top-full z-50 mt-2 w-[min(90vw,720px)] -translate-x-1/2 rounded-2xl p-6"
               role="menu"
               aria-label="Services submenu"
             >
@@ -134,7 +132,7 @@ export function Header() {
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/15"
+                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
                           role="menuitem"
                         >
                           {link.label}
@@ -149,7 +147,7 @@ export function Header() {
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/15"
+                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
                           role="menuitem"
                         >
                           {link.label}
@@ -169,7 +167,7 @@ export function Header() {
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/15"
+                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
                           role="menuitem"
                         >
                           {link.label}
@@ -189,7 +187,7 @@ export function Header() {
         <div className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3">
           <Link
             href="/"
-            className="relative flex shrink-0 items-center transition-opacity hover:opacity-80"
+            className="relative flex shrink-0 items-center"
             id="mobile-header-brand"
             aria-label={`${SITE_NAME} home`}
           >
@@ -204,7 +202,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className={`${NAV_PANEL_CLASSES} flex h-12 w-12 shrink-0 items-center justify-center rounded-full`}
+            className="nav-liquid-panel flex h-12 w-12 shrink-0 items-center justify-center rounded-full"
             aria-label="Open menu"
             id="mobile-menu-toggle"
           >
@@ -242,7 +240,7 @@ export function Header() {
                 animate={{ x: 0 }}
                 exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 400, damping: 40 }}
-                className={`${NAV_PANEL_CLASSES} fixed inset-y-0 right-0 z-[70] w-[min(100vw-48px,320px)] overflow-y-auto border-l border-white/10 p-6`}
+                className="nav-liquid-panel fixed inset-y-0 right-0 z-[70] w-[min(100vw-48px,320px)] overflow-y-auto border-l border-white/15 p-6"
                 role="dialog"
                 aria-label="Mobile menu"
               >
@@ -250,7 +248,7 @@ export function Header() {
                   <button
                     type="button"
                     onClick={() => setMobileOpen(false)}
-                    className="rounded-full p-2 text-white hover:bg-white/20"
+                    className="rounded-lg p-2 text-white hover:bg-white/10 hover:backdrop-blur-md"
                     aria-label="Close menu"
                     id="mobile-menu-close"
                   >
@@ -266,7 +264,7 @@ export function Header() {
                 </div>
 
                 <nav className="mt-6 flex flex-col gap-1" aria-label="Mobile navigation">
-                  {MAIN_NAV.map((item) =>
+                  {mainNav.map((item) =>
                     "hasMega" in item && item.hasMega ? (
                       <div key={item.label} className="flex flex-col gap-2">
                         <span className="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-white/70">
@@ -277,7 +275,7 @@ export function Header() {
                             <li key={link.label}>
                               <Link
                                 href={link.href}
-                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/20"
+                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/10 hover:backdrop-blur-md"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {link.label}
@@ -288,7 +286,7 @@ export function Header() {
                             <li key={link.label}>
                               <Link
                                 href={link.href}
-                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/20"
+                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/10 hover:backdrop-blur-md"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {link.label}
@@ -304,7 +302,7 @@ export function Header() {
                             <li key={link.label}>
                               <Link
                                 href={link.href}
-                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/20"
+                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/10 hover:backdrop-blur-md"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {link.label}
@@ -317,7 +315,7 @@ export function Header() {
                       <Link
                         key={item.label}
                         href={item.href}
-                        className="rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/20"
+                        className="rounded-lg px-3 py-2.5 text-sm font-medium text-white hover:bg-white/10 hover:backdrop-blur-md"
                         onClick={() => setMobileOpen(false)}
                       >
                         {item.label}
@@ -326,7 +324,7 @@ export function Header() {
                   )}
                   <Link
                     href="#contact"
-                    className="mt-4 rounded-full bg-brand px-5 py-3 text-center text-sm font-medium text-brand-secondary hover:opacity-90"
+                    className="mt-4 rounded-full bg-brand px-5 py-3 text-center text-sm font-medium text-brand-secondary transition-opacity hover:opacity-90"
                     id="mobile-cta-talk-to-us"
                     onClick={() => setMobileOpen(false)}
                   >
