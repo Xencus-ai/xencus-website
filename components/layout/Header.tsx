@@ -7,12 +7,9 @@ import Image from "next/image";
 import { SITE_NAME } from "@/lib/constants";
 import { MAIN_NAV, SERVICES_MEGA_MENU } from "./header-data";
 
-const GLASS_CLASSES =
-  "bg-glass-white border border-glass-border shadow-glass-pill backdrop-blur-[20px] backdrop-saturate-[1.8]";
-
-/* Variant: navbar = brand secondary (dark), CTA = brand (yellow) */
-const NAVBAR_CLASSES =
-  "bg-brand-secondary border border-white/10 shadow-glass-pill rounded-full";
+/* Nav bar and panels use solid brand-secondary (#151515) */
+const NAV_PANEL_CLASSES =
+  "bg-brand-secondary border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)]";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -57,7 +54,7 @@ export function Header() {
       >
         <nav
           ref={navRef}
-          className={`${NAVBAR_CLASSES} flex items-center justify-between gap-8 px-6 py-2.5`}
+          className={`${NAV_PANEL_CLASSES} flex items-center justify-between gap-8 rounded-full px-6 py-2.5`}
           aria-label="Main navigation"
         >
           <Link
@@ -125,13 +122,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className="absolute left-1/2 top-full z-50 mt-2 w-[min(90vw,720px)] -translate-x-1/2 rounded-2xl p-6"
-              style={{
-                background: "rgba(255, 255, 255, 0.4)",
-                border: "1px solid rgba(255, 255, 255, 0.5)",
-                boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.07)",
-                backdropFilter: "blur(20px) saturate(180%)",
-              }}
+              className={`${NAV_PANEL_CLASSES} absolute left-1/2 top-full z-50 mt-2 w-[min(90vw,720px)] -translate-x-1/2 rounded-2xl p-6`}
               role="menu"
               aria-label="Services submenu"
             >
@@ -142,7 +133,7 @@ export function Header() {
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-heading transition-colors hover:bg-white/50"
+                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/15"
                           role="menuitem"
                         >
                           {link.label}
@@ -157,7 +148,7 @@ export function Header() {
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-heading transition-colors hover:bg-white/50"
+                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/15"
                           role="menuitem"
                         >
                           {link.label}
@@ -168,7 +159,7 @@ export function Header() {
                 </div>
                 <div>
                   {SERVICES_MEGA_MENU.column3.title && (
-                    <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-paragraph-secondary">
+                    <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-white/70">
                       {SERVICES_MEGA_MENU.column3.title}
                     </p>
                   )}
@@ -177,7 +168,7 @@ export function Header() {
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-heading transition-colors hover:bg-white/50"
+                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/15"
                           role="menuitem"
                         >
                           {link.label}
@@ -192,13 +183,27 @@ export function Header() {
         </AnimatePresence>
       </header>
 
-      {/* Mobile: hamburger + drawer (<1000px) */}
+      {/* Mobile: logo left + hamburger right, drawer without logo (<1000px) */}
       <div className="min-[1000px]:hidden">
-        <div className="sticky top-0 z-50 flex items-center p-4">
+        <div className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3">
+          <Link
+            href="/"
+            className="relative flex shrink-0 items-center transition-opacity hover:opacity-80"
+            id="mobile-header-brand"
+            aria-label={`${SITE_NAME} home`}
+          >
+            <Image
+              src="/Assets/xencus-logo.svg"
+              alt={`${SITE_NAME} - The Backbone of Scalable EdTech`}
+              width={100}
+              height={43}
+              className="h-8 w-auto"
+            />
+          </Link>
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-secondary shadow-glass-pill border border-white/10"
+            className={`${NAV_PANEL_CLASSES} flex h-12 w-12 shrink-0 items-center justify-center rounded-full`}
             aria-label="Open menu"
             id="mobile-menu-toggle"
           >
@@ -232,30 +237,15 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
               />
               <motion.aside
-                initial={{ x: "-100%" }}
+                initial={{ x: "100%" }}
                 animate={{ x: 0 }}
-                exit={{ x: "-100%" }}
+                exit={{ x: "100%" }}
                 transition={{ type: "spring", stiffness: 400, damping: 40 }}
-                className="fixed inset-y-0 left-0 z-[70] w-[min(100vw-48px,320px)] overflow-y-auto bg-brand-secondary p-6 shadow-glass-pill border-r border-white/10"
+                className={`${NAV_PANEL_CLASSES} fixed inset-y-0 right-0 z-[70] w-[min(100vw-48px,320px)] overflow-y-auto border-l border-white/10 p-6`}
                 role="dialog"
                 aria-label="Mobile menu"
               >
-                <div className="flex items-center justify-between border-b border-white/20 pb-4">
-                  <Link
-                    href="/"
-                    className="relative flex items-center"
-                    id="mobile-header-brand"
-                    onClick={() => setMobileOpen(false)}
-                    aria-label={`${SITE_NAME} home`}
-                  >
-                    <Image
-                      src="/Assets/xencus-logo.svg"
-                      alt={`${SITE_NAME} - The Backbone of Scalable EdTech`}
-                      width={110}
-                      height={48}
-                      className="h-8 w-auto"
-                    />
-                  </Link>
+                <div className="flex justify-start border-b border-white/10 pb-4">
                   <button
                     type="button"
                     onClick={() => setMobileOpen(false)}
