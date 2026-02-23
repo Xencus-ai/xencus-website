@@ -23,7 +23,7 @@ export function HowWeWork() {
             <span className="text-brand">{howWeWork.titleHighlight}</span>
             {howWeWork.titleAfter}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-paragraph sm:text-lg">
+          <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">
             {howWeWork.subtitle}
           </p>
         </header>
@@ -43,7 +43,7 @@ export function HowWeWork() {
               >
                 {pillar1.title}
               </h3>
-              <div className="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-paragraph">
+              <div className="mt-3 flex-1 space-y-3 text-sm font-normal leading-relaxed text-paragraph-secondary">
                 {pillar1.description.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -74,7 +74,7 @@ export function HowWeWork() {
               >
                 {pillar2.title}
               </h3>
-              <div className="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-paragraph">
+              <div className="mt-3 flex-1 space-y-3 text-sm font-normal leading-relaxed text-paragraph-secondary">
                 {pillar2.description.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -106,7 +106,7 @@ export function HowWeWork() {
               >
                 {pillar3.title}
               </h3>
-              <div className="mt-3 max-w-4xl flex-1 space-y-3 text-sm leading-relaxed text-paragraph">
+              <div className="mt-3 max-w-4xl flex-1 space-y-3 text-sm font-normal leading-relaxed text-paragraph-secondary">
                 {pillar3.description.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}

@@ -56,7 +56,7 @@ export function Hero() {
             <span className="text-brand">{hero.headline.highlight}</span>{" "}
             {hero.headline.after}
           </h1>
-          <p className="mt-5 text-lg font-medium leading-relaxed text-heading sm:text-xl">
+          <p className="mt-5 text-sm font-semibold leading-snug text-heading sm:text-base md:text-lg">
             {hero.subtext}
           </p>
         </div>

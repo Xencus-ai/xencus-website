@@ -25,7 +25,7 @@ function ScaleCard({
           >
             {step.title}
           </h3>
-          <div className="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-paragraph">
+          <div className="mt-3 flex-1 space-y-3 text-sm font-normal leading-relaxed text-paragraph-secondary">
             {step.description.map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -64,7 +64,7 @@ export function HowWeScale() {
             <span className="text-brand">{howWeScale.titleHighlight}</span>
             {howWeScale.titleAfter}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-paragraph sm:text-lg">
+          <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">
             {howWeScale.subtitle}
           </p>
         </header>
