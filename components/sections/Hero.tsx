@@ -8,7 +8,7 @@ const glassCard =
   "rounded-2xl border border-white/50 bg-white/30 backdrop-blur-[10px] backdrop-saturate-[1.4] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]";
 
 const dock =
-  "mx-auto flex w-full max-w-2xl flex-col items-center gap-1.5 rounded-2xl border border-white/50 bg-white/25 px-5 py-2 backdrop-blur-[12px] backdrop-saturate-[1.4] shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:flex-row sm:justify-between sm:gap-2 sm:px-6 sm:py-2";
+  "mx-auto flex w-full max-w-2xl flex-col items-center gap-1 rounded-2xl border border-white/50 bg-white/25 px-5 py-2 backdrop-blur-[12px] backdrop-saturate-[1.4] shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:flex-row sm:justify-between sm:gap-1.5 sm:px-6 sm:py-2";
 
 export function Hero() {
   return (
