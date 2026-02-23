@@ -125,4 +125,28 @@ html {
   background: white;
 }
 
+/* Twist callout: grow then shrink, stronger brand when growing / softer when shrinking */
+@keyframes twist-circle-grow-shrink {
+  0% {
+    opacity: 0.25;
+    transform: scale(0.82);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.18);
+  }
+  100% {
+    opacity: 0.25;
+    transform: scale(0.82);
+  }
+}
+
+.twist-callout-circle {
+  position: absolute;
+  border-radius: 50%;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+
 

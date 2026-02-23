@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { WhatWeDo } from "@/components/sections/WhatWeDo";
 import { HowWeWork } from "@/components/sections/HowWeWork";
 import { HowWeScale } from "@/components/sections/HowWeScale";
 
@@ -6,6 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <WhatWeDo />
       <HowWeWork />
       <HowWeScale />
       <section className="bg-background" aria-label="Page content">
