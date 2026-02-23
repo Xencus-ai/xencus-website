@@ -9,7 +9,7 @@ export function HowWeWork() {
 
   return (
     <section
-      className="bg-background py-16 sm:py-20"
+      className="bg-background py-12 sm:py-16"
       id="how-we-work"
       aria-labelledby="how-we-work-title"
     >
@@ -28,7 +28,7 @@ export function HowWeWork() {
           </p>
         </header>
 
-        <div className="mt-12 grid grid-cols-1 grid-rows-auto gap-6 sm:mt-14 sm:gap-8 lg:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 grid-rows-auto gap-6 sm:mt-12 sm:gap-8 lg:grid-cols-2">
           {/* Row 1: first two cards — equal height */}
           <div className="card-border-animated flex h-full min-h-0 flex-col">
             <div className="card-border-gradient" aria-hidden />
@@ -43,9 +43,11 @@ export function HowWeWork() {
               >
                 {pillar1.title}
               </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-paragraph">
-                {pillar1.description}
-              </p>
+              <div className="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-paragraph">
+                {pillar1.description.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
             </div>
             <div className="relative h-56 w-full shrink-0 sm:h-64">
               <Image
@@ -72,9 +74,11 @@ export function HowWeWork() {
               >
                 {pillar2.title}
               </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-paragraph">
-                {pillar2.description}
-              </p>
+              <div className="mt-3 flex-1 space-y-3 text-sm leading-relaxed text-paragraph">
+                {pillar2.description.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
             </div>
             <div className="relative h-48 w-full shrink-0 sm:h-56">
               <Image
@@ -102,9 +106,11 @@ export function HowWeWork() {
               >
                 {pillar3.title}
               </h3>
-              <p className="mt-3 max-w-4xl flex-1 text-sm leading-relaxed text-paragraph">
-                {pillar3.description}
-              </p>
+              <div className="mt-3 max-w-4xl flex-1 space-y-3 text-sm leading-relaxed text-paragraph">
+                {pillar3.description.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
             </div>
             <div className="relative h-56 w-full shrink-0 sm:h-64 lg:h-72">
               <Image
