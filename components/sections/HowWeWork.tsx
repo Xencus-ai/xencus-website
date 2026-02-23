@@ -2,7 +2,7 @@ import Image from "next/image";
 import { howWeWork } from "@/content/how-we-work";
 
 const cardBase =
-  "relative flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm";
+  "relative flex flex-col overflow-hidden bg-white shadow-sm";
 
 export function HowWeWork() {
   const [pillar1, pillar2, pillar3] = howWeWork.pillars;
@@ -13,7 +13,7 @@ export function HowWeWork() {
       id="how-we-work"
       aria-labelledby="how-we-work-title"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <header className="mx-auto max-w-3xl text-center">
           <h2
             id="how-we-work-title"
@@ -28,12 +28,14 @@ export function HowWeWork() {
           </p>
         </header>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:mt-14 sm:gap-8 lg:grid-cols-2">
-          {/* Row 1: first two cards — text on top, illustration as background at bottom */}
-          <article
-            className={cardBase}
-            aria-labelledby={`pillar-${pillar1.id}-title`}
-          >
+        <div className="mt-12 grid grid-cols-1 grid-rows-auto gap-6 sm:mt-14 sm:gap-8 lg:grid-cols-2">
+          {/* Row 1: first two cards — equal height */}
+          <div className="card-border-animated flex h-full min-h-0 flex-col">
+            <div className="card-border-gradient" aria-hidden />
+            <article
+              className={`${cardBase} card-border-animated-inner flex min-h-full flex-col pb-5 sm:pb-6`}
+              aria-labelledby={`pillar-${pillar1.id}-title`}
+            >
             <div className="relative z-10 flex flex-1 flex-col bg-white p-6 sm:p-8">
               <h3
                 id={`pillar-${pillar1.id}-title`}
@@ -45,7 +47,7 @@ export function HowWeWork() {
                 {pillar1.description}
               </p>
             </div>
-            <div className="relative h-48 w-full shrink-0 sm:h-56">
+            <div className="relative h-56 w-full shrink-0 sm:h-64">
               <Image
                 src={pillar1.image}
                 alt={pillar1.imageAlt}
@@ -55,11 +57,14 @@ export function HowWeWork() {
               />
             </div>
           </article>
+          </div>
 
-          <article
-            className={cardBase}
-            aria-labelledby={`pillar-${pillar2.id}-title`}
-          >
+          <div className="card-border-animated flex h-full min-h-0 flex-col">
+            <div className="card-border-gradient" aria-hidden />
+            <article
+              className={`${cardBase} card-border-animated-inner flex min-h-full flex-col pb-5 sm:pb-6`}
+              aria-labelledby={`pillar-${pillar2.id}-title`}
+            >
             <div className="relative z-10 flex flex-1 flex-col bg-white p-6 sm:p-8">
               <h3
                 id={`pillar-${pillar2.id}-title`}
@@ -81,12 +86,15 @@ export function HowWeWork() {
               />
             </div>
           </article>
+          </div>
 
           {/* Row 2: third card */}
-          <article
-            className={`${cardBase} lg:col-span-2`}
-            aria-labelledby={`pillar-${pillar3.id}-title`}
-          >
+          <div className="card-border-animated lg:col-span-2">
+            <div className="card-border-gradient" aria-hidden />
+            <article
+              className={`${cardBase} card-border-animated-inner pb-5 sm:pb-6`}
+              aria-labelledby={`pillar-${pillar3.id}-title`}
+            >
             <div className="relative z-10 flex flex-1 flex-col bg-white p-6 sm:p-8">
               <h3
                 id={`pillar-${pillar3.id}-title`}
@@ -108,6 +116,7 @@ export function HowWeWork() {
               />
             </div>
           </article>
+          </div>
         </div>
       </div>
     </section>
