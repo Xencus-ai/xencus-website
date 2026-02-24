@@ -82,7 +82,7 @@ export function CertificatePlatform() {
             id="certificate-platform-title"
             className="mt-4 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
-            {certificatePlatform.title}
+            <span className="text-brand">Certificate</span> Generator for EdTech
           </h2>
           <p className="mt-3 mx-auto max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base lg:text-lg">
             {certificatePlatform.subtitle}
