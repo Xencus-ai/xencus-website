@@ -13,26 +13,26 @@ export const servicesMegaMenu = {
   column1: {
     title: null,
     items: [
-      { label: "EdTech Companies", href: "#" },
-      { label: "Corporate L&D", href: "#" },
-      { label: "Coaching & Training Institutes", href: "#" },
-      { label: "Universities & Institutions", href: "#" },
+      { label: "EdTech Companies", href: "/services/edtech-companies" },
+      { label: "Corporate L&D", href: "/services/corporate-ld" },
+      { label: "Universities & Training Institutions", href: "/services/universities-training-institutions" },
     ],
   },
   column2: {
     title: null,
     items: [
-      { label: "EdTech Legal Services", href: "#" },
-      { label: "HR Services for EdTech", href: "#" },
-      { label: "Finance Solutions for EdTech", href: "#" },
+      { label: "EdTech Legal Services", href: "/services/edtech-legal-services" },
+      { label: "HR Services for EdTech", href: "/services/hr-services-for-edtech" },
+      { label: "Finance Solutions for EdTech", href: "/services/finance-solutions-for-edtech" },
     ],
   },
   column3: {
     title: "Technical Services",
     items: [
-      { label: "Digital Marketing", href: "#" },
-      { label: "Graphic Designing", href: "#" },
-      { label: "Website Designing", href: "#" },
+      { label: "Digital Marketing", href: "/services/technical/digital-marketing" },
+      { label: "Graphic Designing", href: "/services/technical/graphic-designing" },
+      { label: "Website Designing", href: "/services/technical/website-designing" },
+      { label: "Mobile App Development", href: "/services/technical/mobile-app-development" },
     ],
   },
 } as const;

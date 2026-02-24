@@ -203,4 +203,13 @@ html {
   animation: party-popper-bounce 1.4s ease-in-out infinite;
 }
 
+/* Utility: hide scrollbars for horizontal carousels */
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 
