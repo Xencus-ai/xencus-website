@@ -5,24 +5,7 @@ import { useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import { motion, useMotionValue, useScroll, useTransform, useSpring } from "framer-motion";
 import { certificatePlatform } from "@/content/certificate-platform";
-
-const highlightIcons: Record<
-  (typeof certificatePlatform.highlights)[number]["id"],
-  { src: string; alt: string }
-> = {
-  bulk: {
-    src: "/Assets/dashboard/completion.svg",
-    alt: "Bulk certificates icon",
-  },
-  qr: {
-    src: "/Assets/dashboard/completion.svg",
-    alt: "QR verification icon",
-  },
-  delivery: {
-    src: "/Assets/dashboard/WhatsApp.svg",
-    alt: "WhatsApp and email delivery icon",
-  },
-};
+import { Zap, ShieldCheck, BarChart3 } from "lucide-react";
 
 export function CertificatePlatform() {
   const mockupRef = useRef<HTMLDivElement | null>(null);
@@ -82,16 +65,26 @@ export function CertificatePlatform() {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center rounded-full bg-brand/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
-            {certificatePlatform.badge}
-          </span>
+          <div className="inline-flex items-center justify-center">
+            <div className="badge-liquid-animated">
+              <span className="badge-liquid-animated-inner inline-flex items-center px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand">
+                {certificatePlatform.badge}
+              </span>
+            </div>
+          </div>
+          <p className="mt-2 flex items-center justify-center gap-1 text-xs font-medium text-paragraph-secondary">
+            <span>Launching on 31 March 2026</span>
+            <span aria-hidden="true" className="party-popper-animate">
+              🎉
+            </span>
+          </p>
           <h2
             id="certificate-platform-title"
             className="mt-4 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
             {certificatePlatform.title}
           </h2>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base lg:text-lg">
+          <p className="mt-3 mx-auto max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base lg:text-lg">
             {certificatePlatform.subtitle}
           </p>
         </header>
@@ -155,36 +148,106 @@ export function CertificatePlatform() {
           </div>
         </div>
 
-        {/* Highlights with icons */}
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-12 sm:grid-cols-3">
-          {certificatePlatform.highlights.map((item) => {
-            const icon = highlightIcons[item.id];
-            return (
-              <article
-                key={item.id}
-                className="flex h-full flex-col rounded-2xl border border-gray-200 bg-white/70 p-4 text-left shadow-sm backdrop-blur-sm sm:p-5"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand/15">
-                    <Image
-                      src={icon.src}
-                      alt={icon.alt}
-                      width={20}
-                      height={20}
-                      className="h-4 w-4 object-contain"
-                    />
-                  </div>
-                  <h3 className="text-sm font-semibold text-heading sm:text-base">
-                    {item.title}
-                  </h3>
+        {/* One big feature card with completion background on the left */}
+        <article className="mt-10 flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/80 text-left shadow-sm backdrop-blur-sm sm:mt-12 md:flex-row">
+          {/* Left: completion illustration taking full height/left edge */}
+          <div className="relative w-full min-h-[160px] md:w-2/5">
+            <Image
+              src="/Assets/dashboard/completion.svg"
+              alt="Certificate completion illustration"
+              fill
+              className="object-cover object-left"
+              sizes="(max-width: 768px) 100vw, 40vw"
+            />
+          </div>
+
+          {/* Right: key capabilities list */}
+          <div className="flex flex-1 flex-col justify-center p-5 sm:p-6 lg:p-7 sm:pl-8 md:pl-10 lg:pl-12">
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <div className="mt-1 flex h-6 w-6 items-center justify-center">
+                  <Zap className="h-5 w-5 text-brand" aria-hidden />
                 </div>
-                <p className="mt-2 text-xs leading-relaxed text-paragraph-secondary sm:text-sm">
-                  {item.description}
-                </p>
-              </article>
-            );
-          })}
-        </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-heading sm:text-base">
+                    {certificatePlatform.highlights.find((h) => h.id === "bulk")?.title}
+                  </h3>
+                  <p className="mt-1 max-w-lg text-xs leading-relaxed text-paragraph-secondary sm:text-sm">
+                    {certificatePlatform.highlights.find((h) => h.id === "bulk")?.description}
+                  </p>
+                </div>
+              </li>
+
+              <li className="flex gap-3">
+                <div className="mt-1 flex h-6 w-6 items-center justify-center">
+                  <ShieldCheck className="h-5 w-5 text-brand" aria-hidden />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-heading sm:text-base">
+                    {certificatePlatform.highlights.find((h) => h.id === "qr")?.title}
+                  </h3>
+                  <p className="mt-1 max-w-md text-xs leading-relaxed text-paragraph-secondary sm:text-sm">
+                    {certificatePlatform.highlights.find((h) => h.id === "qr")?.description}
+                  </p>
+                </div>
+              </li>
+
+              <li className="flex gap-3">
+                <div className="mt-1 flex h-6 w-6 items-center justify-center">
+                  <Image
+                    src="/Assets/dashboard/email.svg"
+                    alt="Email delivery icon"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5 object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-heading sm:text-base">
+                    {certificatePlatform.highlights.find((h) => h.id === "email")?.title}
+                  </h3>
+                  <p className="mt-1 max-w-md text-xs leading-relaxed text-paragraph-secondary sm:text-sm">
+                    {certificatePlatform.highlights.find((h) => h.id === "email")?.description}
+                  </p>
+                </div>
+              </li>
+
+              <li className="flex gap-3">
+                <div className="mt-1 flex h-6 w-6 items-center justify-center">
+                  <Image
+                    src="/Assets/dashboard/WhatsApp.svg"
+                    alt="WhatsApp delivery icon"
+                    width={20}
+                    height={20}
+                    className="h-5 w-5 object-contain"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-heading sm:text-base">
+                    {certificatePlatform.highlights.find((h) => h.id === "whatsapp")?.title}
+                  </h3>
+                  <p className="mt-1 max-w-md text-xs leading-relaxed text-paragraph-secondary sm:text-sm">
+                    {certificatePlatform.highlights.find((h) => h.id === "whatsapp")?.description}
+                  </p>
+                </div>
+              </li>
+
+              <li className="flex gap-3">
+                <div className="mt-1 flex h-6 w-6 items-center justify-center">
+                  <BarChart3 className="h-5 w-5 text-brand" aria-hidden />
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-heading sm:text-base">
+                    {certificatePlatform.highlights.find((h) => h.id === "analytics")?.title}
+                  </h3>
+                  <p className="mt-1 max-w-md text-xs leading-relaxed text-paragraph-secondary sm:text-sm">
+                    {certificatePlatform.highlights.find((h) => h.id === "analytics")?.description}
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
   );
