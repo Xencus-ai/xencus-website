@@ -16,9 +16,7 @@ export function CertificatePlatform() {
     offset: ["start 80%", "end 10%"],
   });
   const baseScrollScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.06, 0.9]);
-  const baseScrollOpacity = useTransform(scrollYProgress, [0, 0.2, 0.6, 1], [0, 0.6, 1, 0.7]);
   const scrollScale = useSpring(baseScrollScale, { stiffness: 120, damping: 18, mass: 0.4 });
-  const scrollOpacity = useSpring(baseScrollOpacity, { stiffness: 120, damping: 18, mass: 0.4 });
 
   // Apple-like 3D tilt parallax on hover: small but noticeable
   const tiltX = useMotionValue(0); // horizontal: -0.5..0.5
@@ -103,7 +101,6 @@ export function CertificatePlatform() {
                   transformOrigin: "center center",
                   perspective: 1200,
                   scale: scrollScale,
-                  opacity: scrollOpacity,
                   rotateX,
                   rotateY,
                   x: translateX,

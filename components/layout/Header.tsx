@@ -45,9 +45,15 @@ export function Header() {
 
   return (
     <>
+      {/* Top fade so content softens into the sticky nav margin */}
+      <div
+        className="pointer-events-none fixed inset-x-0 top-0 z-40 h-10 bg-gradient-to-b from-background via-background/90 to-transparent max-[999px]:hidden"
+        aria-hidden="true"
+      />
+
       {/* Desktop: sticky pill nav (≥1000px) */}
       <header
-        className="sticky top-0 z-50 mx-auto mt-6 w-full max-w-[calc(100vw-48px)] px-0 max-[999px]:hidden"
+        className="sticky top-4 z-50 mx-auto mt-4 w-full max-w-[calc(100vw-48px)] px-0 max-[999px]:hidden"
         style={{ width: "min(100% - 48px, 1200px)" }}
         id="main-header"
       >
@@ -81,7 +87,7 @@ export function Header() {
                     type="button"
                     onMouseEnter={() => setMegaOpen(true)}
                     onClick={() => setMegaOpen((v) => !v)}
-                    className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
+                    className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:text-brand"
                     id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
                     aria-expanded={megaOpen}
                     aria-haspopup="true"
@@ -91,7 +97,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
+                    className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:text-brand"
                     id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
                     onMouseEnter={() => setMegaOpen(false)}
                   >
@@ -127,12 +133,15 @@ export function Header() {
             >
               <div className="grid grid-cols-3 gap-8">
                 <div>
+                  <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-white/70">
+                    Who we serve
+                  </p>
                   <ul className="flex flex-col gap-2" role="none">
                     {servicesMegaMenu.column1.items.map((link) => (
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
+                          className="block px-3 py-2 text-base text-white transition-colors hover:text-brand"
                           role="menuitem"
                         >
                           {link.label}
@@ -142,12 +151,15 @@ export function Header() {
                   </ul>
                 </div>
                 <div>
+                  <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-wider text-white/70">
+                    Business services
+                  </p>
                   <ul className="flex flex-col gap-2" role="none">
                     {servicesMegaMenu.column2.items.map((link) => (
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
+                          className="block px-3 py-2 text-base text-white transition-colors hover:text-brand"
                           role="menuitem"
                         >
                           {link.label}
@@ -167,7 +179,7 @@ export function Header() {
                       <li key={link.label} role="none">
                         <Link
                           href={link.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-white transition-colors hover:bg-white/10 hover:backdrop-blur-md"
+                          className="block px-3 py-2 text-base text-white transition-colors hover:text-brand"
                           role="menuitem"
                         >
                           {link.label}
@@ -184,7 +196,7 @@ export function Header() {
 
       {/* Mobile: logo left + hamburger right, drawer without logo (<1000px) */}
       <div className="min-[1000px]:hidden">
-        <div className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-3">
+        <div className="fixed top-0 left-0 right-0 z-50 flex w-full items-center justify-between nav-liquid rounded-none px-4 py-3">
           <Link
             href="/"
             className="relative flex shrink-0 items-center"
@@ -275,7 +287,7 @@ export function Header() {
                             <li key={link.label}>
                               <Link
                                 href={link.href}
-                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/10 hover:backdrop-blur-md"
+                                className="block rounded-lg px-3 py-2 text-base text-white transition-colors hover:text-brand"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {link.label}
@@ -286,7 +298,7 @@ export function Header() {
                             <li key={link.label}>
                               <Link
                                 href={link.href}
-                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/10 hover:backdrop-blur-md"
+                                className="block rounded-lg px-3 py-2 text-base text-white transition-colors hover:text-brand"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {link.label}
@@ -302,7 +314,7 @@ export function Header() {
                             <li key={link.label}>
                               <Link
                                 href={link.href}
-                                className="block rounded-lg px-3 py-2 text-sm text-white hover:bg-white/10 hover:backdrop-blur-md"
+                                className="block rounded-lg px-3 py-2 text-base text-white transition-colors hover:text-brand"
                                 onClick={() => setMobileOpen(false)}
                               >
                                 {link.label}

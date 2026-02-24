@@ -65,17 +65,17 @@ export function OtherServices() {
                 return (
                   <li
                     key={service.id}
-                    className="snap-start shrink-0 basis-[78%] sm:basis-[55%] lg:basis-[32%]"
+                    className="snap-start shrink-0 basis-[90%] sm:basis-[60%] lg:basis-[30%] max-w-[90vw] lg:max-w-sm"
                   >
                     <article className="group/card relative h-full overflow-hidden rounded-2xl border border-gray-200 bg-transparent text-center backdrop-blur-sm transition-transform duration-300 ease-out hover:-translate-y-1.5">
                       <div className="flex h-full flex-col">
-                        <div className="relative h-32 bg-[#92E3A9]/15 sm:h-40">
+                        <div className="relative h-40 bg-[#92E3A9]/15 sm:h-44">
                           <Image
                             src={service.illustration}
                             alt=""
                             width={240}
                             height={160}
-                            className="h-full w-full object-contain"
+                            className="mx-auto h-full w-auto object-contain"
                           />
                         </div>
 
@@ -86,10 +86,10 @@ export function OtherServices() {
                               Service
                             </span>
                           </div>
-                          <h3 className="mt-2 max-w-xs text-base font-semibold text-heading sm:text-lg mx-auto">
+                          <h3 className="mt-2 max-w-xs text-base font-semibold text-heading sm:text-lg md:text-xl mx-auto">
                             {service.label}
                           </h3>
-                          <p className="mt-2 max-w-xs text-sm font-normal leading-relaxed text-paragraph-secondary group-hover/card:hidden mx-auto">
+                          <p className="mt-2 max-w-xs text-sm sm:text-base font-normal leading-relaxed text-paragraph-secondary group-hover/card:hidden mx-auto">
                             {service.description}
                           </p>
 
