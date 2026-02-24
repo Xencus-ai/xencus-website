@@ -125,19 +125,19 @@ html {
   background: white;
 }
 
-/* Twist callout: grow then shrink, stronger brand when growing / softer when shrinking */
-@keyframes twist-circle-grow-shrink {
+/* Twist callout: single pulse circle (grow then shrink) over subtle static circle */
+@keyframes twist-circle-pulse-single {
   0% {
     opacity: 0.25;
-    transform: scale(0.82);
+    transform: scale(0.9);
   }
-  50% {
-    opacity: 0.75;
-    transform: scale(1.18);
+  40% {
+    opacity: 0.9;
+    transform: scale(1.12);
   }
   100% {
     opacity: 0.25;
-    transform: scale(0.82);
+    transform: scale(0.9);
   }
 }
 

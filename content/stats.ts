@@ -10,8 +10,8 @@ export type StatItem = {
 };
 
 export const stats: readonly StatItem[] = [
-  { value: "1M+", label: "Students trained" },
-  { value: "500+", label: "Industry expert trainers" },
-  { value: "5000+", label: "Hours of live classes" },
-  { value: "200+", label: "EdTech partners we serve" },
+  { value: "2M+", label: "Students trained" },
+  { value: "1000+", label: "Industry expert trainers" },
+  { value: "50000+", label: "Hours of live classes" },
+  { value: "300+", label: "EdTech partners we serve" },
 ];

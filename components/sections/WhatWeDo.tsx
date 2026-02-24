@@ -47,44 +47,23 @@ export function WhatWeDo() {
           className="twist-callout relative mt-10 overflow-hidden rounded-2xl border border-gray-200 bg-transparent p-5 sm:mt-12 sm:p-6 lg:p-8"
           aria-labelledby="what-we-do-twist-heading"
         >
-          {[
-            {
-              pos: "-bottom-20 -right-20 h-44 w-44 sm:-bottom-24 sm:-right-24 sm:h-56 sm:w-56",
-              gradient:
-                "linear-gradient(135deg, rgba(255, 230, 150, 0.45) 0%, rgba(250, 204, 72, 0.15) 50%, transparent 70%)",
-            },
-            {
-              pos: "-bottom-16 -right-12 h-40 w-40 sm:-bottom-20 sm:-right-16 sm:h-48 sm:w-48",
-              gradient:
-                "linear-gradient(135deg, rgba(250, 204, 72, 0.4) 0%, rgba(250, 204, 72, 0.12) 50%, transparent 70%)",
-            },
-            {
-              pos: "-bottom-10 -right-8 h-32 w-32 sm:-bottom-14 sm:-right-10 sm:h-40 sm:w-40",
-              gradient:
-                "linear-gradient(135deg, rgba(245, 196, 60, 0.35) 0%, rgba(230, 180, 50, 0.1) 50%, transparent 70%)",
-            },
-            {
-              pos: "-bottom-6 -right-4 h-24 w-24 sm:-bottom-8 sm:-right-6 sm:h-32 sm:w-32",
-              gradient:
-                "linear-gradient(135deg, rgba(230, 190, 60, 0.35) 0%, rgba(250, 204, 72, 0.08) 50%, transparent 70%)",
-            },
-            {
-              pos: "bottom-0 right-0 h-16 w-16 sm:h-24 sm:w-24",
-              // Last circle: strongest brand color when at full opacity (grow phase)
-              gradient:
-                "linear-gradient(135deg, rgba(250, 204, 72, 0.9) 0%, rgba(250, 204, 72, 0.4) 40%, transparent 80%)",
-            },
-          ].map((circle, i) => (
-            <div
-              key={i}
-              className={`twist-callout-circle ${circle.pos}`}
-              aria-hidden
-              style={{
-                background: circle.gradient,
-                animation: "twist-circle-grow-shrink 5s ease-in-out infinite",
-              }}
-            />
-          ))}
+          {/* Static soft circle for depth */}
+          <div
+            className="twist-callout-circle -bottom-20 -right-20 h-56 w-56 sm:-bottom-24 sm:-right-24 sm:h-72 sm:w-72"
+            aria-hidden
+            style={{
+              backgroundColor: "rgba(250, 204, 72, 0.18)",
+            }}
+          />
+          {/* Single animated circle: grows then shrinks */}
+          <div
+            className="twist-callout-circle -bottom-10 -right-8 h-32 w-32 sm:-bottom-14 sm:-right-10 sm:h-44 sm:w-44"
+            aria-hidden
+            style={{
+              backgroundColor: "rgba(250, 204, 72, 0.5)",
+              animation: "twist-circle-pulse-single 4.2s ease-in-out infinite",
+            }}
+          />
           <div className="relative z-10 text-center">
             <h3
               id="what-we-do-twist-heading"
