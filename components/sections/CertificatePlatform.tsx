@@ -61,7 +61,7 @@ export function CertificatePlatform() {
       id="certificate-platform"
       aria-labelledby="certificate-platform-title"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
         <header className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center justify-center">
             <div className="badge-liquid-animated">
@@ -89,7 +89,7 @@ export function CertificatePlatform() {
 
         {/* Animated dashboard mockup */}
         <div className="mt-10 sm:mt-12">
-          <div ref={mockupRef} className="relative mx-auto max-w-6xl">
+          <div ref={mockupRef} className="relative mx-auto w-full max-w-6xl xl:max-w-[90vw]">
             <div
               className="relative mx-auto flex justify-center cursor-none"
               onMouseMove={handleMouseMove}
@@ -111,7 +111,7 @@ export function CertificatePlatform() {
                   src="/Assets/dashboard/dashboard.png"
                   alt="Certificate generator dashboard preview"
                   priority={false}
-                  sizes="(max-width: 1024px) 100vw, 1200px"
+                  sizes="(max-width: 1024px) 100vw, 90vw"
                   className="h-auto w-full object-contain"
                   width={1920}
                   height={1080}

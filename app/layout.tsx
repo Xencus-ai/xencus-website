@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -46,6 +47,10 @@ export default function RootLayout({
         className="flex min-h-screen flex-col bg-background text-foreground font-sans antialiased"
         suppressHydrationWarning
       >
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="lazyOnload"
+        />
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <Header />

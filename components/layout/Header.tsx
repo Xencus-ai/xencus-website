@@ -53,8 +53,8 @@ export function Header() {
 
       {/* Desktop: sticky pill nav (≥1000px) */}
       <header
-        className="sticky top-4 z-50 mx-auto mt-4 w-full max-w-[calc(100vw-48px)] px-0 max-[999px]:hidden"
-        style={{ width: "min(100% - 48px, 1200px)" }}
+        className="sticky top-4 z-50 mx-auto mt-4 w-full px-0 max-[999px]:hidden"
+        style={{ width: "min(90vw, 1440px)" }}
         id="main-header"
       >
         <nav
@@ -109,7 +109,7 @@ export function Header() {
           </div>
 
           <Link
-            href="#contact"
+            href="/contact"
             className="shrink-0 rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-brand-secondary transition-opacity hover:opacity-90"
             id="cta-talk-to-us"
             onMouseEnter={() => setMegaOpen(false)}
@@ -335,7 +335,7 @@ export function Header() {
                     )
                   )}
                   <Link
-                    href="#contact"
+                    href="/contact"
                     className="mt-4 rounded-full bg-brand px-5 py-3 text-center text-sm font-medium text-brand-secondary transition-opacity hover:opacity-90"
                     id="mobile-cta-talk-to-us"
                     onClick={() => setMobileOpen(false)}

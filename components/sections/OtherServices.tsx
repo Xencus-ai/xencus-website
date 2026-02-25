@@ -37,7 +37,7 @@ export function OtherServices() {
       id="services"
       aria-labelledby="other-services-title"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 xl:max-w-[85vw]">
         <header className="mx-auto max-w-3xl text-center">
           <h2
             id="other-services-title"
@@ -86,12 +86,14 @@ export function OtherServices() {
                               Service
                             </span>
                           </div>
-                          <h3 className="mt-2 max-w-xs text-base font-semibold text-heading sm:text-lg md:text-xl mx-auto">
-                            {service.label}
-                          </h3>
-                          <p className="mt-2 max-w-xs text-sm sm:text-base font-normal leading-relaxed text-paragraph-secondary group-hover/card:hidden mx-auto">
-                            {service.description}
-                          </p>
+                          <div className="mt-2 flex max-w-xs flex-wrap items-baseline justify-center gap-x-1.5 gap-y-0 mx-auto">
+                            <h3 className="text-base font-semibold text-heading sm:text-lg md:text-xl">
+                              {service.label}
+                            </h3>
+                            <p className="text-xs font-normal leading-snug text-paragraph-secondary group-hover/card:hidden sm:text-sm line-clamp-2">
+                              {service.description}
+                            </p>
+                          </div>
 
                           <ul className="mt-3 hidden w-full max-w-xs space-y-2 text-sm text-paragraph-secondary group-hover/card:block mx-auto text-left">
                             {service.bullets.map((bullet) => (

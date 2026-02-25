@@ -66,7 +66,7 @@ export function Footer() {
             </ul>
           </div>
           <Link
-            href="#contact"
+            href="/contact"
             className="w-fit rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-brand-secondary transition-opacity hover:opacity-90"
             id="footer-cta"
           >

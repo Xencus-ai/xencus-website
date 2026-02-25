@@ -7,11 +7,13 @@ export type StatItem = {
   value: string;
   label: string;
   illustration?: string;
+  target: number;
+  format: "millions" | "thousands" | "plain";
 };
 
 export const stats: readonly StatItem[] = [
-  { value: "2M+", label: "Students trained" },
-  { value: "1000+", label: "Industry expert trainers" },
-  { value: "50000+", label: "Hours of live classes" },
-  { value: "300+", label: "EdTech partners we serve" },
+  { value: "2.6M+", label: "Students trained", target: 2.6, format: "millions" },
+  { value: "1.2K+", label: "Industry expert trainers", target: 1.2, format: "thousands" },
+  { value: "58K+", label: "Hours of live classes", target: 58, format: "thousands" },
+  { value: "340+", label: "EdTech partners we serve", target: 340, format: "plain" },
 ];

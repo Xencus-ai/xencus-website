@@ -1,4 +1,7 @@
-  import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { hero } from "@/content/hero";
 import { stats } from "@/content/stats";
@@ -8,7 +11,52 @@ const glassCard =
   "rounded-2xl border border-white/50 bg-white/30 backdrop-blur-[10px] backdrop-saturate-[1.4] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]";
 
 const dock =
-  "mx-auto flex w-full max-w-2xl flex-col items-center gap-1 rounded-2xl border border-white/50 bg-white/25 px-5 py-2 backdrop-blur-[12px] backdrop-saturate-[1.4] shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:flex-row sm:justify-between sm:gap-1.5 sm:px-6 sm:py-2";
+  "mx-auto flex w-full max-w-2xl flex-col items-center gap-3 rounded-2xl border border-white/50 bg-white/25 px-5 py-3 backdrop-blur-[12px] backdrop-saturate-[1.4] shadow-[0_12px_40px_rgba(0,0,0,0.15)] sm:flex-row sm:justify-between sm:gap-2 sm:px-6 sm:py-2.5";
+
+type StatFormat = "millions" | "thousands" | "plain";
+
+type AnimatedStatProps = {
+  target: number;
+  format: StatFormat;
+};
+
+function AnimatedStat({ target, format }: AnimatedStatProps) {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    let frame: number;
+    const duration = 1400;
+    const start = performance.now();
+
+    const animate = (time: number) => {
+      const elapsed = time - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCurrent(target * eased);
+      if (progress < 1) {
+        frame = requestAnimationFrame(animate);
+      }
+    };
+
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, [target]);
+
+  let formatted: string;
+  if (format === "millions") {
+    formatted = `${current.toFixed(1)}M+`;
+  } else if (format === "thousands") {
+    formatted = `${Math.round(current)}K+`;
+  } else {
+    formatted = `${Math.round(current)}+`;
+  }
+
+  return (
+    <span className="text-2xl font-black tracking-tight text-brand-secondary sm:text-3xl lg:text-4xl">
+      {formatted}
+    </span>
+  );
+}
 
 export function Hero() {
   return (
@@ -83,9 +131,7 @@ export function Hero() {
                   />
                 </div>
               ) : null}
-              <span className="text-2xl font-black tracking-tight text-brand-secondary sm:text-3xl lg:text-4xl">
-                {item.value}
-              </span>
+              <AnimatedStat target={item.target} format={item.format} />
               <span className="mt-1 text-sm font-semibold text-brand-secondary sm:text-base">
                 {item.label}
               </span>
@@ -100,7 +146,7 @@ export function Hero() {
               {ctaBlock.heading}
             </p>
             <Link
-              href="#demo"
+              href="/contact"
               className="shrink-0 rounded-full border border-white/50 bg-white/40 px-4 py-1.5 text-sm font-semibold text-brand-secondary backdrop-blur-[10px] transition-opacity hover:bg-white/50"
               id="hero-cta"
             >

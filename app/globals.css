@@ -68,6 +68,24 @@ html {
   color-scheme: light;
 }
 
+@media (min-width: 1280px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 19px;
+  }
+}
+
 /* Apple Dark Liquid — navbar */
 .nav-liquid {
   background: rgba(23, 23, 23, 0.94);
@@ -210,6 +228,35 @@ html {
 
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
+}
+
+/* Testimonials: smooth horizontal marquee rows */
+@keyframes testimonial-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes testimonial-marquee-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.testimonial-marquee {
+  animation: testimonial-marquee 14s linear infinite;
+  will-change: transform;
+}
+
+.testimonial-marquee-reverse {
+  animation: testimonial-marquee-reverse 18s linear infinite;
+  will-change: transform;
 }
 
 
