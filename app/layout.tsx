@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo";
 import { BASE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
+import { getOrganizationSchema, getWebsiteSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -21,20 +22,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE_NAME,
-  url: BASE_URL,
-  description: SITE_DESCRIPTION,
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_NAME,
-  url: BASE_URL,
-};
+const organizationJsonLd = getOrganizationSchema();
+const websiteJsonLd = getWebsiteSchema();
 
 export default function RootLayout({
   children,
@@ -44,9 +33,24 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
+        {/* Critical font preloads — Regular, Medium, SemiBold, and Bold are all used above the fold */}
         <link
           rel="preload"
           href="/xencus_sans/static/GoogleSans-Regular.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/xencus_sans/static/GoogleSans-Medium.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/xencus_sans/static/GoogleSans-SemiBold.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
@@ -58,6 +62,9 @@ export default function RootLayout({
           type="font/ttf"
           crossOrigin="anonymous"
         />
+        {/* Preconnect / DNS-prefetch for third-party origins loaded lazily */}
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
       </head>
       <body
         className="flex min-h-screen flex-col bg-background text-foreground font-sans antialiased"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BASE_URL, SITE_NAME } from "./constants";
+import { BASE_URL, DEFAULT_OG_IMAGE, SITE_NAME } from "./constants";
 
 type PageMeta = {
   title: string;
@@ -32,6 +32,22 @@ export function buildPageMetadata({
       description,
       url,
       siteName: SITE_NAME,
+      type: "website",
+      locale: "en_IN",
+      images: [
+        {
+          url: DEFAULT_OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: fullTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description,
+      images: [DEFAULT_OG_IMAGE],
     },
     ...(noIndex && { robots: { index: false, follow: false } }),
   };

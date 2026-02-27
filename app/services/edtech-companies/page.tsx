@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle2, Users, Video, BarChart3, ClipboardList } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
+import { getEdtechFaqSchema, getEdtechServiceSchema } from "@/lib/structured-data";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "EdTech Operations & Services",
+  description:
+    "Xencus runs end-to-end operations for EdTech companies—curriculum design, trainer networks, live cohort delivery, LMS management, analytics, and certifications under your brand.",
+  path: "/services/edtech-companies",
+});
 
 export default function EdtechCompaniesPage() {
   return (
     <main className="bg-background">
+      <JsonLd data={getEdtechFaqSchema()} />
+      <JsonLd data={getEdtechServiceSchema()} />
       {/* Hero: overview of how we serve EdTech companies */}
       <section
         className="relative flex w-full min-h-[92vh] items-center justify-center overflow-hidden -mt-[5.5rem] pb-24 pt-24 sm:pb-28 sm:pt-32 lg:pb-32 lg:pt-36"
