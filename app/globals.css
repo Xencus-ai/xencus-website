@@ -143,6 +143,38 @@ html {
   background: white;
 }
 
+/* Linear-gradient animated border for compact cards (e.g. EdTech services) */
+.card-border-linear {
+  position: relative;
+  border-radius: 1.25rem;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    #ff5af7,
+    #9b5cff,
+    #3c9dff,
+    #38f9d7,
+    #ff5af7
+  );
+  background-size: 300% 100%;
+  animation: card-border-slide 6s linear infinite;
+}
+
+.card-border-linear-inner {
+  border-radius: 1.2rem;
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.25); /* light grey stroke under the gradient */
+}
+
+@keyframes card-border-slide {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
 /* Twist callout: single pulse circle (grow then shrink) over subtle static circle */
 @keyframes twist-circle-pulse-single {
   0% {

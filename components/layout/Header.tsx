@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { SITE_NAME } from "@/lib/constants";
 import { mainNav, servicesMegaMenu } from "@/content/nav";
 import { site } from "@/content/site";
@@ -15,6 +16,7 @@ export function Header() {
   const [megaOpen, setMegaOpen] = useState(false);
   const megaRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -45,11 +47,13 @@ export function Header() {
 
   return (
     <>
-      {/* Top fade so content softens into the sticky nav margin */}
-      <div
-        className="pointer-events-none fixed inset-x-0 top-0 z-40 h-10 bg-gradient-to-b from-background via-background/90 to-transparent max-[999px]:hidden"
-        aria-hidden="true"
-      />
+      {/* Top fade so content softens into the sticky nav margin (hide on full-bleed heroes like /services/edtech-companies) */}
+      {pathname === "/" && (
+        <div
+          className="pointer-events-none fixed inset-x-0 top-0 z-40 h-10 bg-gradient-to-b from-background via-background/90 to-transparent max-[999px]:hidden"
+          aria-hidden="true"
+        />
+      )}
 
       {/* Desktop: sticky pill nav (≥1000px) */}
       <header
