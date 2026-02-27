@@ -43,6 +43,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
+      <head>
+        <link
+          rel="preload"
+          href="/xencus_sans/static/GoogleSans-Regular.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/xencus_sans/static/GoogleSans-Bold.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className="flex min-h-screen flex-col bg-background text-foreground font-sans antialiased"
         suppressHydrationWarning

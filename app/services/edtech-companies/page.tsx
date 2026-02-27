@@ -15,7 +15,10 @@ export default function EdtechCompaniesPage() {
             alt="Learners attending a live online class"
             fill
             priority
+            sizes="100vw"
             className="object-cover object-center"
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjMiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNmNWYwZTgiLz48L3N2Zz4="
           />
           <div
             className="absolute inset-0 bg-white/10"

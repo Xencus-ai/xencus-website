@@ -172,6 +172,8 @@ export function Testimonials() {
                     fill
                     sizes="(max-width: 768px) 90px, (max-width: 1280px) 130px, 150px"
                     className="object-cover"
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzIiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIzIiBoZWlnaHQ9IjQiIGZpbGw9IiNlZGU4ZTMiLz48L3N2Zz4="
                   />
                 </div>
               ))}
