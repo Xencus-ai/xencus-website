@@ -66,6 +66,25 @@
 /* Light mode only — no dark mode. */
 html {
   color-scheme: light;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+}
+
+/* Smooth anchor scrolling — only when motion is acceptable */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Remove iOS/Android gray tap flash on images, cards, and links */
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Balanced line breaks for headings — prevents orphaned words */
+h1, h2, h3, h4 {
+  text-wrap: balance;
 }
 
 @media (min-width: 1280px) {
