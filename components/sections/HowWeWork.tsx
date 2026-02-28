@@ -55,7 +55,7 @@ export function HowWeWork() {
                 alt={pillar1.imageAlt}
                 fill
                 className="object-cover object-top"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) calc(100vw - 2rem), 480px"
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjMiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNmNWYwZTgiLz48L3N2Zz4="
               />
@@ -88,7 +88,7 @@ export function HowWeWork() {
                 alt={pillar2.imageAlt}
                 fill
                 className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) calc(100vw - 2rem), 480px"
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjMiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNmNWYwZTgiLz48L3N2Zz4="
               />

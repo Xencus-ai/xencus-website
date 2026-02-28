@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
+import { Google_Sans } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -9,22 +9,15 @@ import { getOrganizationSchema, getWebsiteSchema } from "@/lib/structured-data";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
-// Bold is declared first so next/font/local preloads it — the hero headline
-// uses font-black (→ Bold 700) and is the primary above-the-fold text.
-// adjustFontFallback generates a metric-matched Arial fallback that prevents
-// layout shift (CLS) when the custom font swaps in.
-const xencusSans = localFont({
-  src: [
-    { path: "../fonts/XencusSans-Bold.woff2", weight: "700", style: "normal" },
-    { path: "../fonts/XencusSans-SemiBold.woff2", weight: "600", style: "normal" },
-    { path: "../fonts/XencusSans-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../fonts/XencusSans-Regular.woff2", weight: "400", style: "normal" },
-  ],
+// next/font/google downloads Google Sans at build time and serves it from the
+// same origin — no cross-origin round-trip at runtime. Only the latin subset
+// is fetched, cutting font payload from ~2 MB to a fraction of that.
+const xencusSans = Google_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-xencus",
   display: "swap",
-  preload: true,
-  fallback: ["Arial", "system-ui", "sans-serif"],
-  adjustFontFallback: "Arial",
+  adjustFontFallback: true,
 });
 
 export const viewport: Viewport = {
