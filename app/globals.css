@@ -1,30 +1,30 @@
 @import "tailwindcss";
 
-/* Xencus Sans — local font (from public/xencus_sans) */
+/* Xencus Sans — WOFF2 (from public/xencusSans) */
 @font-face {
   font-family: "Xencus Sans";
-  src: url("/xencus_sans/static/GoogleSans-Regular.ttf") format("truetype");
+  src: url("/xencusSans/XencusSans-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Xencus Sans";
-  src: url("/xencus_sans/static/GoogleSans-Medium.ttf") format("truetype");
+  src: url("/xencusSans/XencusSans-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Xencus Sans";
-  src: url("/xencus_sans/static/GoogleSans-SemiBold.ttf") format("truetype");
+  src: url("/xencusSans/XencusSans-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Xencus Sans";
-  src: url("/xencus_sans/static/GoogleSans-Bold.ttf") format("truetype");
+  src: url("/xencusSans/XencusSans-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -272,6 +272,18 @@ h1, h2, h3, h4 {
   animation: party-popper-bounce 1.4s ease-in-out infinite;
 }
 
+/* Respect user motion preferences — pause all decorative animations */
+@media (prefers-reduced-motion: reduce) {
+  .card-border-gradient,
+  .card-border-linear,
+  .badge-liquid-animated::before,
+  .party-popper-animate,
+  .testimonial-marquee,
+  .testimonial-marquee-reverse {
+    animation-play-state: paused;
+  }
+}
+
 /* Utility: hide scrollbars for horizontal carousels */
 .scrollbar-hidden {
   scrollbar-width: none;
@@ -309,5 +321,3 @@ h1, h2, h3, h4 {
   animation: testimonial-marquee-reverse 18s linear infinite;
   will-change: transform;
 }
-
-

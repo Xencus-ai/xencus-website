@@ -24,7 +24,7 @@ export default function EdtechCompaniesPage() {
       >
         <div className="absolute inset-0">
           <Image
-            src="/Assets/edutech/edutech-hero.jpg"
+            src="/Assets/edutech/edutech-hero.avif"
             alt="Learners attending a live online class"
             fill
             priority
@@ -361,7 +361,7 @@ export default function EdtechCompaniesPage() {
             <div className="rounded-2xl border border-gray-200 bg-white/90 p-3 shadow-sm backdrop-blur-sm">
               <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl">
                 <Image
-                  src="/Assets/edutech/live-class.png"
+                  src="/Assets/edutech/live-class.avif"
                   alt="Dashboard view of live class scheduling and attendance"
                   fill
                   className="object-cover"

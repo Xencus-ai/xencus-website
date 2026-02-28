@@ -94,7 +94,8 @@ export function Header() {
                     className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:text-brand"
                     id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
                     aria-expanded={megaOpen}
-                    aria-haspopup="true"
+                    aria-haspopup="menu"
+                    aria-controls="nav-mega-menu"
                   >
                     {item.label}
                   </button>
@@ -127,6 +128,7 @@ export function Header() {
           {megaOpen && (
             <motion.div
               ref={megaRef}
+              id="nav-mega-menu"
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -258,6 +260,7 @@ export function Header() {
                 transition={{ type: "spring", stiffness: 400, damping: 40 }}
                 className="nav-liquid-panel fixed inset-y-0 right-0 z-[70] w-[min(100vw-48px,320px)] overflow-y-auto border-l border-white/15 p-6"
                 role="dialog"
+                aria-modal="true"
                 aria-label="Mobile menu"
               >
                 <div className="flex justify-start border-b border-white/10 pb-4">

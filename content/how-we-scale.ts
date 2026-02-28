@@ -17,7 +17,7 @@ export const howWeScale = {
         "You focus on building your brand, acquiring learners, and expanding into new domains. Your energy stays where it matters most: marketing, partnerships, and enrollment growth.",
         "We integrate as your backend delivery partner without disrupting your brand experience. Your learners see your brand and get a seamless journey while we handle curriculum, delivery, and operations behind the scenes.",
       ],
-      image: "/Assets/how-we-scale/1.jpg",
+      image: "/Assets/how-we-scale/1.avif",
       imageAlt: "You drive growth and scale",
     },
     {

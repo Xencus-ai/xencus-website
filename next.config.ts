@@ -7,10 +7,10 @@ const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  {
-    key: "Permissions-Policy",
-    value: "camera=(), microphone=(), geolocation=()",
-  },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+  // allow-popups required: Calendly opens a cross-origin popup on /contact
+  { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
+  { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
 ];
 
 const nextConfig: NextConfig = {
@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/xencus_sans/(.*)",
+        source: "/xencusSans/(.*)",
         headers: [
           {
             key: "Cache-Control",

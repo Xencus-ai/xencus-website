@@ -17,7 +17,7 @@ export function Hero() {
       {/* Full-width hero image */}
       <div className="absolute inset-0">
         <Image
-          src="/Assets/hero/hero.jpg"
+          src="/Assets/hero/hero.avif"
           alt={hero.image.alt}
           fill
           className="object-cover object-center"

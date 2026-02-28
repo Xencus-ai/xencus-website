@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -33,47 +32,47 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
-        {/* Critical font preloads — Regular, Medium, SemiBold, and Bold are all used above the fold */}
+        {/* Critical font preloads — WOFF2, all 4 weights used above the fold */}
         <link
           rel="preload"
-          href="/xencus_sans/static/GoogleSans-Regular.ttf"
+          href="/xencusSans/XencusSans-Regular.woff2"
           as="font"
-          type="font/ttf"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/xencus_sans/static/GoogleSans-Medium.ttf"
+          href="/xencusSans/XencusSans-Medium.woff2"
           as="font"
-          type="font/ttf"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/xencus_sans/static/GoogleSans-SemiBold.ttf"
+          href="/xencusSans/XencusSans-SemiBold.woff2"
           as="font"
-          type="font/ttf"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="/xencus_sans/static/GoogleSans-Bold.ttf"
+          href="/xencusSans/XencusSans-Bold.woff2"
           as="font"
-          type="font/ttf"
+          type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Preconnect / DNS-prefetch for third-party origins loaded lazily */}
-        <link rel="dns-prefetch" href="https://assets.calendly.com" />
-        <link rel="dns-prefetch" href="https://calendly.com" />
       </head>
       <body
         className="flex min-h-screen flex-col bg-background text-foreground font-sans antialiased"
         suppressHydrationWarning
       >
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
-        />
+        {/* Skip navigation — visible on focus for keyboard/screen-reader users */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-brand-secondary focus:shadow-lg focus:outline-none"
+        >
+          Skip to main content
+        </a>
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <Header />
