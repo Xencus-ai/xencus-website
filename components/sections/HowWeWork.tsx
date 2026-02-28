@@ -20,7 +20,7 @@ export function HowWeWork() {
             className="text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-6xl"
           >
             {howWeWork.titleBefore}
-            <span className="text-brand-text">{howWeWork.titleHighlight}</span>
+            <span className="text-brand">{howWeWork.titleHighlight}</span>
             {howWeWork.titleAfter}
           </h2>
           <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">

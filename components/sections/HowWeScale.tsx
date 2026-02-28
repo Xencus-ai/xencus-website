@@ -63,7 +63,7 @@ export function HowWeScale() {
             className="text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-6xl"
           >
             {howWeScale.titleBefore}
-            <span className="text-brand-text">{howWeScale.titleHighlight}</span>
+            <span className="text-brand">{howWeScale.titleHighlight}</span>
             {howWeScale.titleAfter}
           </h2>
           <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">

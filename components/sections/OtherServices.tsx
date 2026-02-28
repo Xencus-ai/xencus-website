@@ -28,7 +28,7 @@ export function OtherServices() {
             className="text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
             Beyond operations,{" "}
-            <span className="text-brand-text">specialised services</span> for EdTech
+            <span className="text-brand">specialised services</span> for EdTech
           </h2>
           <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">
             Alongside running your classrooms, we plug in experts for corporate L&amp;D, universities,
