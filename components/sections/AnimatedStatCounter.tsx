@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { stats } from "@/content/stats";
 
@@ -11,24 +11,46 @@ type StatFormat = "millions" | "thousands" | "plain";
 
 function AnimatedStat({ target, format }: { target: number; format: StatFormat }) {
   const [current, setCurrent] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    let frame: number;
-    const duration = 2200;
-    const start = performance.now();
+    const el = ref.current;
+    if (!el) return;
 
-    const animate = (time: number) => {
-      const elapsed = time - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCurrent(target * eased);
-      if (progress < 1) {
-        frame = requestAnimationFrame(animate);
-      }
+    let frame: number;
+
+    const start = () => {
+      const duration = 2200;
+      const t0 = performance.now();
+
+      const animate = (time: number) => {
+        const elapsed = time - t0;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setCurrent(target * eased);
+        if (progress < 1) {
+          frame = requestAnimationFrame(animate);
+        }
+      };
+
+      frame = requestAnimationFrame(animate);
     };
 
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          start();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
   }, [target]);
 
   let formatted: string;
@@ -42,6 +64,7 @@ function AnimatedStat({ target, format }: { target: number; format: StatFormat }
 
   return (
     <span
+      ref={ref}
       className="text-2xl font-black tracking-tight text-brand-secondary sm:text-3xl lg:text-4xl"
       suppressHydrationWarning
     >

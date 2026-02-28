@@ -85,7 +85,7 @@ export function DashboardMockup() {
             src="/Assets/dashboard/dashboard.png"
             alt="Certificate generator dashboard preview"
             priority={false}
-            sizes="(max-width: 1024px) 100vw, 90vw"
+            sizes="(max-width: 1024px) 100vw, 1152px"
             className="h-auto w-full object-contain"
             width={1920}
             height={1080}

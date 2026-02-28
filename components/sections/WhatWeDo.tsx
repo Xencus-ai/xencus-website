@@ -35,7 +35,7 @@ export function WhatWeDo() {
             className="text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-6xl"
           >
             {whatWeDo.titleBefore}
-            <span className="text-brand">{whatWeDo.titleHighlight}</span>
+            <span className="text-brand-text">{whatWeDo.titleHighlight}</span>
             {whatWeDo.titleAfter}
           </h2>
           <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">

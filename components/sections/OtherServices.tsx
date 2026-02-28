@@ -28,7 +28,7 @@ export function OtherServices() {
             className="text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
             Beyond operations,{" "}
-            <span className="text-brand">specialised services</span> for EdTech
+            <span className="text-brand-text">specialised services</span> for EdTech
           </h2>
           <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">
             Alongside running your classrooms, we plug in experts for corporate L&amp;D, universities,
@@ -59,9 +59,9 @@ export function OtherServices() {
                       </div>
 
                       <div className="flex flex-1 flex-col items-center p-4 text-center sm:p-5">
-                        <div className="flex items-center justify-center gap-2 text-brand">
-                          <Icon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
-                          <span className="text-xs font-semibold uppercase tracking-wide">
+                        <div className="flex items-center justify-center gap-2">
+                          <Icon className="h-4 w-4 text-brand sm:h-5 sm:w-5" aria-hidden />
+                          <span className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
                             Service
                           </span>
                         </div>
@@ -87,7 +87,8 @@ export function OtherServices() {
                       <div className="border-t border-gray-100 p-4 sm:p-5">
                         <Link
                           href={service.href}
-                          className="inline-flex items-center justify-center rounded-full border border-brand/40 bg-white/80 px-4 py-2 text-sm font-semibold text-brand shadow-sm transition-colors duration-200 group-hover/card:bg-brand group-hover/card:text-cta-text"
+                          aria-label={`Learn more about ${service.label}`}
+                          className="inline-flex items-center justify-center rounded-full border border-brand/40 bg-white/80 px-4 py-2 text-sm font-semibold text-brand-secondary shadow-sm transition-colors duration-200 group-hover/card:bg-brand group-hover/card:text-cta-text"
                         >
                           Learn more
                           <span aria-hidden="true" className="ml-1">

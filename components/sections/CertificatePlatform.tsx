@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Zap, ShieldCheck, BarChart3 } from "lucide-react";
@@ -36,7 +37,7 @@ export function CertificatePlatform() {
             id="certificate-platform-title"
             className="mt-4 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
-            <span className="text-brand">Certificate</span> Generator for EdTech
+            <span className="text-brand-text">Certificate</span> Generator for EdTech
           </h2>
           <p className="mt-3 mx-auto max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base lg:text-lg">
             {certificatePlatform.subtitle}
@@ -45,7 +46,9 @@ export function CertificatePlatform() {
 
         {/* Interactive dashboard — client-only, framer-motion deferred */}
         <div className="mt-10 sm:mt-12">
-          <DashboardMockup />
+          <Suspense fallback={<div className="h-[420px] animate-pulse rounded-2xl bg-gray-100 sm:h-[480px]" />}>
+            <DashboardMockup />
+          </Suspense>
         </div>
 
         {/* Feature list — server-rendered, zero client JS */}

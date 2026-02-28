@@ -1,34 +1,5 @@
 @import "tailwindcss";
 
-/* Xencus Sans — WOFF2 (from public/xencusSans) */
-@font-face {
-  font-family: "Xencus Sans";
-  src: url("/xencusSans/XencusSans-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Xencus Sans";
-  src: url("/xencusSans/XencusSans-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Xencus Sans";
-  src: url("/xencusSans/XencusSans-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Xencus Sans";
-  src: url("/xencusSans/XencusSans-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Brand palette — use via Tailwind utilities (e.g. bg-brand, text-heading) */
 :root {
@@ -37,6 +8,8 @@
   /* Brand */
   --brand: #facc48;
   --brand-secondary: #151515;
+  /* Accessible amber for text on white — amber-700, 4.67:1 on #fff (WCAG AA) */
+  --brand-text: #B45309;
   /* Typography */
   --heading: #171717;
   --paragraph: #707070;
@@ -49,6 +22,7 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
   --color-brand-secondary: var(--brand-secondary);
+  --color-brand-text: var(--brand-text);
   --color-heading: var(--heading);
   --color-paragraph: var(--paragraph);
   --color-paragraph-secondary: var(--paragraph-secondary);
@@ -58,8 +32,8 @@
   --color-glass-border: rgba(255, 255, 255, 0.5);
   --shadow-glass-pill: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   --blur-apple: 20px;
-  /* Xencus Sans as primary sans */
-  --font-sans: "Xencus Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  /* --font-xencus is injected by next/font/local (app/layout.tsx) */
+  --font-sans: var(--font-xencus), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 

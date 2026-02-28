@@ -12,6 +12,8 @@ export const metadata: Metadata = buildPageMetadata({
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      {/* Warm Calendly DNS before the lazyOnload script fires */}
+      <link rel="dns-prefetch" href="https://assets.calendly.com" />
       {/* Calendly widget — loaded only on the contact route, not site-wide */}
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
