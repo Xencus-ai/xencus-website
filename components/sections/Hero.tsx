@@ -10,20 +10,21 @@ const dock =
 export function Hero() {
   return (
     <section
-      className="relative flex w-full min-h-[85vh] flex-col justify-end overflow-hidden -mt-[5.5rem]"
+      className="relative flex w-full min-h-[max(85vh,100vh)] flex-col justify-start sm:justify-end overflow-visible -mt-[5.5rem]"
       id="hero"
       aria-label="Hero"
     >
-      {/* Full-width hero image */}
-      <div className="absolute inset-0">
+      {/* Full-width hero image — overflow-hidden so image doesn’t spill when section grows */}
+      <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/Assets/hero/hero.avif"
           alt={hero.image.alt}
           fill
           className="object-cover object-center"
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, 100vw"
           priority
           fetchPriority="high"
+          decoding="async"
           placeholder="blur"
           blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjMiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNmNWYwZTgiLz48L3N2Zz4="
         />
@@ -45,8 +46,8 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Content overlay: headline → subtext → stats → CTA */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-32 sm:px-6 sm:pb-32 sm:pt-36 lg:px-8">
+      {/* Content overlay: headline → subtext → stats → CTA. On mobile pt clears fixed nav so title is never hidden. */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-[5.5rem] sm:px-6 sm:pb-32 sm:pt-32 lg:pt-36 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1
             className="text-5xl font-black tracking-tight text-heading sm:text-6xl lg:text-7xl"
