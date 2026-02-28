@@ -46,8 +46,8 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Content overlay: headline → subtext → stats → CTA. pt on mobile = negative margin (5.5rem) + nav height (~4.5rem) so title sits below fixed nav. */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-[10.5rem] sm:px-6 sm:pb-32 sm:pt-32 lg:pt-36 lg:px-8">
+      {/* Content overlay: headline → subtext → stats → CTA. pt on mobile clears nav + extra gap so title isn’t cramped. */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-[12rem] sm:px-6 sm:pb-32 sm:pt-32 lg:pt-36 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1
             className="text-5xl font-black tracking-tight text-heading sm:text-6xl lg:text-7xl"
