@@ -46,7 +46,7 @@ export default function ContactPage() {
 
             <ul className="space-y-4 text-sm sm:text-base text-paragraph-secondary">
               <li className="flex items-start gap-3">
-                <Phone className="mt-0.5 h-5 w-5 text-brand" aria-hidden />
+                <Phone className="mt-0.5 h-5 w-5 text-brand-secondary" aria-hidden />
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
                     Contact number
@@ -58,7 +58,7 @@ export default function ContactPage() {
               </li>
 
               <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-5 w-5 text-brand" aria-hidden />
+                <Mail className="mt-0.5 h-5 w-5 text-brand-secondary" aria-hidden />
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
                     Email
@@ -73,7 +73,7 @@ export default function ContactPage() {
               </li>
 
               <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 text-brand" aria-hidden />
+                <MapPin className="mt-0.5 h-5 w-5 text-brand-secondary" aria-hidden />
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
                     Address

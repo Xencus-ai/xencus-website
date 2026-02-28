@@ -28,7 +28,7 @@ export function OtherServices() {
             className="text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
             Beyond operations,{" "}
-            <span className="text-brand">specialised services</span> for EdTech
+            <span className="text-brand-secondary">specialised services</span> for EdTech
           </h2>
           <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">
             Alongside running your classrooms, we plug in experts for corporate L&amp;D, universities,
@@ -60,7 +60,7 @@ export function OtherServices() {
 
                       <div className="flex flex-1 flex-col items-center p-4 text-center sm:p-5">
                         <div className="flex items-center justify-center gap-2">
-                          <Icon className="h-4 w-4 text-brand sm:h-5 sm:w-5" aria-hidden />
+                          <Icon className="h-4 w-4 text-brand-secondary sm:h-5 sm:w-5" aria-hidden />
                           <span className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
                             Service
                           </span>

@@ -22,7 +22,7 @@ export function CertificatePlatform() {
         <header className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center justify-center">
             <div className="badge-liquid-animated">
-              <span className="badge-liquid-animated-inner inline-flex items-center px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand">
+              <span className="badge-liquid-animated-inner inline-flex items-center px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-brand-secondary">
                 {certificatePlatform.badge}
               </span>
             </div>
@@ -37,7 +37,7 @@ export function CertificatePlatform() {
             id="certificate-platform-title"
             className="mt-4 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
-            <span className="text-brand">Certificate</span> Generator for EdTech
+            <span className="text-brand-secondary">Certificate</span> Generator for EdTech
           </h2>
           <p className="mt-3 mx-auto max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base lg:text-lg">
             {certificatePlatform.subtitle}
@@ -67,7 +67,7 @@ export function CertificatePlatform() {
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <div className="mt-1 flex h-6 w-6 items-center justify-center">
-                  <Zap className="h-5 w-5 text-brand" aria-hidden />
+                  <Zap className="h-5 w-5 text-brand-secondary" aria-hidden />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-heading sm:text-base">
@@ -81,7 +81,7 @@ export function CertificatePlatform() {
 
               <li className="flex gap-3">
                 <div className="mt-1 flex h-6 w-6 items-center justify-center">
-                  <ShieldCheck className="h-5 w-5 text-brand" aria-hidden />
+                  <ShieldCheck className="h-5 w-5 text-brand-secondary" aria-hidden />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-heading sm:text-base">
@@ -135,7 +135,7 @@ export function CertificatePlatform() {
 
               <li className="flex gap-3">
                 <div className="mt-1 flex h-6 w-6 items-center justify-center">
-                  <BarChart3 className="h-5 w-5 text-brand" aria-hidden />
+                  <BarChart3 className="h-5 w-5 text-brand-secondary" aria-hidden />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-heading sm:text-base">

@@ -81,7 +81,7 @@ export default function EdtechCompaniesPage() {
               className="text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
             >
               What we run{" "}
-              <span className="text-brand">for your EdTech</span>
+              <span className="text-brand-secondary">for your EdTech</span>
             </h2>
             <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">
               The same operations layer we use across partners—course design, live delivery,
@@ -103,7 +103,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand">
+                    <div className="flex items-center text-brand-secondary">
                       <ClipboardList className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -131,7 +131,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand">
+                    <div className="flex items-center text-brand-secondary">
                       <Users className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -159,7 +159,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand">
+                    <div className="flex items-center text-brand-secondary">
                       <Video className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -187,7 +187,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand">
+                    <div className="flex items-center text-brand-secondary">
                       <Video className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -215,7 +215,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand">
+                    <div className="flex items-center text-brand-secondary">
                       <Users className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -243,7 +243,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex shrink-0 items-center text-brand">
+                    <div className="flex shrink-0 items-center text-brand-secondary">
                       <ClipboardList className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -271,7 +271,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex shrink-0 items-center text-brand">
+                    <div className="flex shrink-0 items-center text-brand-secondary">
                       <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -299,7 +299,7 @@ export default function EdtechCompaniesPage() {
                     />
                   </div>
                   <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex shrink-0 items-center text-brand">
+                    <div className="flex shrink-0 items-center text-brand-secondary">
                       <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
@@ -337,19 +337,19 @@ export default function EdtechCompaniesPage() {
               </p>
               <ul className="mt-5 space-y-3 text-sm text-paragraph-secondary sm:text-base">
                 <li className="flex items-start gap-2">
-                  <Video className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <Video className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>
                     Cohort-wise timetables, links, and reminders set up on Zoom and Google Meet.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Users className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <Users className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>
                     Trainer assignment, backups, and escalation paths so classes never get cancelled.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>
                     Attendance and completion captured session-wise, ready to sync with your CRM or
                     LMS.
@@ -382,7 +382,7 @@ export default function EdtechCompaniesPage() {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-                <ClipboardList className="h-3.5 w-3.5 text-brand" aria-hidden />
+                <ClipboardList className="h-3.5 w-3.5 text-brand-secondary" aria-hidden />
                 <span>LMS & course operations</span>
               </div>
               <h2
@@ -398,17 +398,17 @@ export default function EdtechCompaniesPage() {
               </p>
               <ul className="mt-5 space-y-3 text-sm text-paragraph-secondary sm:text-base">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>Domain-wise course templates configured for each new cohort.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ClipboardList className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <ClipboardList className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>
                     Projects, quizzes, and assignments set up with clear grading and deadlines.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <Users className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <Users className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>
                     Enrolment, access, and completion rules implemented so support tickets go down.
                   </span>
@@ -440,7 +440,7 @@ export default function EdtechCompaniesPage() {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-                <BarChart3 className="h-3.5 w-3.5 text-brand" aria-hidden />
+                <BarChart3 className="h-3.5 w-3.5 text-brand-secondary" aria-hidden />
                 <span>Analytics & reporting</span>
               </div>
               <h2
@@ -455,15 +455,15 @@ export default function EdtechCompaniesPage() {
               </p>
               <ul className="mt-5 space-y-3 text-sm text-paragraph-secondary sm:text-base">
                 <li className="flex items-start gap-2">
-                  <BarChart3 className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <BarChart3 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>Program-wise dashboards for enrolments, live hours, and completions.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>Export-ready views for investors, enterprise clients, and partners.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <ClipboardList className="mt-0.5 h-4 w-4 text-brand" aria-hidden />
+                  <ClipboardList className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
                   <span>Exception reports so your team can intervene before cohorts slip.</span>
                 </li>
               </ul>

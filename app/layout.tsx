@@ -17,7 +17,7 @@ const xencusSans = Google_Sans({
   weight: ["400", "500", "600", "700"],
   variable: "--font-xencus",
   display: "swap",
-  adjustFontFallback: true,
+  adjustFontFallback: false, // Next.js has no built-in metrics for Google Sans
 });
 
 export const viewport: Viewport = {
@@ -62,7 +62,7 @@ export default function RootLayout({
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <Header />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="min-w-0 flex-1">
           {children}
         </main>
         <Footer />

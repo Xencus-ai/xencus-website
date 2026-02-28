@@ -12,14 +12,19 @@ type StatFormat = "millions" | "thousands" | "plain";
 function AnimatedStat({ target, format }: { target: number; format: StatFormat }) {
   const [current, setCurrent] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
+  const startedRef = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
+    startedRef.current = false;
     let frame: number;
+    let fallbackId: ReturnType<typeof setTimeout>;
 
     const start = () => {
+      if (startedRef.current) return;
+      startedRef.current = true;
       const duration = 2200;
       const t0 = performance.now();
 
@@ -38,16 +43,22 @@ function AnimatedStat({ target, format }: { target: number; format: StatFormat }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          start();
-        }
+        if (entry?.isIntersecting) start();
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "20px" }
     );
     observer.observe(el);
 
+    // Fallback: when hero is above the fold (initial load or client nav), the observer
+    // may fire before layout is ready or not at all. Re-check after a short delay.
+    fallbackId = setTimeout(() => {
+      if (startedRef.current) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) start();
+    }, 150);
+
     return () => {
+      clearTimeout(fallbackId);
       observer.disconnect();
       cancelAnimationFrame(frame);
     };

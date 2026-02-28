@@ -35,7 +35,7 @@ export function WhatWeDo() {
             className="text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-6xl"
           >
             {whatWeDo.titleBefore}
-            <span className="text-brand">{whatWeDo.titleHighlight}</span>
+            <span className="text-brand-secondary">{whatWeDo.titleHighlight}</span>
             {whatWeDo.titleAfter}
           </h2>
           <p className="mt-4 text-sm font-medium leading-snug text-paragraph-secondary sm:text-base lg:text-lg max-w-2xl mx-auto">
@@ -89,7 +89,7 @@ export function WhatWeDo() {
                   aria-labelledby={`what-we-do-${item.id}-title`}
                 >
                   <div className="flex min-w-0 flex-1 flex-col p-5 sm:p-6">
-                    <div className="flex shrink-0 items-center text-brand">
+                    <div className="flex shrink-0 items-center text-brand-secondary">
                       <Icon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
                     </div>
                     <h3

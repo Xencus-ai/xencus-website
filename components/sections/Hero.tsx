@@ -46,15 +46,15 @@ export function Hero() {
         aria-hidden
       />
 
-      {/* Content overlay: headline → subtext → stats → CTA. On mobile pt clears fixed nav so title is never hidden. */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-[5.5rem] sm:px-6 sm:pb-32 sm:pt-32 lg:pt-36 lg:px-8">
+      {/* Content overlay: headline → subtext → stats → CTA. pt on mobile = negative margin (5.5rem) + nav height (~4.5rem) so title sits below fixed nav. */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-[10.5rem] sm:px-6 sm:pb-32 sm:pt-32 lg:pt-36 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1
             className="text-5xl font-black tracking-tight text-heading sm:text-6xl lg:text-7xl"
             style={{ textShadow: "0 2px 12px rgba(0,0,0,0.08), 0 4px 28px rgba(0,0,0,0.06)" }}
           >
             {hero.headline.before}{" "}
-            <span className="text-brand">{hero.headline.highlight}</span>{" "}
+            <span className="text-brand-secondary">{hero.headline.highlight}</span>{" "}
             {hero.headline.after}
           </h1>
           <p className="mt-5 text-sm font-semibold leading-snug text-heading sm:text-base md:text-lg">
