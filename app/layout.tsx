@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadata } from "@/lib/seo";
 import { BASE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 import { getOrganizationSchema, getWebsiteSchema } from "@/lib/structured-data";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -80,6 +81,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
