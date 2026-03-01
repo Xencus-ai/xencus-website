@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle2, Users, Video, BarChart3, ClipboardList } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { edtechLiveClass } from "@/content/edtech-services";
 import { buildPageMetadata } from "@/lib/seo";
 import { getEdtechFaqSchema, getEdtechServiceSchema } from "@/lib/structured-data";
 
@@ -190,7 +191,7 @@ export default function EdtechCompaniesPage() {
             </p>
           </header>
 
-          <ul className="mx-auto mt-8 grid w-full max-w-4xl grid-cols-1 justify-items-center gap-x-4 gap-y-4 px-0 sm:mt-10 sm:gap-x-6 sm:gap-y-4 md:grid-cols-2">
+          <ul className="mx-auto mt-8 grid w-full max-w-4xl grid-cols-1 justify-items-center gap-x-4 gap-y-3 px-0 sm:mt-10 sm:gap-x-6 sm:gap-y-2 md:grid-cols-2 md:gap-y-1.5">
             {EDTECH_CARDS.map((card) => (
               <EdtechServiceCard key={card.id} card={card} />
             ))}
@@ -198,55 +199,75 @@ export default function EdtechCompaniesPage() {
         </div>
       </section>
 
-      {/* Section: Live class operations */}
+      {/* Section: Live class operations — Tailwind 4.2 reference layout */}
       <section
-        className="bg-background py-12 sm:py-16"
+        className="overflow-hidden bg-white py-24 sm:py-32"
         aria-labelledby="live-class-ops-title"
       >
-        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center">
-            <div>
-              <h2
-                id="live-class-ops-title"
-                className="text-2xl font-semibold tracking-tight text-heading sm:text-3xl lg:text-4xl"
-              >
-                Live classes, run for you
-              </h2>
-              <p className="mt-3 max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base">
-                From trainer rosters to reminders and recordings, we manage the full lifecycle of
-                every live session, across all the domains you sell.
-              </p>
-              <ul className="mt-5 space-y-3 text-sm text-paragraph-secondary sm:text-base">
-                <li className="flex items-start gap-2">
-                  <Video className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>
-                    Cohort-wise timetables, links, and reminders set up on Zoom and Google Meet.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Users className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>
-                    Trainer assignment, backups, and escalation paths so classes never get cancelled.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>
-                    Attendance and completion captured session-wise, ready to sync with your CRM or
-                    LMS.
-                  </span>
-                </li>
-              </ul>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div className="lg:pt-4 lg:pr-8">
+              <div className="lg:max-w-lg">
+                <p className="text-base font-semibold leading-7 text-brand-secondary">
+                  {edtechLiveClass.label}
+                </p>
+                <h2
+                  id="live-class-ops-title"
+                  className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-heading sm:text-5xl"
+                >
+                  {edtechLiveClass.title}
+                </h2>
+                <p className="mt-6 text-lg leading-8 text-paragraph-secondary">
+                  {edtechLiveClass.description}
+                </p>
+                <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-paragraph-secondary lg:max-w-none">
+                  {edtechLiveClass.listItems.map((item, index) => (
+                    <div
+                      key={item.name}
+                      className={index === 0 ? "relative pl-14" : "relative pl-9"}
+                    >
+                      <dt className="inline font-semibold text-heading">
+                        {index === 0 ? (
+                          <span className="absolute left-0 top-1 flex gap-1.5">
+                            <Image
+                              src="/Assets/edutech/zoom.svg"
+                              alt=""
+                              width={20}
+                              height={20}
+                              className="h-5 w-5 object-contain"
+                              aria-hidden
+                            />
+                            <Image
+                              src="/Assets/edutech/google-meet.svg"
+                              alt=""
+                              width={20}
+                              height={20}
+                              className="h-5 w-5 object-contain"
+                              aria-hidden
+                            />
+                          </span>
+                        ) : (
+                          <CheckCircle2
+                            aria-hidden
+                            className="absolute left-0 top-1 h-5 w-5 text-brand-secondary"
+                          />
+                        )}
+                        {item.name}
+                      </dt>{" "}
+                      <dd className="inline">{item.description}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
-
-            <div className="rounded-2xl border border-gray-200 bg-white/90 p-3 shadow-sm backdrop-blur-sm">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl">
+            <div className="relative w-full max-w-none sm:w-[57rem] md:-ml-4 lg:-ml-0">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl shadow-xl ring-1 ring-gray-400/10">
                 <Image
-                  src="/Assets/edutech/live-class.avif"
-                  alt="Dashboard view of live class scheduling and attendance"
+                  src={edtechLiveClass.image.src}
+                  alt={edtechLiveClass.image.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 45vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 57rem"
                 />
               </div>
             </div>
