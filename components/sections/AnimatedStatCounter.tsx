@@ -20,7 +20,6 @@ function AnimatedStat({ target, format }: { target: number; format: StatFormat }
 
     startedRef.current = false;
     let frame: number;
-    let fallbackId: ReturnType<typeof setTimeout>;
 
     const start = () => {
       if (startedRef.current) return;
@@ -51,7 +50,7 @@ function AnimatedStat({ target, format }: { target: number; format: StatFormat }
 
     // Fallback: when hero is above the fold (initial load or client nav), the observer
     // may fire before layout is ready or not at all. Re-check after a short delay.
-    fallbackId = setTimeout(() => {
+    const fallbackId = setTimeout(() => {
       if (startedRef.current) return;
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) start();

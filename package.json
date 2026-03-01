@@ -11,7 +11,14 @@
     "build": "next build",
     "build:static": "EXPORT=true next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "playwright test",
+    "e2e": "playwright test",
+    "e2e:chromium": "playwright test --project=chromium",
+    "e2e:mobile": "playwright test --project=mobile",
+    "lighthouse": "bash scripts/lighthouse.sh",
+    "check": "echo '\\n  Xencus Quality Gate\\n' && npm run typecheck && echo '  ✓ TypeScript' && npm run lint && echo '  ✓ ESLint' && npm run build && echo '  ✓ Build\\n\\n  All checks passed.\\n'"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.3.1",
@@ -28,6 +35,7 @@
     "edge >= 94"
   ],
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

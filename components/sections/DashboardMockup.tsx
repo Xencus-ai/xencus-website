@@ -7,9 +7,16 @@
  * Contains all framer-motion scroll/spring/tilt logic and the custom cursor.
  * Isolated here so CertificatePlatform.tsx can be a Server Component —
  * keeping the section header and feature list in the initial server HTML.
+ *
+ * Performance notes:
+ * - getBoundingClientRect is cached on mount + resize (passive listener).
+ *   The mousemove handler reads the cached value — zero forced reflows.
+ * - A RAF flag gates the handler to one pass per frame (16 ms budget).
+ * - setCursorVisible is guarded by a ref so React only re-renders once
+ *   per enter/leave, not on every mousemove.
  */
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, useScroll, useTransform, useSpring } from "framer-motion";
@@ -44,19 +51,52 @@ export function DashboardMockup() {
   const smoothCursorY = useSpring(cursorY, { stiffness: 200, damping: 24, mass: 0.4 });
   const [cursorVisible, setCursorVisible] = useState(false);
 
+  // Cached rect — updated on mount and on resize (passive, never blocks paint).
+  // Eliminates getBoundingClientRect() from the mousemove hot path.
+  const cachedRect = useRef<DOMRect | null>(null);
+  // RAF gate — ensures we process at most one mousemove per animation frame.
+  const rafId = useRef<number | null>(null);
+  // Ref-guarded cursor state — prevents a React re-render on every mousemove.
+  const isCursorVisible = useRef(false);
+
+  useEffect(() => {
+    const updateRect = () => {
+      if (mockupRef.current) {
+        cachedRect.current = mockupRef.current.getBoundingClientRect();
+      }
+    };
+    updateRect();
+    window.addEventListener("resize", updateRect, { passive: true });
+    return () => {
+      window.removeEventListener("resize", updateRect);
+      if (rafId.current !== null) cancelAnimationFrame(rafId.current);
+    };
+  }, []);
+
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    if (!mockupRef.current) return;
-    const rect = mockupRef.current.getBoundingClientRect();
-    const px = (event.clientX - rect.left) / rect.width - 0.5;
-    const py = (event.clientY - rect.top) / rect.height - 0.5;
-    tiltX.set(px);
-    tiltY.set(py);
-    cursorX.set(event.clientX - rect.left);
-    cursorY.set(event.clientY - rect.top);
-    setCursorVisible(true);
+    if (!cachedRect.current) return;
+    // Capture coordinates synchronously — SyntheticEvent values are pooled
+    // and may be nullified by the time the RAF callback runs.
+    const { clientX, clientY } = event;
+    if (rafId.current !== null) return; // already queued for this frame
+    rafId.current = requestAnimationFrame(() => {
+      rafId.current = null;
+      const rect = cachedRect.current!;
+      const px = (clientX - rect.left) / rect.width - 0.5;
+      const py = (clientY - rect.top) / rect.height - 0.5;
+      tiltX.set(px);
+      tiltY.set(py);
+      cursorX.set(clientX - rect.left);
+      cursorY.set(clientY - rect.top);
+      if (!isCursorVisible.current) {
+        isCursorVisible.current = true;
+        setCursorVisible(true);
+      }
+    });
   };
 
   const handleMouseLeave = () => {
+    isCursorVisible.current = false;
     tiltX.set(0);
     tiltY.set(0);
     setCursorVisible(false);

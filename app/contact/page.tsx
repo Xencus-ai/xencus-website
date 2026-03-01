@@ -1,17 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import type { MouseEvent } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { SITE_NAME } from "@/lib/constants";
+
+declare global {
+  interface Window {
+    Calendly?: { initPopupWidget: (options: { url: string }) => void };
+  }
+}
 
 const CALENDLY_URL =
   "https://calendly.com/xencus-info/scale-your-edtech-with-xencus?hide_event_type_details=1&hide_gdpr_banner=1&text_color=151515&primary_color=facc48";
 
 function openCalendlyPopup(event: MouseEvent<HTMLButtonElement>) {
   event.preventDefault();
-  if (typeof window !== "undefined" && (window as any).Calendly?.initPopupWidget) {
-    (window as any).Calendly.initPopupWidget({ url: CALENDLY_URL });
+  if (typeof window !== "undefined" && window.Calendly?.initPopupWidget) {
+    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
   } else {
     window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
   }

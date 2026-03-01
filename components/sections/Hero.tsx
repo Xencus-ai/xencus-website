@@ -21,7 +21,7 @@ export function Hero() {
           alt={hero.image.alt}
           fill
           className="object-cover object-center"
-          sizes="(max-width: 768px) 100vw, 100vw"
+          sizes="100vw"
           priority
           fetchPriority="high"
           decoding="async"

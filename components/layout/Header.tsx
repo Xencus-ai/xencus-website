@@ -41,7 +41,7 @@ export function Header() {
         setMegaOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside, { passive: true });
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [megaOpen]);
 
@@ -92,7 +92,7 @@ export function Header() {
                     onMouseEnter={() => setMegaOpen(true)}
                     onClick={() => setMegaOpen((v) => !v)}
                     className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:text-brand"
-                    id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
+                    id={`nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
                     aria-expanded={megaOpen}
                     aria-haspopup="menu"
                     aria-controls="nav-mega-menu"
@@ -103,7 +103,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     className="rounded-lg px-4 py-2 text-base font-semibold text-white transition-colors hover:text-brand"
-                    id={`nav-${item.label.toLowerCase().replace(/\s+/, "-")}`}
+                    id={`nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
                     onMouseEnter={() => setMegaOpen(false)}
                   >
                     {item.label}

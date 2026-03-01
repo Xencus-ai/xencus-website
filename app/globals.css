@@ -281,7 +281,7 @@ h1, h2, h3, h4 {
 .edtech-card-desc-wrap {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.25s ease-out;
+  transition: max-height 0.2s ease-out;
 }
 .edtech-card:hover .edtech-card-desc-wrap {
   max-height: 8.5rem;
@@ -299,6 +299,22 @@ h1, h2, h3, h4 {
   }
 }
 
+/* =====================================================================
+   PERFORMANCE: Let content render before decorative animations start.
+   0.4 s delay means text and images are visible before borders spin.
+   animation-fill-mode: backwards keeps each element in its natural
+   (pre-animation) state during the delay — no invisible flash.
+   ===================================================================== */
+.card-border-gradient,
+.card-border-linear,
+.badge-liquid-animated::before,
+.party-popper-animate,
+.testimonial-marquee,
+.testimonial-marquee-reverse {
+  animation-delay: 0.4s;
+  animation-fill-mode: backwards;
+}
+
 /* Respect user motion preferences — pause all decorative animations */
 @media (prefers-reduced-motion: reduce) {
   .card-border-gradient,
@@ -308,6 +324,47 @@ h1, h2, h3, h4 {
   .testimonial-marquee,
   .testimonial-marquee-reverse {
     animation-play-state: paused;
+  }
+}
+
+/* =====================================================================
+   PERFORMANCE: Mobile (< 640 px) simplifications.
+   Conic-gradient rotation and stacked backdrop-filters are the two
+   biggest GPU frame-rate killers on phones.
+   ===================================================================== */
+@media (max-width: 639px) {
+  /* Replace spinning conic-gradient border with a static amber line.
+     .card-border-animated has padding: 2 px — this creates a clean
+     2 px brand-color border with zero per-frame GPU work. */
+  .card-border-gradient {
+    animation: none;
+    background: var(--brand);
+    opacity: 0.7;
+  }
+
+  /* Replace sliding gradient border with a static gradient line. */
+  .card-border-linear {
+    animation: none;
+    background: linear-gradient(90deg, #9b5cff, #3c9dff, #38f9d7);
+  }
+
+  /* Remove backdrop-filter from purely decorative elements.
+     The nav (.nav-liquid / .nav-liquid-panel) keeps its blur. */
+  .badge-liquid-animated-inner {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .twist-callout-circle {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Slow the marquee on mobile to halve per-frame GPU load. */
+  .testimonial-marquee {
+    animation-duration: 28s;
+  }
+  .testimonial-marquee-reverse {
+    animation-duration: 36s;
   }
 }
 
@@ -347,4 +404,27 @@ h1, h2, h3, h4 {
 .testimonial-marquee-reverse {
   animation: testimonial-marquee-reverse 18s linear infinite;
   will-change: transform;
+}
+
+/* =====================================================================
+   PERFORMANCE: content-visibility — skip rendering off-screen sections.
+   Browser defers paint/layout of these sections until the user scrolls
+   near them, cutting initial render cost significantly.
+   contain-intrinsic-block-size prevents layout shift by reserving a
+   placeholder height while the section is skipped.
+   ===================================================================== */
+#what-we-do,
+#how-we-work,
+#how-we-scale,
+#certificate-platform,
+#other-services,
+#testimonials,
+#edtech-what-we-run {
+  content-visibility: auto;
+  contain-intrinsic-block-size: 600px;
+}
+
+/* INP: isolate card layout so hover only recalculates this subtree */
+.edtech-card {
+  contain: layout paint;
 }

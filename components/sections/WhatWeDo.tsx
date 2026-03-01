@@ -61,7 +61,8 @@ export function WhatWeDo() {
             aria-hidden
             style={{
               backgroundColor: "rgba(250, 204, 72, 0.5)",
-              animation: "twist-circle-pulse-single 4.2s ease-in-out infinite",
+              animation: "twist-circle-pulse-single 4.2s ease-in-out 0.4s infinite",
+              animationFillMode: "backwards",
             }}
           />
           <div className="relative z-10 text-center">

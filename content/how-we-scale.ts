@@ -26,7 +26,7 @@ export const howWeScale = {
       description: [
         "For every domain, we structure the learning journey from curriculum planning and trainer alignment to assessments and real-world project integration. Each cohort follows a clearly defined academic roadmap for consistency and measurable outcomes.",
       ],
-      image: "/Assets/how-we-scale/2.jpg",
+      image: "/Assets/how-we-scale/2.avif",
       imageAlt: "Academic framework design",
     },
     {
@@ -35,7 +35,7 @@ export const howWeScale = {
       description: [
         "We host and manage centralized live classes, coordinate trainers, schedule sessions, and ensure every batch runs smoothly. Students experience a professional learning environment powered behind the scenes.",
       ],
-      image: "/Assets/how-we-scale/3.jpg",
+      image: "/Assets/how-we-scale/3.avif",
       imageAlt: "Delivery engine and live classes",
     },
     {
@@ -45,7 +45,7 @@ export const howWeScale = {
         "As enrollments grow, the system expands with you. New cohorts, trainers, and certification workflows are maintained without increasing operational complexity for your team.",
         "You grow revenue. We maintain stability, structure, and quality so that scaling feels predictable and sustainable.",
       ],
-      image: "/Assets/how-we-scale/4.jpg",
+      image: "/Assets/how-we-scale/4.avif",
       imageAlt: "Scaling together",
     },
   ],

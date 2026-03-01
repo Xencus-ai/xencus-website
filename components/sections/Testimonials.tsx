@@ -11,52 +11,52 @@ type AvatarConfig = {
 // slight vertical offsets to give a "curved screen" feel.
 const AVATARS: AvatarConfig[] = [
   {
-    src: "/Assets/testimonial/connor-wilkins-2crxTr4jCkc-unsplash.jpg",
+    src: "/Assets/testimonial/connor-wilkins-2crxTr4jCkc-unsplash.avif",
     sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
     offsetClass: "translate-y-4",
   },
   {
-    src: "/Assets/testimonial/lucas-gouvea-aoEwuEH7YAs-unsplash.jpg",
+    src: "/Assets/testimonial/lucas-gouvea-aoEwuEH7YAs-unsplash.avif",
     sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
     offsetClass: "translate-y-1",
   },
   {
-    src: "/Assets/testimonial/ali-morshedlou-WMD64tMfc4k-unsplash.jpg",
+    src: "/Assets/testimonial/ali-morshedlou-WMD64tMfc4k-unsplash.avif",
     sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
     offsetClass: "-translate-y-1",
   },
   {
-    src: "/Assets/testimonial/mark-farias-dt60oksDTx8-unsplash.jpg",
+    src: "/Assets/testimonial/mark-farias-dt60oksDTx8-unsplash.avif",
     sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
     offsetClass: "translate-y-1",
   },
   {
-    src: "/Assets/testimonial/robert-godwin-cdksyTqEXzo-unsplash.jpg",
+    src: "/Assets/testimonial/robert-godwin-cdksyTqEXzo-unsplash.avif",
     sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
     offsetClass: "translate-y-4",
   },
   {
-    src: "/Assets/testimonial/stefan-stefancik-QXevDflbl8A-unsplash.jpg",
+    src: "/Assets/testimonial/stefan-stefancik-QXevDflbl8A-unsplash.avif",
     sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
     offsetClass: "translate-y-6",
   },
   {
-    src: "/Assets/testimonial/jack-finnigan-rriAI0nhcbc-unsplash.jpg",
+    src: "/Assets/testimonial/jack-finnigan-rriAI0nhcbc-unsplash.avif",
     sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
     offsetClass: "translate-y-3",
   },
   {
-    src: "/Assets/testimonial/rafaella-mendes-diniz-et_78QkMMQs-unsplash.jpg",
+    src: "/Assets/testimonial/rafaella-mendes-diniz-et_78QkMMQs-unsplash.avif",
     sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
     offsetClass: "translate-y-5",
   },
   {
-    src: "/Assets/testimonial/jimmy-fermin-bqe0J0b26RQ-unsplash.jpg",
+    src: "/Assets/testimonial/jimmy-fermin-bqe0J0b26RQ-unsplash.avif",
     sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
     offsetClass: "translate-y-5",
   },
   {
-    src: "/Assets/testimonial/alyona-grishina-BBmi4nJjKk8-unsplash.jpg",
+    src: "/Assets/testimonial/alyona-grishina-BBmi4nJjKk8-unsplash.avif",
     sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
     offsetClass: "translate-y-7",
   },
@@ -149,7 +149,6 @@ export function Testimonials() {
           >
             <div className="mx-auto flex h-64 max-w-5xl items-stretch justify-between opacity-35">
               {[0, 1, 2, 3, 4].map((i) => (
-                // eslint-disable-next-line react/no-array-index-key
                 <div key={i} className="h-full border-l border-dashed border-gray-200" />
               ))}
             </div>
@@ -214,7 +213,6 @@ export function Testimonials() {
                   >
                     {[...row, ...row].map((item, idx) => (
                       <div
-                        // eslint-disable-next-line react/no-array-index-key
                         key={idx}
                         className="min-w-[320px] max-w-xs shrink-0 rounded-2xl border border-gray-100 bg-white/95 px-4 py-3 text-left shadow-sm backdrop-blur-sm sm:min-w-[360px] sm:px-5 sm:py-4"
                       >
