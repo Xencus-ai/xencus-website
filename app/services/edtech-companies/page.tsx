@@ -74,7 +74,7 @@ export default function EdtechCompaniesPage() {
         className="bg-background py-12 sm:py-16"
         aria-labelledby="edtech-what-we-run-title"
       >
-        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
           <header className="mx-auto max-w-3xl text-center">
             <h2
               id="edtech-what-we-run-title"
@@ -89,229 +89,187 @@ export default function EdtechCompaniesPage() {
             </p>
           </header>
 
-          <ul className="mt-8 grid grid-cols-2 gap-y-2 gap-x-3 sm:mt-10 sm:gap-y-3 sm:gap-x-4 max-w-4xl mx-auto">
+          <ul className="mx-auto mt-8 grid w-full max-w-4xl grid-cols-1 justify-items-center gap-x-4 gap-y-4 px-0 sm:mt-10 sm:gap-x-6 sm:gap-y-4 md:grid-cols-2">
             {/* 1. Program design & planning */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/planning.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand-secondary">
-                      <ClipboardList className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image
+                    src="/Assets/edutech/illustrations/planning.avif"
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 767px) 100vw, 18rem"
+                  />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Program design & planning</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        We help you structure programs into clear modules, milestones, and outcomes so every cohort knows exactly what they&apos;ll achieve.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Program design & planning
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      We help you structure programs into clear modules, milestones, and outcomes so
-                      every cohort knows exactly what they&apos;ll achieve.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
 
             {/* 2. Trainer & mentor network */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/mentor.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand-secondary">
-                      <Users className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image src="/Assets/edutech/illustrations/trainer.avif" alt="" fill className="object-cover" sizes="(max-width: 767px) 100vw, 18rem" />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Trainer & mentor network</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        We source, onboard, and manage industry trainers and mentors for each domain, and maintain backups so your calendar never goes dark.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Trainer & mentor network
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      We source, onboard, and manage industry trainers and mentors for each domain,
-                      and maintain backups so your calendar never goes dark.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
 
             {/* 3. Live cohort delivery */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/live-class.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand-secondary">
-                      <Video className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image src="/Assets/edutech/illustrations/livecasses.avif" alt="" fill className="object-cover" sizes="(max-width: 767px) 100vw, 18rem" />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Live cohort delivery</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        Timetables, links, reminders, moderation and recordings for live sessions across all the domains you sell.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Live cohort delivery
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      Timetables, links, reminders, moderation and recordings for live sessions
-                      across all the domains you sell.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
 
             {/* 4. Recorded libraries & replays */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/recorded.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand-secondary">
-                      <Video className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image src="/Assets/edutech/illustrations/recorded.avif" alt="" fill className="object-cover" sizes="(max-width: 767px) 100vw, 18rem" />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Recorded libraries & replays</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        We curate and upload recordings and pre-recorded lessons into structured libraries so learners can revisit content anytime.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Recorded libraries & replays
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      We curate and upload recordings and pre-recorded lessons into structured
-                      libraries so learners can revisit content anytime.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
 
             {/* 5. Doubt sessions & support */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/doubt.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex items-center text-brand-secondary">
-                      <Users className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image src="/Assets/edutech/illustrations/doubtSession.avif" alt="" fill className="object-cover" sizes="(max-width: 767px) 100vw, 18rem" />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Doubt sessions & support</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        We schedule recurring doubt-clearing slots and mentor hours so learners can get quick, personalised help instead of waiting in support queues.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Doubt sessions & support
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      We schedule recurring doubt-clearing slots and mentor hours so learners can
-                      get quick, personalised help instead of waiting in support queues.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
 
             {/* 6. Projects & assessments */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/projects.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex shrink-0 items-center text-brand-secondary">
-                      <ClipboardList className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image src="/Assets/edutech/illustrations/projects.avif" alt="" fill className="object-cover" sizes="(max-width: 767px) 100vw, 18rem" />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Projects & assessments</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        Hands-on projects, graded assignments, and clear rubrics that turn learning into portfolio-ready work.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Projects & assessments
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      Hands-on projects, graded assignments, and clear rubrics that turn learning
-                      into portfolio-ready work.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
 
             {/* 7. Learner & cohort analytics */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/reportings.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex shrink-0 items-center text-brand-secondary">
-                      <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image src="/Assets/edutech/illustrations/analytics.avif" alt="" fill className="object-cover" sizes="(max-width: 767px) 100vw, 18rem" />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Learner & cohort analytics</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        Dashboards for enrolments, attendance, completions, and feedback that your leadership and sales teams can actually act on.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Learner & cohort analytics
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      Dashboards for enrolments, attendance, completions, and feedback that your
-                      leadership and sales teams can actually act on.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
 
             {/* 8. Certification & proof of skill */}
-            <li className="flex">
-              <div className="card-border-linear mx-auto max-w-[18rem] flex-1">
-                <article className="card-border-linear-inner relative flex h-full flex-col overflow-hidden bg-white/95 p-4 text-left sm:p-5">
-                  <div className="relative h-24 w-full sm:h-32">
-                    <Image
-                      src="/Assets/edutech/illustrations/certificate.svg"
-                      alt=""
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="mt-3 flex min-w-0 flex-1 flex-col">
-                    <div className="flex shrink-0 items-center text-brand-secondary">
-                      <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden />
+            <li className="flex w-full justify-center">
+              <article className="edtech-card group group/card relative flex aspect-[3/4] w-full max-w-[18rem] flex-col overflow-hidden rounded-[1rem] border border-gray-200 pt-3 px-3 pb-0 transition-shadow hover:shadow-md">
+                <div className="card-splash z-0 rounded-[0.65rem]" aria-hidden />
+                <div className="absolute inset-0 z-0 rounded-[0.65rem] bg-white/30 backdrop-blur-sm" aria-hidden />
+                <div className="absolute top-3 left-3 right-3 bottom-16 z-[1] overflow-hidden rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]">
+                  <Image src="/Assets/edutech/illustrations/certificate.avif" alt="" fill className="object-cover" sizes="(max-width: 767px) 100vw, 18rem" />
+                </div>
+                <div className="absolute top-3 left-3 right-3 bottom-16 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-[0.8rem] transition-[bottom] duration-300 ease-out group-hover/card:bottom-[10rem]" aria-hidden />
+                <div className="absolute -left-3 -right-3 bottom-0 top-[calc(100%-4rem)] z-10 flex flex-col justify-start rounded-b-[1rem] bg-white/15 pt-2 shadow-lg backdrop-blur-md transition-[top] duration-300 ease-out group-hover/card:justify-center group-hover/card:bg-white/90 group-hover/card:pt-0 group-hover/card:top-[calc(100%-10rem)]">
+                  <div className="w-full rounded-t-[0.8rem] rounded-b-[1rem] border border-t-0 border-b-0 border-white/20 px-5 pt-3 pb-5 text-center transition-colors group-hover/card:border-gray-200/80">
+                    <h3 className="text-xs font-semibold text-heading sm:text-sm">Certification & proof of skill</h3>
+                    <div className="edtech-card-desc-wrap w-full">
+                      <p className="edtech-card-desc pt-1 text-xs leading-snug text-gray-600">
+                        We handle completion rules and certificate generation so learners graduate with branded, verifiable proof of their skills.
+                      </p>
                     </div>
-                    <h3 className="mt-3 text-base font-semibold text-heading sm:text-lg">
-                      Certification & proof of skill
-                    </h3>
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-paragraph-secondary">
-                      We handle completion rules and certificate generation so learners graduate with
-                      branded, verifiable proof of their skills.
-                    </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
             </li>
           </ul>
         </div>

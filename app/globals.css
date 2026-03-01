@@ -250,6 +250,55 @@ h1, h2, h3, h4 {
   animation: party-popper-bounce 1.4s ease-in-out infinite;
 }
 
+/* EdTech cards: thin sunlight splash visible from the corners (not behind image) */
+.card-splash {
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: 0.65rem;
+  /* Light from each corner - visible only in the corner/frame area, masked so center (image) is clear */
+  background:
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(254, 243, 199, 0.4), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgba(254, 243, 199, 0.4), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 0% 100%, rgba(253, 230, 138, 0.25), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(253, 230, 138, 0.25), transparent 50%);
+  /* Only show splash in the outer frame (corners + edges); hide over the image/title area */
+  mask-image: radial-gradient(
+    ellipse 72% 72% at 50% 50%,
+    black 68%,
+    white 72%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 72% 72% at 50% 50%,
+    black 68%,
+    white 72%
+  );
+  -webkit-mask-size: 100% 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* EdTech cards: show sub text on card hover (expand description block) */
+.edtech-card-desc-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+}
+.edtech-card:hover .edtech-card-desc-wrap {
+  max-height: 8.5rem;
+}
+.edtech-card-desc {
+  max-height: 8.25rem;
+  overflow-y: auto;
+}
+@media (min-width: 640px) {
+  .edtech-card:hover .edtech-card-desc-wrap {
+    max-height: 9rem;
+  }
+  .edtech-card-desc {
+    max-height: 8.75rem;
+  }
+}
+
 /* Respect user motion preferences — pause all decorative animations */
 @media (prefers-reduced-motion: reduce) {
   .card-border-gradient,

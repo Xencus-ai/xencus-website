@@ -103,13 +103,13 @@ export function WhatWeDo() {
                     </p>
                   </div>
                   {hasIllustration && (
-                    <div className="hidden w-2/5 shrink-0 items-center justify-center p-4 sm:flex">
+                    <div className="flex w-1/4 shrink-0 items-center justify-center p-3 sm:w-2/5 sm:p-4">
                       <Image
                         src={item.illustration}
                         alt=""
                         width={140}
                         height={120}
-                        className="h-20 w-auto object-contain sm:h-24"
+                        className="h-16 w-auto object-contain sm:h-20 md:h-24"
                       />
                     </div>
                   )}
