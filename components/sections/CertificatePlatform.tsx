@@ -8,7 +8,7 @@ export function CertificatePlatform() {
 
   return (
     <section
-      className="bg-background py-12 sm:py-16"
+      className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
       id="certificate-platform"
       aria-labelledby="certificate-platform-title"
     >

@@ -10,7 +10,7 @@ export function HowWeWork() {
 
   return (
     <section
-      className="bg-background py-12 sm:py-16"
+      className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
       id="how-we-work"
       aria-labelledby="how-we-work-title"
     >

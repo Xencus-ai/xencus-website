@@ -138,7 +138,7 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-labelledby="testimonials-title"
-      className="bg-background py-12 sm:py-16"
+      className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
     >
       <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
         <div className="relative pb-16 pt-8 sm:pb-20 sm:pt-10 lg:pb-24 lg:pt-12">

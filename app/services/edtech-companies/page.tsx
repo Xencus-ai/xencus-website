@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle2, Users, Video, BarChart3, ClipboardList } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { edtechLiveClass } from "@/content/edtech-services";
+import { edtechAnalytics, edtechLiveClass, edtechLmsOps } from "@/content/edtech-services";
+import { upcomingBatches } from "@/content/upcoming-batches";
 import { buildPageMetadata } from "@/lib/seo";
+import { getNextBatchStartDate } from "@/lib/next-batch-date";
 import { getEdtechFaqSchema, getEdtechServiceSchema } from "@/lib/structured-data";
 
 type EdtechCard = {
@@ -114,13 +116,14 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function EdtechCompaniesPage() {
+  const nextBatchStart = getNextBatchStartDate();
   return (
     <main className="bg-background">
       <JsonLd data={getEdtechFaqSchema()} />
       <JsonLd data={getEdtechServiceSchema()} />
       {/* Hero: overview of how we serve EdTech companies */}
       <section
-        className="relative flex w-full min-h-[92vh] items-center justify-center overflow-hidden -mt-[5.5rem] pb-24 pt-24 sm:pb-28 sm:pt-32 lg:pb-32 lg:pt-36"
+        className="relative flex min-h-screen w-full items-center justify-center overflow-hidden -mt-[var(--header-offset)] pb-24 pt-24 sm:pb-28 sm:pt-32 lg:pb-32 lg:pt-36"
         aria-labelledby="edtech-services-hero-title"
       >
         <div className="absolute inset-0">
@@ -173,7 +176,7 @@ export default function EdtechCompaniesPage() {
       {/* Section: What we run for your EdTech (similar to homepage "What We Do") */}
       <section
         id="edtech-what-we-run"
-        className="bg-background py-12 sm:py-16"
+        className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
         aria-labelledby="edtech-what-we-run-title"
       >
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
@@ -201,7 +204,7 @@ export default function EdtechCompaniesPage() {
 
       {/* Section: Live class operations — Tailwind 4.2 reference layout */}
       <section
-        className="overflow-hidden bg-white py-24 sm:py-32"
+        className="min-h-[calc(100vh-var(--header-offset))] overflow-hidden bg-white py-24 sm:py-32"
         aria-labelledby="live-class-ops-title"
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -275,57 +278,132 @@ export default function EdtechCompaniesPage() {
         </div>
       </section>
 
-      {/* Section: LMS & content operations */}
+      {/* Section: Upcoming batches */}
       <section
-        className="bg-background py-12 sm:py-16"
-        aria-labelledby="lms-ops-title"
+        className="min-h-[calc(100vh-var(--header-offset))] overflow-hidden bg-background py-24 sm:py-32"
+        aria-labelledby="upcoming-batch-title"
       >
-        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
-            <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-                <ClipboardList className="h-3.5 w-3.5 text-brand-secondary" aria-hidden />
-                <span>LMS & course operations</span>
-              </div>
-              <h2
-                id="lms-ops-title"
-                className="mt-3 text-2xl font-semibold tracking-tight text-heading sm:text-3xl lg:text-4xl"
-              >
-                Courses and LMS, kept in sync
-              </h2>
-              <p className="mt-3 max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base">
-                We maintain your course structures, cohorts, and learner journeys inside your LMS so
-                learners always see exactly what they&apos;re supposed to—no broken links or
-                missing modules.
-              </p>
-              <ul className="mt-5 space-y-3 text-sm text-paragraph-secondary sm:text-base">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>Domain-wise course templates configured for each new cohort.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ClipboardList className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>
-                    Projects, quizzes, and assignments set up with clear grading and deadlines.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Users className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>
-                    Enrolment, access, and completion rules implemented so support tickets go down.
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="order-1 rounded-2xl border border-gray-200 bg-white/90 p-3 shadow-sm backdrop-blur-sm lg:order-2">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-x-8 gap-y-12 lg:grid-cols-2 lg:gap-x-12 lg:gap-y-0">
+            {/* Image left — vertically centered in section */}
+            <div className="flex min-w-0 items-center justify-center lg:py-4">
+              <div className="relative aspect-[16/10] w-full max-w-xl overflow-hidden rounded-xl shadow-xl ring-1 ring-gray-400/10 lg:max-w-none">
                 <Image
-                  src="/Assets/edutech/course.png"
-                  alt="LMS dashboard showing courses and learner progress"
+                  src={upcomingBatches.image.src}
+                  alt={upcomingBatches.image.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 45vw"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
+            {/* Table and content right */}
+            <div className="min-w-0 lg:py-4">
+              <p className="text-base font-semibold leading-7 text-brand-secondary">
+                {upcomingBatches.sectionLabel}
+              </p>
+              <h2
+                id="upcoming-batch-title"
+                className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-heading sm:text-5xl"
+              >
+                {upcomingBatches.title}
+              </h2>
+              <p className="mt-6 max-w-lg text-lg leading-8 text-paragraph-secondary">
+                {upcomingBatches.description}
+              </p>
+              <p className="mt-4 text-base font-semibold text-heading">
+                Next batch:{" "}
+                <time
+                  dateTime={`${nextBatchStart.year}-${String(nextBatchStart.month).padStart(2, "0")}-${String(nextBatchStart.day).padStart(2, "0")}`}
+                >
+                  {nextBatchStart.label}
+                </time>
+              </p>
+              <div className="mt-6 min-w-0 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm ring-1 ring-gray-900/5">
+                <div className="max-h-[26rem] overflow-y-auto overflow-x-hidden scroll-smooth overscroll-contain py-1">
+                  <table className="min-w-full divide-y divide-gray-100">
+                    <thead className="sticky top-0 z-10 bg-gray-50/95 backdrop-blur-sm">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-heading sm:px-5"
+                        >
+                          Course
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-heading sm:px-5"
+                        >
+                          Duration
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100 bg-white">
+                      {upcomingBatches.batches.map((batch) => (
+                        <tr key={batch.name} className="transition-colors hover:bg-gray-50/80">
+                          <td className="px-4 py-2.5 text-sm text-paragraph-secondary sm:px-5">
+                            {batch.name}
+                          </td>
+                          <td className="whitespace-nowrap px-4 py-2.5 text-sm font-medium text-heading sm:px-5">
+                            {batch.duration}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: LMS & course operations — same layout as Live class (content left, image right) */}
+      <section
+        className="min-h-[calc(100vh-var(--header-offset))] overflow-hidden bg-white py-24 sm:py-32"
+        aria-labelledby="lms-ops-title"
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            <div className="lg:pt-4 lg:pr-8">
+              <div className="lg:max-w-lg">
+                <p className="text-base font-semibold leading-7 text-brand-secondary">
+                  {edtechLmsOps.label}
+                </p>
+                <h2
+                  id="lms-ops-title"
+                  className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-heading sm:text-5xl"
+                >
+                  {edtechLmsOps.title}
+                </h2>
+                <p className="mt-6 text-lg leading-8 text-paragraph-secondary">
+                  {edtechLmsOps.description}
+                </p>
+                <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-paragraph-secondary lg:max-w-none">
+                  {edtechLmsOps.listItems.map((item) => (
+                    <div key={item.name} className="relative pl-9">
+                      <dt className="inline font-semibold text-heading">
+                        <CheckCircle2
+                          aria-hidden
+                          className="absolute left-0 top-1 h-5 w-5 text-brand-secondary"
+                        />
+                        {item.name}
+                      </dt>{" "}
+                      <dd className="inline">{item.description}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </div>
+            <div className="flex min-w-0 items-center justify-center lg:py-4">
+              <div className="relative aspect-[16/10] w-full max-w-xl overflow-hidden rounded-xl shadow-xl ring-1 ring-gray-400/10 lg:max-w-none">
+                <Image
+                  src={edtechLmsOps.image.src}
+                  alt={edtechLmsOps.image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 />
               </div>
             </div>
@@ -333,53 +411,53 @@ export default function EdtechCompaniesPage() {
         </div>
       </section>
 
-      {/* Section: Analytics & reporting */}
+      {/* Section: Analytics & reporting — image left, content right */}
       <section
-        className="bg-background pb-12 pt-2 sm:pb-14 sm:pt-4"
+        className="min-h-[calc(100vh-var(--header-offset))] overflow-hidden bg-background py-24 sm:py-32"
         aria-labelledby="analytics-ops-title"
       >
-        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-                <BarChart3 className="h-3.5 w-3.5 text-brand-secondary" aria-hidden />
-                <span>Analytics & reporting</span>
-              </div>
-              <h2
-                id="analytics-ops-title"
-                className="mt-3 text-2xl font-semibold tracking-tight text-heading sm:text-3xl lg:text-4xl"
-              >
-                One view of your learner outcomes
-              </h2>
-              <p className="mt-3 max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base">
-                We pull together attendance, completion, projects, and feedback so your leadership
-                team gets a clean picture of how every cohort is performing.
-              </p>
-              <ul className="mt-5 space-y-3 text-sm text-paragraph-secondary sm:text-base">
-                <li className="flex items-start gap-2">
-                  <BarChart3 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>Program-wise dashboards for enrolments, live hours, and completions.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>Export-ready views for investors, enterprise clients, and partners.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ClipboardList className="mt-0.5 h-4 w-4 text-brand-secondary" aria-hidden />
-                  <span>Exception reports so your team can intervene before cohorts slip.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-gray-200 bg-white/90 p-3 shadow-sm backdrop-blur-sm">
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            {/* Image left — vertically centered */}
+            <div className="flex min-w-0 items-center justify-center lg:py-4">
+              <div className="relative aspect-[16/10] w-full max-w-xl overflow-hidden rounded-xl shadow-xl ring-1 ring-gray-400/10 lg:max-w-none">
                 <Image
-                  src="/Assets/edutech/analytics.png"
-                  alt="Analytics dashboard showing learner and cohort performance"
+                  src={edtechAnalytics.image.src}
+                  alt={edtechAnalytics.image.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 45vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                 />
+              </div>
+            </div>
+            <div className="lg:pt-4 lg:pl-8">
+              <div className="lg:max-w-lg">
+                <p className="text-base font-semibold leading-7 text-brand-secondary">
+                  {edtechAnalytics.label}
+                </p>
+                <h2
+                  id="analytics-ops-title"
+                  className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-heading sm:text-5xl"
+                >
+                  {edtechAnalytics.title}
+                </h2>
+                <p className="mt-6 text-lg leading-8 text-paragraph-secondary">
+                  {edtechAnalytics.description}
+                </p>
+                <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-paragraph-secondary lg:max-w-none">
+                  {edtechAnalytics.listItems.map((item) => (
+                    <div key={item.name} className="relative pl-9">
+                      <dt className="inline font-semibold text-heading">
+                        <CheckCircle2
+                          aria-hidden
+                          className="absolute left-0 top-1 h-5 w-5 text-brand-secondary"
+                        />
+                        {item.name}
+                      </dt>{" "}
+                      <dd className="inline">{item.description}</dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
             </div>
           </div>
@@ -388,7 +466,7 @@ export default function EdtechCompaniesPage() {
 
       {/* FAQs */}
       <section
-        className="bg-background pb-16 pt-4 sm:pb-20 sm:pt-6"
+        className="min-h-[calc(100vh-var(--header-offset))] bg-background pb-16 pt-4 sm:pb-20 sm:pt-6"
         aria-labelledby="edtech-faq-title"
       >
         <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">

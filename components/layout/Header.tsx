@@ -55,9 +55,9 @@ export function Header() {
         />
       )}
 
-      {/* Desktop: sticky pill nav (≥1000px) */}
+      {/* Desktop: fixed pill nav so it stays visible when scrolling (≥1000px) */}
       <header
-        className="sticky top-4 z-50 mx-auto mt-4 w-full px-0 max-[999px]:hidden"
+        className="fixed left-0 right-0 top-4 z-50 mx-auto w-full px-0 max-[999px]:hidden"
         style={{ width: "min(90vw, 1440px)" }}
         id="main-header"
       >

@@ -10,7 +10,7 @@ const dock =
 export function Hero() {
   return (
     <section
-      className="relative flex w-full min-h-[max(85vh,100vh)] flex-col justify-start sm:justify-end overflow-visible -mt-[5.5rem]"
+      className="relative flex min-h-screen w-full flex-col justify-start sm:justify-end overflow-visible -mt-[var(--header-offset)]"
       id="hero"
       aria-label="Hero"
     >

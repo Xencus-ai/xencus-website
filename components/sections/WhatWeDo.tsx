@@ -24,7 +24,7 @@ const itemIcons: Record<
 export function WhatWeDo() {
   return (
     <section
-      className="bg-background py-12 sm:py-16"
+      className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
       id="what-we-do"
       aria-labelledby="what-we-do-title"
     >

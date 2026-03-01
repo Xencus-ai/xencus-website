@@ -37,16 +37,24 @@ export const edtechLmsOps = {
   label: "LMS & course operations",
   title: "Courses and LMS, kept in sync",
   description:
-    "We maintain your course structures, cohorts, and learner journeys inside your LMS so learners always see exactly what they're supposed to—no broken links or missing modules.",
+    "We maintain your course structures, cohorts, and learner journeys so learners always see the right content at the right time—no broken links or missing modules. Use your existing LMS or our white-label LMS.",
   listItems: [
     {
-      text: "Domain-wise course templates configured for each new cohort.",
+      name: "Your LMS or ours.",
+      description:
+        "We integrate with your existing LMS or provide a white-label LMS so everything stays under your brand.",
     },
     {
-      text: "Projects, quizzes, and assignments set up with clear grading and deadlines.",
+      name: "Course templates.",
+      description: "Domain-wise templates configured for each new cohort with clear milestones.",
     },
     {
-      text: "Enrolment, access, and completion rules implemented so support tickets go down.",
+      name: "Projects & assessments.",
+      description: "Quizzes, assignments, and grading set up with clear deadlines and rubrics.",
+    },
+    {
+      name: "Enrolment & completion.",
+      description: "Access and completion rules implemented so support tickets go down.",
     },
   ],
   image: {
@@ -59,16 +67,23 @@ export const edtechAnalytics = {
   label: "Analytics & reporting",
   title: "One view of your learner outcomes",
   description:
-    "We pull together attendance, completion, projects, and feedback so your leadership team gets a clean picture of how every cohort is performing.",
+    "We pull attendance, completion, projects, and feedback into a single view so your leadership and sales teams see exactly how every cohort is performing—without digging through spreadsheets.",
   listItems: [
     {
-      text: "Program-wise dashboards for enrolments, live hours, and completions.",
+      name: "Program dashboards.",
+      description: "Enrolments, live hours, and completions by program and cohort.",
     },
     {
-      text: "Export-ready views for investors, enterprise clients, and partners.",
+      name: "Export-ready views.",
+      description: "Clean reports for investors, enterprise clients, and partners.",
     },
     {
-      text: "Exception reports so your team can intervene before cohorts slip.",
+      name: "Exception reports.",
+      description: "Flags so your team can intervene before cohorts slip.",
+    },
+    {
+      name: "Actionable insights.",
+      description: "Metrics that tie directly to revenue and retention.",
     },
   ],
   image: {

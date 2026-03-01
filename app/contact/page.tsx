@@ -25,7 +25,7 @@ function openCalendlyPopup(event: MouseEvent<HTMLButtonElement>) {
 export default function ContactPage() {
   return (
     <section
-      className="bg-background py-12 sm:py-16"
+      className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
       aria-labelledby="contact-page-title"
     >
       <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">

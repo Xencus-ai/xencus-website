@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Header: fixed nav height + top margin (match main pt-[4.5rem]) */
+  --header-offset: 4.5rem;
   /* Brand */
   --brand: #facc48;
   --brand-secondary: #151515;
