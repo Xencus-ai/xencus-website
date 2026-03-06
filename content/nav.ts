@@ -4,9 +4,9 @@
 
 export const mainNav = [
   { label: "Services", href: "#services", hasMega: true },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About Us", href: "#about" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About Us", href: "/about" },
 ] as const;
 
 export const servicesMegaMenu = {
