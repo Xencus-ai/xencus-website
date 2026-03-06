@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { CheckCircle2, Users, Video, BarChart3, ClipboardList } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  edtechCta,
+  edtechGettingStarted,
+  edtechIntegrations,
+  edtechMetrics,
+} from "@/content/edtech-partners";
 import { edtechAnalytics, edtechLiveClass, edtechLmsOps } from "@/content/edtech-services";
 import { upcomingBatches } from "@/content/upcoming-batches";
 import { buildPageMetadata } from "@/lib/seo";
@@ -464,67 +471,237 @@ export default function EdtechCompaniesPage() {
         </div>
       </section>
 
-      {/* FAQs */}
+      {/* Bento Grid — partner value (Tailwind 4.2 reference) */}
       <section
-        className="min-h-[calc(100vh-var(--header-offset))] bg-background pb-16 pt-4 sm:pb-20 sm:pt-6"
+        className="min-h-[calc(100vh-var(--header-offset))] bg-background py-24 sm:py-32"
+        aria-labelledby="edtech-bento-title"
+      >
+        <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+          <p className="text-center text-base font-semibold leading-7 text-brand-secondary">
+            For EdTech partners
+          </p>
+          <h2
+            id="edtech-bento-title"
+            className="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-heading sm:text-5xl"
+          >
+            Everything you need to scale delivery
+          </h2>
+          <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+            {/* Cell 1: Getting started — row-span-2 left */}
+            <div className="relative lg:row-span-2">
+              <div className="absolute inset-px rounded-lg bg-white lg:rounded-l-2xl" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(1rem+1px)] lg:rounded-l-[calc(1rem+1px)]">
+                <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                  <p className="mt-2 text-lg font-medium tracking-tight text-heading max-lg:text-center">
+                    {edtechGettingStarted.title}
+                  </p>
+                  <p className="mt-2 max-w-lg text-sm leading-6 text-paragraph-secondary max-lg:text-center">
+                    {edtechGettingStarted.description}
+                  </p>
+                  <ol className="mt-4 space-y-2">
+                    {edtechGettingStarted.steps.map((item) => (
+                      <li key={item.step} className="flex gap-2 text-sm text-paragraph-secondary max-lg:justify-center">
+                        <span className="shrink-0 font-semibold text-heading">{item.step}.</span>
+                        <span>{item.title}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <div className="relative min-h-[18rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
+                  <div className="absolute inset-x-4 top-4 bottom-0 overflow-hidden rounded-t-xl border border-gray-200 bg-white shadow-lg">
+                    <Image
+                      src={edtechGettingStarted.image.src}
+                      alt={edtechGettingStarted.image.alt}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 lg:rounded-l-2xl" />
+            </div>
+
+            {/* Cell 2: Integrations — top middle */}
+            <div className="relative max-lg:row-start-1">
+              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-2xl" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(1rem+1px)] max-lg:rounded-t-[calc(1rem+1px)]">
+                <div className="px-8 pt-8 sm:px-10 sm:pt-10">
+                  <p className="mt-2 text-lg font-medium tracking-tight text-heading max-lg:text-center">
+                    {edtechIntegrations.title}
+                  </p>
+                  <p className="mt-2 max-w-lg text-sm leading-6 text-paragraph-secondary max-lg:text-center">
+                    {edtechIntegrations.description}
+                  </p>
+                </div>
+                <div className="flex flex-1 items-center justify-center px-8 max-lg:pt-6 max-lg:pb-10 sm:px-10 lg:pb-2">
+                  <div className="relative h-32 w-full max-lg:max-w-xs">
+                    <Image
+                      src={edtechIntegrations.image.src}
+                      alt={edtechIntegrations.image.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 max-lg:rounded-t-2xl" />
+            </div>
+
+            {/* Cell 3: Metrics — bottom middle */}
+            <div className="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+              <div className="absolute inset-px rounded-lg bg-white" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(1rem+1px)]">
+                <div className="px-8 pt-8 sm:px-10 sm:pt-10">
+                  <p className="mt-2 text-lg font-medium tracking-tight text-heading max-lg:text-center">
+                    {edtechMetrics.title}
+                  </p>
+                  <p className="mt-2 max-w-lg text-sm leading-6 text-paragraph-secondary max-lg:text-center">
+                    {edtechMetrics.description}
+                  </p>
+                </div>
+                <div className="flex flex-1 flex-wrap items-center justify-center gap-3 px-6 max-lg:py-6 lg:pb-4">
+                  {edtechMetrics.metrics.map((m) => (
+                    <div key={m.label} className="rounded-lg border border-gray-200 bg-gray-50/80 px-4 py-2 text-center">
+                      <p className="text-lg font-bold text-brand-secondary">{m.value}</p>
+                      <p className="text-xs font-medium text-paragraph-secondary">{m.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5" />
+            </div>
+
+            {/* Cell 4: CTA — row-span-2 right */}
+            <div className="relative lg:row-span-2">
+              <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-2xl lg:rounded-r-2xl" />
+              <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(1rem+1px)] max-lg:rounded-b-[calc(1rem+1px)] lg:rounded-r-[calc(1rem+1px)]">
+                <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                  <p className="mt-2 text-lg font-medium tracking-tight text-heading max-lg:text-center">
+                    {edtechCta.title}
+                  </p>
+                  <p className="mt-2 max-w-lg text-sm leading-6 text-paragraph-secondary max-lg:text-center">
+                    {edtechCta.description}
+                  </p>
+                  <div className="mt-6 flex justify-center max-lg:pb-6">
+                    <Link
+                      href={edtechCta.buttonHref}
+                      className="inline-flex rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-secondary shadow-sm transition-opacity hover:opacity-90"
+                    >
+                      {edtechCta.buttonText}
+                    </Link>
+                  </div>
+                </div>
+                <div className="relative min-h-[18rem] w-full grow">
+                  <div className="absolute top-4 right-0 bottom-0 left-4 overflow-hidden rounded-tl-xl border border-gray-200 bg-white shadow-lg">
+                    <Image
+                      src={edtechCta.image.src}
+                      alt={edtechCta.image.alt}
+                      fill
+                      className="object-cover object-center"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 max-lg:rounded-b-2xl lg:rounded-r-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs — simple grid */}
+      <section
+        className="min-h-[calc(100vh-var(--header-offset))] bg-white"
         aria-labelledby="edtech-faq-title"
       >
-        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
-          <header className="mx-auto max-w-3xl text-center">
+        <div className="container mx-auto space-y-16 px-4 py-16 lg:px-8 lg:py-32 xl:max-w-7xl">
+          <div className="text-center">
+            <p className="mb-1 text-sm font-bold uppercase tracking-wider text-orange-600">
+              We Answer
+            </p>
             <h2
               id="edtech-faq-title"
-              className="text-2xl font-semibold tracking-tight text-heading sm:text-3xl lg:text-4xl"
+              className="text-4xl font-black text-heading"
             >
-              Frequently asked questions
+              Frequently Asked Questions
             </h2>
-            <p className="mt-3 text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-paragraph-secondary sm:text-base">
               A few of the questions EdTech founders and operations heads ask us before we start
               working together.
             </p>
-          </header>
+          </div>
 
-          <dl className="mx-auto mt-8 max-w-3xl space-y-5 divide-y divide-gray-200 rounded-2xl bg-white/80 p-5 shadow-sm backdrop-blur-sm sm:mt-10 sm:p-6">
-            <div className="pt-1">
-              <dt className="text-sm font-semibold text-heading sm:text-base">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+            <div>
+              <h3 className="mb-2 font-semibold text-heading">
                 Do you work with early-stage EdTechs or only large ones?
-              </dt>
-              <dd className="mt-2 text-sm text-paragraph-secondary sm:text-base">
+              </h3>
+              <p className="leading-relaxed text-paragraph-secondary">
                 Both. We partner with early-stage teams that are just setting up their first domains,
                 and with scaled players running dozens of cohorts at once. We design the operating
                 model based on your current volume and where you want to be in 12–18 months.
-              </dd>
+              </p>
             </div>
-            <div className="pt-4">
-              <dt className="text-sm font-semibold text-heading sm:text-base">
+            <div>
+              <h3 className="mb-2 font-semibold text-heading">
                 Which tools and platforms do you plug into?
-              </dt>
-              <dd className="mt-2 text-sm text-paragraph-secondary sm:text-base">
+              </h3>
+              <p className="leading-relaxed text-paragraph-secondary">
                 We typically host live classes on Zoom or Google Meet and work with your existing
                 LMS, CRM, and payment stack. If you don&apos;t have tooling in place yet, we&apos;ll
                 recommend a simple setup based on your volumes.
-              </dd>
+              </p>
             </div>
-            <div className="pt-4">
-              <dt className="text-sm font-semibold text-heading sm:text-base">
+            <div>
+              <h3 className="mb-2 font-semibold text-heading">
                 How long does it take to go live with Xencus?
-              </dt>
-              <dd className="mt-2 text-sm text-paragraph-secondary sm:text-base">
+              </h3>
+              <p className="leading-relaxed text-paragraph-secondary">
                 For a single domain, we can usually go live within 2–3 weeks once we&apos;ve aligned
                 on curriculum, outcomes, and tools. For larger multi-domain setups, we phase the
                 rollout so you see value in the first month.
-              </dd>
+              </p>
             </div>
-            <div className="pt-4">
-              <dt className="text-sm font-semibold text-heading sm:text-base">
+            <div>
+              <h3 className="mb-2 font-semibold text-heading">
                 Will learners know that Xencus is running the operations?
-              </dt>
-              <dd className="mt-2 text-sm text-paragraph-secondary sm:text-base">
+              </h3>
+              <p className="leading-relaxed text-paragraph-secondary">
                 No. From the learner&apos;s point of view everything stays under your brand—your
                 website, your emails, your certificates. Xencus operates as the invisible backbone so
                 your brand remains front and center.
-              </dd>
+              </p>
             </div>
-          </dl>
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold leading-6 text-heading shadow-sm transition-colors hover:border-gray-300 hover:text-gray-900 hover:shadow focus:outline-none focus:ring-2 focus:ring-gray-300/25 active:border-gray-200"
+            >
+              <svg
+                className="size-5 opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.25 5.5a.75.75 0 00-.75.75v8.5c0 .414.336.75.75.75h8.5a.75.75 0 00.75-.75v-4a.75.75 0 011.5 0v4A2.25 2.25 0 0112.75 17h-8.5A2.25 2.25 0 012 14.75v-8.5A2.25 2.25 0 014.25 4h5a.75.75 0 010 1.5h-5z"
+                  clipRule="evenodd"
+                />
+                <path
+                  fillRule="evenodd"
+                  d="M6.194 12.753a.75.75 0 001.06.053L16.5 4.44v2.81a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.553l-9.056 8.194a.75.75 0 00-.053 1.06z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>Go to support center</span>
+            </Link>
+          </div>
         </div>
       </section>
     </main>
