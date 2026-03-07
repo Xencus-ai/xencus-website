@@ -1,65 +1,84 @@
 /**
- * Pricing page: company-size-based tiers, no fixed prices.
+ * Pricing page content.
+ * Xencus uses fully custom pricing — no fixed plans.
  */
 
 export const pricingHero = {
   label: "Pricing",
-  title: "Pricing that scales with your business",
+  title: "Built for your stage, not a plan",
   subtitle:
-    "We don't use one-size-fits-all pricing. Whether you're a startup running your first cohort or a large EdTech with dozens of programs, we tailor engagement to your size, scope, and goals.",
-  ctaText: "Get a quote",
+    "No fixed plans. No rigid tiers. Your engagement is scoped to your current setup, volume, and goals — then adjusts as you grow.",
+  ctaText: "Get a custom quote",
   ctaHref: "/contact",
 } as const;
 
-/** Company size tiers: no fixed amounts, custom pricing per segment. */
-export const pricingTiers = [
+export const pricingPillars = [
   {
-    id: "startup",
-    name: "Startup",
-    description: "Early-stage EdTechs and teams launching their first few cohorts. We keep setup light and costs aligned to your current volume.",
-    highlights: [
-      "First 1–3 domains or programs",
-      "Quick go-live (2–3 weeks)",
-      "Delivery ops + optional legal/HR support",
-      "Flexible terms",
-    ],
-    ctaLabel: "Talk to us",
+    heading: "Scoped to where you are today",
+    body: "We start with what you actually need right now — not a package priced for a company twice your size.",
   },
   {
-    id: "growth",
-    name: "Growth",
-    description: "Scaling EdTechs adding domains, geographies, or cohort frequency. We scale with you so cost tracks usage, not fixed headcount.",
-    highlights: [
-      "Multiple domains and cohorts",
-      "LMS, analytics, certifications",
-      "Legal, HR, finance as needed",
-      "Dedicated ops contact",
-    ],
-    ctaLabel: "Get a quote",
+    heading: "Costs that track your usage",
+    body: "As you add cohorts, programs, and learners, your costs scale with volume — not with fixed salaries or retainers.",
   },
   {
-    id: "scale",
-    name: "Scale",
-    description: "Established EdTechs running many programs and learners. Enterprise-grade operations, SLAs, and integrated legal, HR, and tech.",
+    heading: "One partner across all functions",
+    body: "Delivery, legal, HR, finance, and tech — you don't pay to coordinate four separate agencies.",
+  },
+] as const;
+
+export const pricingStages = [
+  {
+    id: "first-cohort",
+    tag: "First cohort",
+    name: "Just getting started",
+    description:
+      "You have a program idea and need to launch your first 1–3 cohorts without building a full ops team from scratch.",
     highlights: [
-      "High volume, multi-domain",
-      "SLAs and reporting",
+      "Go live in 2–3 weeks",
+      "Curriculum and trainer setup",
+      "Flexible, low-commitment terms",
+      "Add legal or HR support as needed",
+    ],
+  },
+  {
+    id: "scaling",
+    tag: "Scaling up",
+    name: "Adding domains and cohorts",
+    description:
+      "You've launched and want to add domains, run more cohorts, and layer in LMS, analytics, and certifications.",
+    highlights: [
+      "Multiple domains and cohort frequency",
+      "LMS and course ops management",
+      "Learner analytics and certifications",
+      "Dedicated ops point of contact",
+    ],
+  },
+  {
+    id: "high-volume",
+    tag: "High volume",
+    name: "Running at scale",
+    description:
+      "You're running dozens of cohorts across domains and need SLA-backed delivery, clear reporting, and full-stack ops.",
+    highlights: [
+      "SLA-ready execution and escalation paths",
       "Full stack: delivery + legal + HR + finance",
-      "Custom workflows",
+      "Backup delivery and continuity",
+      "Custom workflows and integrations",
     ],
-    ctaLabel: "Get a quote",
   },
   {
     id: "enterprise",
-    name: "Enterprise",
-    description: "Large EdTechs and institutions with complex requirements, multiple brands, or global delivery. Bespoke engagement and dedicated teams.",
+    tag: "Enterprise",
+    name: "Multi-brand or institution-wide",
+    description:
+      "Large EdTechs or institutions with complex delivery needs, multiple brands, or global program requirements.",
     highlights: [
-      "Multi-brand or institution-wide",
-      "Dedicated delivery and support",
-      "Custom integrations and compliance",
-      "Strategic partnership",
+      "Dedicated delivery and support team",
+      "Multi-brand, multi-geography ops",
+      "Custom compliance and integrations",
+      "Strategic long-term partnership",
     ],
-    ctaLabel: "Contact us",
   },
 ] as const;
 
@@ -67,31 +86,32 @@ export const pricingFaq = {
   title: "Common questions",
   items: [
     {
+      q: "What does a custom quote actually mean?",
+      a: "We scope your engagement based on what you need: which services, how many domains and cohorts, and your team's current setup. You get a clear proposal with deliverables, timelines, and costs before you commit.",
+    },
+    {
       q: "Is there a minimum commitment?",
-      a: "It depends on your tier. Startups often start with a single cohort or domain; scale and enterprise engagements typically have longer terms. We'll outline options when we talk.",
+      a: "Early-stage engagements are flexible — many startups begin with a single cohort or domain. Larger engagements typically run on quarterly or annual terms. We'll lay out options when we talk.",
     },
     {
-      q: "What's included in the quote?",
-      a: "We scope based on your domains, cohort frequency, and which services you need (delivery only, or delivery + legal, HR, finance, tech). You get a clear proposal before you commit.",
+      q: "What happens as we add more programs?",
+      a: "Many partners start small and expand as they grow. We revise scope transparently — no surprises when volume changes.",
     },
     {
-      q: "Can we change tiers as we grow?",
-      a: "Yes. Many partners start in Startup or Growth and move to Scale or Enterprise as they add programs and learners. We design for that path.",
+      q: "Can we start with delivery and add HR or finance later?",
+      a: "Yes. Many partners launch with EdTech delivery operations and layer in legal, HR, finance, or tech as they scale. We're built for that path.",
     },
     {
-      q: "How do you price when scope changes mid-way?",
-      a: "We keep scope transparent. If you add programs, cohorts, domains, or extra services, we revise the engagement with clear deltas so you stay in control.",
-    },
-    {
-      q: "Do you offer SLAs for larger partners?",
-      a: "Yes. Scale and enterprise engagements can include SLAs, escalation paths, and reporting rhythms depending on your requirements.",
+      q: "Do you offer SLAs?",
+      a: "Yes, for high-volume and enterprise engagements. SLAs, escalation paths, and reporting rhythms are available depending on your requirements.",
     },
   ],
 } as const;
 
 export const pricingCta = {
-  title: "Not sure which tier fits?",
-  description: "Tell us about your company and goals. We'll recommend a fit and share next steps.",
-  buttonText: "Get in touch",
+  title: "Tell us about your EdTech",
+  description:
+    "Share your setup and goals. We'll recommend a scope and send you a clear proposal with no obligation.",
+  buttonText: "Get a custom quote",
   buttonHref: "/contact",
 } as const;

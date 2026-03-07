@@ -462,28 +462,216 @@ export default function SolutionsPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* What running operations with Xencus actually looks like */}
+      <section
+        className="scroll-mt-[var(--header-offset)] bg-background py-20 sm:py-28 lg:py-32"
+        aria-labelledby="solutions-in-practice-title"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
+              In practice
+            </p>
+            <h2
+              id="solutions-in-practice-title"
+              className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+            >
+              What it actually looks like to work with us
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-paragraph-secondary">
+              Most partnerships start small and grow. Here is the typical progression from first
+              conversation to a full operating relationship.
+            </p>
+          </header>
+
+          <div className="mx-auto mt-14 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-8">
+            {[
+              {
+                phase: "Phase 01",
+                title: "Scoped engagement to prove the model",
+                body: "You start with one programme, one function, or one geography. We align on scope, go live within two to three weeks, and demonstrate that the operating model works before either side commits to a broader engagement. Most clients find the first programme takes significantly less time than expected to set up.",
+              },
+              {
+                phase: "Phase 02",
+                title: "Expanded delivery across programmes",
+                body: "Once the model is proven, we expand to new cohorts, new domains, or new service areas. The operating model is already in place so expansion does not require re-procurement or lengthy onboarding. New programmes are added to the existing delivery infrastructure rather than requiring a fresh start.",
+              },
+              {
+                phase: "Phase 03",
+                title: "Long-term operating partnership",
+                body: "In a steady-state engagement we function as an extension of your team. We manage delivery operations on a rolling basis, provide business services as needed, and contribute to planning for the next quarter and the one after that. The relationship becomes less transactional and more like an internal operating function.",
+              },
+            ].map((item) => (
+              <article
+                key={item.phase}
+                className="relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm sm:p-8"
+              >
+                <span className="absolute top-0 left-0 h-1 w-full bg-brand" aria-hidden />
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-brand-secondary">
+                  {item.phase}
+                </p>
+                <h3 className="text-lg font-semibold text-heading">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-paragraph-secondary sm:text-base">
+                  {item.body}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What makes the model work */}
       <section
         className="scroll-mt-[var(--header-offset)] bg-white py-20 sm:py-28 lg:py-32"
+        aria-labelledby="solutions-model-title"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="lg:grid lg:grid-cols-12 lg:gap-16">
+            <div className="mb-10 lg:col-span-4 lg:mb-0">
+              <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
+                The operating model
+              </p>
+              <h2
+                id="solutions-model-title"
+                className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+              >
+                What makes this model hold up at scale
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-paragraph-secondary">
+                Most outsourced services work well at the start and degrade over time. The
+                structure below is designed to prevent that.
+              </p>
+            </div>
+
+            <div className="lg:col-span-8">
+              <ol className="space-y-10">
+                {[
+                  {
+                    n: "01",
+                    title: "Single point of accountability for all delivery",
+                    body: "One operations owner coordinates trainers, sessions, reporting, and escalations across all programmes. There is no confusion about who to contact when something needs to change or when something goes wrong. This single-owner model is what allows us to promise predictable delivery rather than just aspire to it.",
+                  },
+                  {
+                    n: "02",
+                    title: "Redundancy built into the trainer and operations layer",
+                    body: "Every trainer slot has a backup. Every reporting deliverable has a backup owner. This means cancellations and unexpected absences do not cascade into programme failures. Continuity is designed into the operating model rather than managed reactively after something breaks.",
+                  },
+                  {
+                    n: "03",
+                    title: "Reporting as a discipline, not an afterthought",
+                    body: "Weekly updates, completion reports, and programme-level summaries are produced on schedule regardless of what else is happening. Stakeholders are never in a position of having to chase for numbers. Reporting quality is treated as a core output, not a secondary task.",
+                  },
+                  {
+                    n: "04",
+                    title: "Service areas designed to work together",
+                    body: "When legal, HR, finance, and delivery are managed by separate vendors, coordination between them falls on your team. When they operate through a single partner with a shared operating model, coordination happens inside the partner organisation. The difference in management overhead is significant.",
+                  },
+                ].map((item) => (
+                  <li key={item.n} className="flex gap-6">
+                    <span
+                      className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-brand-secondary"
+                      aria-hidden
+                    >
+                      {item.n}
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-heading sm:text-xl">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-paragraph-secondary sm:text-base">
+                        {item.body}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Questions people ask before starting */}
+      <section
+        className="scroll-mt-[var(--header-offset)] bg-background py-20 sm:py-28 lg:py-32"
+        aria-labelledby="solutions-faq-title"
+      >
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
+              Common questions
+            </p>
+            <h2
+              id="solutions-faq-title"
+              className="mt-3 text-2xl font-bold tracking-tight text-heading sm:text-3xl lg:text-4xl"
+            >
+              Questions we hear before people start
+            </h2>
+          </header>
+
+          <dl className="mt-12 divide-y divide-gray-200">
+            {[
+              {
+                q: "How quickly can we actually get started?",
+                a: "For most delivery and business service engagements, the first programme or service area can go live within two to three weeks of the scoping conversation. The fastest starts happen when you already know the scope and we can align on deliverables and reporting without extensive discovery.",
+              },
+              {
+                q: "Do you replace our internal team or work alongside them?",
+                a: "We operate alongside your internal team. Your L&D head stays in charge of strategy. Your legal team retains control of complex transactions. Your finance leadership makes the decisions. We handle the operational execution and reporting layer so your team is not burdened by it.",
+              },
+              {
+                q: "What happens when things go wrong during delivery?",
+                a: "Escalation paths are defined before delivery begins. When a trainer cancels, a deadline slips, or a compliance question arises, we manage it through the established escalation structure and inform your stakeholder within the agreed window. Problems get handled without requiring you to become the problem-solver.",
+              },
+              {
+                q: "How do you manage confidentiality and data security?",
+                a: "We operate under your brand and within the confidentiality requirements appropriate to your business. Learner data, financial information, and legal documentation are handled according to the data practices we align on at the start of the engagement. We document these practices and follow them consistently.",
+              },
+              {
+                q: "Can we start with one service and expand later?",
+                a: "Yes. Most clients start with delivery operations or a single business service and expand as the relationship develops and trust is established. The operating model is designed to support expansion without requiring a full re-procurement each time.",
+              },
+            ].map((item) => (
+              <div key={item.q} className="py-6">
+                <dt className="text-base font-semibold text-heading sm:text-lg">{item.q}</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-paragraph-secondary sm:text-base">
+                  {item.a}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section
+        className="scroll-mt-[var(--header-offset)] bg-brand-secondary py-20 sm:py-28 lg:py-32"
         aria-labelledby="solutions-cta-title"
       >
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2
             id="solutions-cta-title"
-            className="text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+            className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
           >
             {solutionsCta.title}
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-paragraph-secondary">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
             {solutionsCta.description}
           </p>
-          <Link
-            href={solutionsCta.buttonHref}
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-secondary shadow-lg shadow-brand/25 transition-all hover:opacity-90 hover:shadow-xl hover:shadow-brand/30"
-          >
-            {solutionsCta.buttonText}
-            <ArrowRight className="size-4" aria-hidden />
-          </Link>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href={solutionsCta.buttonHref}
+              className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-brand-secondary shadow-lg transition-opacity hover:opacity-90"
+            >
+              {solutionsCta.buttonText}
+              <ArrowRight className="size-4" aria-hidden />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center rounded-full border-2 border-white/30 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/60 hover:bg-white/10"
+            >
+              Learn about us
+            </Link>
+          </div>
         </div>
       </section>
     </main>

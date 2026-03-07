@@ -1,124 +1,108 @@
-"use client";
-
-import type { MouseEvent } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
-import { SITE_NAME } from "@/lib/constants";
 
-declare global {
-  interface Window {
-    Calendly?: { initPopupWidget: (options: { url: string }) => void };
-  }
-}
-
-const CALENDLY_URL =
-  "https://calendly.com/xencus-info/scale-your-edtech-with-xencus?hide_event_type_details=1&hide_gdpr_banner=1&text_color=151515&primary_color=facc48";
-
-function openCalendlyPopup(event: MouseEvent<HTMLButtonElement>) {
-  event.preventDefault();
-  if (typeof window !== "undefined" && window.Calendly?.initPopupWidget) {
-    window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-  } else {
-    window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
-  }
-}
+const CALENDLY_INLINE_URL =
+  "https://calendly.com/xencus-info/scale-your-edtech-with-xencus?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=ffca48";
 
 export default function ContactPage() {
   return (
-    <section
-      className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
-      aria-labelledby="contact-page-title"
-    >
-      <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
-        <header className="mx-auto max-w-3xl text-center">
-          <h1
-            id="contact-page-title"
-            className="text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
-          >
-            Talk to our team at {SITE_NAME}
-          </h1>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base lg:text-lg">
-            Book a call or reach us directly. We&apos;ll help you understand how Xencus can run your
-            operations so you can focus on growth.
+    <main>
+      {/* ------------------------------------------------------------------ */}
+      {/* Header                                                              */}
+      {/* ------------------------------------------------------------------ */}
+      <section
+        className="bg-background pt-16 pb-10 text-center"
+        aria-labelledby="contact-title"
+      >
+        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+          <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+            Contact
           </p>
-        </header>
+          <h1
+            id="contact-title"
+            className="mt-3 text-4xl font-bold tracking-tight text-heading sm:text-5xl"
+          >
+            Talk to our team
+          </h1>
+          <p className="mt-4 text-base/7 text-paragraph-secondary">
+            Pick a time that works for you. We&apos;ll walk you through how Xencus can handle
+            your EdTech operations — trainers, LMS, certifications, and more.
+          </p>
+        </div>
+      </section>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.2fr)] lg:items-start">
-          {/* Left: direct contact details */}
-          <div className="space-y-6 rounded-2xl border border-gray-200 bg-white/80 p-6 shadow-sm backdrop-blur-sm sm:p-8">
-            <h2 className="text-lg font-semibold text-heading sm:text-xl">
-              Reach us directly
-            </h2>
+      {/* ------------------------------------------------------------------ */}
+      {/* Calendly inline embed                                               */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="bg-background pb-16">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div
+            className="calendly-inline-widget"
+            data-url={CALENDLY_INLINE_URL}
+            style={{ minWidth: "320px", height: "900px" }}
+          />
+        </div>
+      </section>
 
-            <ul className="space-y-4 text-sm sm:text-base text-paragraph-secondary">
-              <li className="flex items-start gap-3">
-                <Phone className="mt-0.5 h-5 w-5 text-brand-secondary" aria-hidden />
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-                    Contact number
-                  </p>
-                  <a href="tel:+919610352015" className="mt-0.5 inline-block font-medium text-heading">
-                    +91 9610352015
-                  </a>
-                </div>
-              </li>
+      {/* ------------------------------------------------------------------ */}
+      {/* Contact details                                                     */}
+      {/* ------------------------------------------------------------------ */}
+      <section className="bg-gray-50 py-14" aria-labelledby="contact-details-title">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2
+            id="contact-details-title"
+            className="mb-8 text-center text-lg font-semibold text-heading"
+          >
+            Or reach us directly
+          </h2>
 
-              <li className="flex items-start gap-3">
-                <Mail className="mt-0.5 h-5 w-5 text-brand-secondary" aria-hidden />
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-                    Email
-                  </p>
-                  <a
-                    href="mailto:hr@xencus.com"
-                    className="mt-0.5 inline-block font-medium text-heading break-all"
-                  >
-                    hr@xencus.com
-                  </a>
-                </div>
-              </li>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {/* Phone */}
+            <div className="flex flex-col items-center gap-3 rounded-2xl bg-white p-6 text-center shadow-xs ring-1 ring-gray-200">
+              <span className="flex size-10 items-center justify-center rounded-full bg-brand/10">
+                <Phone className="size-5 text-brand-secondary" aria-hidden="true" />
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-widest text-paragraph-secondary">
+                Phone
+              </p>
+              <a
+                href="tel:+919610352015"
+                className="text-sm font-medium text-heading transition-colors hover:text-brand-secondary"
+              >
+                +91 9610352015
+              </a>
+            </div>
 
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 text-brand-secondary" aria-hidden />
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-                    Address
-                  </p>
-                  <p className="mt-0.5 font-medium text-heading">
-                    BHIVE Workspace - No.112, AKR Tech Park, B Block, 7th Mile Hosur Rd, Kudlu Gate,
-                    Bengaluru, Karnataka 560068
-                  </p>
-                </div>
-              </li>
-            </ul>
+            {/* Email */}
+            <div className="flex flex-col items-center gap-3 rounded-2xl bg-white p-6 text-center shadow-xs ring-1 ring-gray-200">
+              <span className="flex size-10 items-center justify-center rounded-full bg-brand/10">
+                <Mail className="size-5 text-brand-secondary" aria-hidden="true" />
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-widest text-paragraph-secondary">
+                Email
+              </p>
+              <a
+                href="mailto:hr@xencus.com"
+                className="break-all text-sm font-medium text-heading transition-colors hover:text-brand-secondary"
+              >
+                hr@xencus.com
+              </a>
+            </div>
 
-            <div className="mt-4 rounded-xl border border-dashed border-gray-200 bg-gray-50/80 p-4 text-xs text-paragraph-secondary sm:text-sm">
-              <p>
-                Prefer email or WhatsApp? Share your use case and we&apos;ll respond with a tailored
-                plan and timelines for your EdTech.
+            {/* Address */}
+            <div className="flex flex-col items-center gap-3 rounded-2xl bg-white p-6 text-center shadow-xs ring-1 ring-gray-200">
+              <span className="flex size-10 items-center justify-center rounded-full bg-brand/10">
+                <MapPin className="size-5 text-brand-secondary" aria-hidden="true" />
+              </span>
+              <p className="text-xs font-semibold uppercase tracking-widest text-paragraph-secondary">
+                Address
+              </p>
+              <p className="text-sm font-medium leading-relaxed text-heading">
+                BHIVE Workspace, AKR Tech Park, B Block, 7th Mile Hosur Rd, Bengaluru 560068
               </p>
             </div>
           </div>
-
-          {/* Right: Calendly trigger */}
-          <div className="space-y-4 rounded-2xl border border-gray-200 bg-white/80 p-6 text-center shadow-sm backdrop-blur-sm sm:p-8">
-            <h2 className="text-lg font-semibold text-heading sm:text-xl">
-              Book a time with us
-            </h2>
-            <p className="text-sm text-paragraph-secondary sm:text-base">
-              Pick a slot that works for your team. Calendly will open in a popup so you never leave
-              the site.
-            </p>
-            <button
-              type="button"
-              onClick={openCalendlyPopup}
-              className="inline-flex items-center justify-center rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-brand-secondary shadow-sm transition hover:brightness-105"
-            >
-              Open Calendly
-            </button>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
-
