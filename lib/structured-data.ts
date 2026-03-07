@@ -200,43 +200,34 @@ export function getEdtechServiceSchema() {
   } as const;
 }
 
+/** Single source of truth for EdTech FAQ content — consumed by both the schema and the page JSX. */
+export const EDTECH_FAQ_ITEMS = [
+  {
+    q: "Do you work with early-stage EdTechs or only large ones?",
+    a: "Both. We partner with early-stage teams that are just setting up their first domains, and with scaled players running dozens of cohorts at once. We design the operating model based on your current volume and where you want to be in 12–18 months.",
+  },
+  {
+    q: "Which tools and platforms do you plug into?",
+    a: "We typically host live classes on Zoom or Google Meet and work with your existing LMS, CRM, and payment stack. If you don't have tooling in place yet, we'll recommend a simple setup based on your volumes.",
+  },
+  {
+    q: "How long does it take to go live with Xencus?",
+    a: "For a single domain, we can usually go live within 2–3 weeks once we've aligned on curriculum, outcomes, and tools. For larger multi-domain setups, we phase the rollout so you see value in the first month.",
+  },
+  {
+    q: "Will learners know that Xencus is running the operations?",
+    a: "No. From the learner's point of view everything stays under your brand—your website, your emails, your certificates. Xencus operates as the invisible backbone so your brand remains front and center.",
+  },
+] as const;
+
 export function getEdtechFaqSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Do you work with early-stage EdTechs or only large ones?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Both. We partner with early-stage teams that are just setting up their first domains, and with scaled players running dozens of cohorts at once. We design the operating model based on your current volume and where you want to be in 12–18 months.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Which tools and platforms do you plug into?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "We typically host live classes on Zoom or Google Meet and work with your existing LMS, CRM, and payment stack. If you don't have tooling in place yet, we'll recommend a simple setup based on your volumes.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How long does it take to go live with Xencus?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "For a single domain, we can usually go live within 2–3 weeks once we've aligned on curriculum, outcomes, and tools. For larger multi-domain setups, we phase the rollout so you see value in the first month.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Will learners know that Xencus is running the operations?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "No. From the learner's point of view everything stays under your brand—your website, your emails, your certificates. Xencus operates as the invisible backbone so your brand remains front and center.",
-        },
-      },
-    ],
-  } as const;
+    mainEntity: EDTECH_FAQ_ITEMS.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
 }

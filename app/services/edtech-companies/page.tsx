@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Users, Video, BarChart3, ClipboardList } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   edtechCta,
@@ -13,7 +13,7 @@ import { edtechAnalytics, edtechLiveClass, edtechLmsOps } from "@/content/edtech
 import { upcomingBatches } from "@/content/upcoming-batches";
 import { buildPageMetadata } from "@/lib/seo";
 import { getNextBatchStartDate } from "@/lib/next-batch-date";
-import { getEdtechFaqSchema, getEdtechServiceSchema } from "@/lib/structured-data";
+import { EDTECH_FAQ_ITEMS, getEdtechFaqSchema, getEdtechServiceSchema } from "@/lib/structured-data";
 
 type EdtechCard = {
   id: string;
@@ -634,46 +634,12 @@ export default function EdtechCompaniesPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
-            <div>
-              <h3 className="mb-2 font-semibold text-heading">
-                Do you work with early-stage EdTechs or only large ones?
-              </h3>
-              <p className="leading-relaxed text-paragraph-secondary">
-                Both. We partner with early-stage teams that are just setting up their first domains,
-                and with scaled players running dozens of cohorts at once. We design the operating
-                model based on your current volume and where you want to be in 12–18 months.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 font-semibold text-heading">
-                Which tools and platforms do you plug into?
-              </h3>
-              <p className="leading-relaxed text-paragraph-secondary">
-                We typically host live classes on Zoom or Google Meet and work with your existing
-                LMS, CRM, and payment stack. If you don&apos;t have tooling in place yet, we&apos;ll
-                recommend a simple setup based on your volumes.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 font-semibold text-heading">
-                How long does it take to go live with Xencus?
-              </h3>
-              <p className="leading-relaxed text-paragraph-secondary">
-                For a single domain, we can usually go live within 2–3 weeks once we&apos;ve aligned
-                on curriculum, outcomes, and tools. For larger multi-domain setups, we phase the
-                rollout so you see value in the first month.
-              </p>
-            </div>
-            <div>
-              <h3 className="mb-2 font-semibold text-heading">
-                Will learners know that Xencus is running the operations?
-              </h3>
-              <p className="leading-relaxed text-paragraph-secondary">
-                No. From the learner&apos;s point of view everything stays under your brand—your
-                website, your emails, your certificates. Xencus operates as the invisible backbone so
-                your brand remains front and center.
-              </p>
-            </div>
+            {EDTECH_FAQ_ITEMS.map((item) => (
+              <div key={item.q}>
+                <h3 className="mb-2 font-semibold text-heading">{item.q}</h3>
+                <p className="leading-relaxed text-paragraph-secondary">{item.a}</p>
+              </div>
+            ))}
           </div>
 
           <div className="text-center">

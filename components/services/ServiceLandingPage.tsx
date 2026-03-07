@@ -3,6 +3,29 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { ServicePageContent } from "@/content/services-pages";
 
+const TRUST_ITEMS = [
+  {
+    title: "Single point of contact",
+    description:
+      "One owner who coordinates trainers, schedules, deliverables, and updates—so nothing slips.",
+  },
+  {
+    title: "SLA-ready execution",
+    description:
+      "Clear timelines, escalation paths, and predictable delivery rhythms suited for business stakeholders.",
+  },
+  {
+    title: "Backup and continuity",
+    description:
+      "Redundancy in trainers and operations so classes and deliverables don't stop when plans change.",
+  },
+  {
+    title: "Audit-friendly reporting",
+    description:
+      "Weekly progress updates, completion tracking, and documentation that supports internal reviews.",
+  },
+] as const;
+
 type Props = {
   content: ServicePageContent;
 };
@@ -313,28 +336,7 @@ export function ServiceLandingPage({ content }: Props) {
           </header>
 
           <ul className="mx-auto mt-14 grid gap-6 sm:grid-cols-2 lg:mt-18 lg:grid-cols-4 lg:gap-8">
-            {[
-              {
-                title: "Single point of contact",
-                description:
-                  "One owner who coordinates trainers, schedules, deliverables, and updates—so nothing slips.",
-              },
-              {
-                title: "SLA-ready execution",
-                description:
-                  "Clear timelines, escalation paths, and predictable delivery rhythms suited for business stakeholders.",
-              },
-              {
-                title: "Backup and continuity",
-                description:
-                  "Redundancy in trainers and operations so classes and deliverables don’t stop when plans change.",
-              },
-              {
-                title: "Audit-friendly reporting",
-                description:
-                  "Weekly progress updates, completion tracking, and documentation that supports internal reviews.",
-              },
-            ].map((item) => (
+            {TRUST_ITEMS.map((item) => (
               <li key={item.title}>
                 <article className="h-full rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm sm:p-8">
                   <span className="mb-4 inline-flex size-10 items-center justify-center rounded-xl bg-brand/15">

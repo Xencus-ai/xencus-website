@@ -25,11 +25,7 @@ export function getNextBatchStartDate(): { day: number; month: number; year: num
 
   const day = getFirstWeekDayForMonth(month, year);
   const date = new Date(year, month - 1, day);
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December",
-  ];
-  const label = `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+  const label = date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 
   return { day: date.getDate(), month: date.getMonth() + 1, year: date.getFullYear(), label };
 }
