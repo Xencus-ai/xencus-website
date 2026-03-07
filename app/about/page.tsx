@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Layers, Zap, Users, Network, BookOpen, Target } from "lucide-react";
+import { ArrowRight, ShieldCheck, Layers, Zap, Users, Network, BookOpen, Target, LayoutDashboard, Briefcase, ClipboardList, Globe } from "lucide-react";
 import { buildPageMetadata } from "@/lib/seo";
 import {
   aboutHero,
@@ -33,6 +33,7 @@ const VALUE_ICONS: Record<string, LucideIcon> = {
 };
 
 const DIFFERENCE_ICONS = [Network, BookOpen, Target] as const;
+const WHAT_WE_DO_ICONS = [LayoutDashboard, Briefcase, ClipboardList, Globe] as const;
 
 export default function AboutPage() {
   return (
@@ -303,52 +304,108 @@ export default function AboutPage() {
       {/* What we do                                                          */}
       {/* ------------------------------------------------------------------ */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background"
+        className="scroll-mt-[var(--header-offset)] relative isolate overflow-hidden bg-background px-6 py-16 sm:py-20 lg:overflow-visible lg:px-0"
         aria-labelledby="about-what-title"
       >
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="lg:grid lg:grid-cols-[360px_1fr] lg:items-start lg:gap-x-16">
-            <div className="lg:sticky lg:top-[calc(var(--header-offset)+2rem)]">
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-                What we do
-              </p>
-              <h2
-                id="about-what-title"
-                className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+        {/* SVG grid background */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <svg
+            aria-hidden="true"
+            className="absolute top-0 left-[max(50%,25rem)] h-[64rem] w-[128rem] -translate-x-1/2 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-gray-200"
+          >
+            <defs>
+              <pattern
+                id="about-what-grid"
+                x="50%"
+                y={-1}
+                width={200}
+                height={200}
+                patternUnits="userSpaceOnUse"
               >
-                {aboutWhatWeDo.title}
-              </h2>
-              <p className="mt-4 text-base/7 text-paragraph-secondary">{aboutWhatWeDo.subtitle}</p>
-              <div className="mt-10 hidden lg:block">
-                <Image
-                  src="/Assets/ABOUT/Seminar-bro.svg"
-                  alt="EdTech delivery operations"
-                  width={300}
-                  height={300}
-                  className="w-full max-w-xs"
-                />
+                <path d="M100 200V.5M.5 .5H200" fill="none" />
+              </pattern>
+            </defs>
+            <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
+              <path
+                d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+                strokeWidth={0}
+              />
+            </svg>
+            <rect
+              fill="url(#about-what-grid)"
+              width="100%"
+              height="100%"
+              strokeWidth={0}
+            />
+          </svg>
+        </div>
+
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+          {/* Row 1 — header */}
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="lg:pr-4">
+              <div className="lg:max-w-lg">
+                <p className="text-base/7 font-semibold text-brand">What we do</p>
+                <h2
+                  id="about-what-title"
+                  className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-heading sm:text-5xl"
+                >
+                  {aboutWhatWeDo.title}
+                </h2>
+                <p className="mt-6 text-xl/8 text-paragraph-secondary">
+                  {aboutWhatWeDo.subtitle}
+                </p>
               </div>
             </div>
+          </div>
 
-            <div className="mt-12 space-y-5 lg:mt-0">
-              {aboutWhatWeDo.items.map((item, idx) => (
-                <div
-                  key={item.title}
-                  className="flex gap-5 rounded-2xl bg-white p-6 ring-1 ring-gray-200 sm:p-8"
-                >
-                  <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-full bg-brand text-xs font-extrabold text-brand-secondary">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="text-base font-semibold text-heading sm:text-lg">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm/6 text-paragraph-secondary sm:text-base/7">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+          {/* Sticky image */}
+          <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+            <Image
+              src="/Assets/ABOUT/Seminar-bro.svg"
+              alt="EdTech delivery operations"
+              width={1200}
+              height={900}
+              className="w-[48rem] max-w-none rounded-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+            />
+          </div>
+
+          {/* Row 2 — body + feature list */}
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="lg:pr-4">
+              <div className="max-w-xl text-base/7 text-paragraph-secondary lg:max-w-lg">
+                <p>
+                  Each function we run is designed around how education businesses actually
+                  operate — not adapted from generic service templates. The work is bundled under
+                  one operating layer so the coordination happens inside Xencus, not inside your
+                  calendar.
+                </p>
+                <ul role="list" className="mt-8 space-y-8">
+                  {aboutWhatWeDo.items.map((item, idx) => {
+                    const Icon = WHAT_WE_DO_ICONS[idx];
+                    return (
+                      <li key={item.title} className="flex gap-x-3">
+                        <Icon
+                          aria-hidden="true"
+                          className="mt-1 size-5 shrink-0 text-brand-secondary"
+                        />
+                        <span>
+                          <strong className="font-semibold text-heading">{item.title}.</strong>{" "}
+                          {item.description}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <h3 className="mt-16 text-2xl font-bold tracking-tight text-heading">
+                  One model. Every function.
+                </h3>
+                <p className="mt-6">
+                  Whether you engage us for delivery alone or for the full stack, the operating
+                  model is the same — aligned scope, weekly reporting, and a single point of
+                  accountability from day one.
+                </p>
+              </div>
             </div>
           </div>
         </div>
