@@ -6,6 +6,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import {
   aboutHero,
   aboutMission,
+  aboutWhatWeDo,
   aboutValues,
   aboutStats,
   aboutCta,
@@ -23,43 +24,58 @@ export default function AboutPage() {
     <main className="bg-background">
       {/* Hero */}
       <section
-        className="relative flex min-h-[calc(100vh-var(--header-offset))] w-full items-center justify-center overflow-hidden pb-24 pt-20 sm:pb-32 sm:pt-28 lg:pt-32"
+        className="relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden px-6 py-24 sm:py-32 lg:px-8 lg:py-40 -mt-[var(--header-offset)]"
         aria-labelledby="about-hero-title"
       >
-        <div className="absolute inset-0">
-          <Image
-            src="/Assets/edutech/edutech-hero.avif"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjMiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNmNWYwZTgiLz48L3N2Zz4="
-          />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        >
           <div
-            className="absolute inset-0"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#facc48] to-[#f97316] opacity-40 sm:left-[calc(50%-30rem)] sm:w-[72rem]"
             style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0.95) 100%)",
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
             }}
-            aria-hidden
           />
         </div>
-        <div className="relative mx-auto w-full max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
-            {aboutHero.label}
-          </p>
-          <h1
-            id="about-hero-title"
-            className="mt-2 text-4xl font-extrabold tracking-tight text-heading sm:text-5xl lg:text-6xl"
-          >
-            {aboutHero.title}
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-paragraph-secondary sm:text-xl">
-            {aboutHero.subtitle}
-          </p>
+        <div className="mx-auto max-w-2xl">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
+              {aboutHero.label}
+            </p>
+            <h1
+              id="about-hero-title"
+              className="mt-4 text-5xl font-extrabold tracking-tight text-balance text-heading sm:text-6xl lg:text-7xl"
+            >
+              {aboutHero.title}
+            </h1>
+            <p className="mt-6 text-lg font-medium text-pretty text-paragraph-secondary sm:text-xl">
+              {aboutHero.subtitle}
+            </p>
+          </div>
         </div>
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-[calc(100%-18rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        >
+          <div
+            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36rem] -translate-x-1/2 bg-gradient-to-tr from-[#f97316] to-[#facc48] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72rem]"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+            }}
+          />
+        </div>
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.92) 55%, #ffffff 100%)",
+          }}
+        />
       </section>
 
       {/* Mission */}
@@ -77,6 +93,43 @@ export default function AboutPage() {
           <p className="mt-8 text-center text-base leading-relaxed text-paragraph-secondary sm:text-lg">
             {aboutMission.description}
           </p>
+        </div>
+      </section>
+
+      {/* What we do */}
+      <section
+        className="scroll-mt-[var(--header-offset)] bg-background py-20 sm:py-28 lg:py-32"
+        aria-labelledby="about-what-title"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <header className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
+              Clarity
+            </p>
+            <h2
+              id="about-what-title"
+              className="mt-2 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+            >
+              {aboutWhatWeDo.title}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-paragraph-secondary">
+              {aboutWhatWeDo.subtitle}
+            </p>
+          </header>
+
+          <ul className="mx-auto mt-14 grid gap-6 sm:grid-cols-2 lg:mt-18 lg:grid-cols-3 lg:gap-8">
+            {aboutWhatWeDo.items.map((item) => (
+              <li key={item.title}>
+                <article className="h-full rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm sm:p-8">
+                  <span className="mb-4 block h-1 w-12 rounded-full bg-brand" aria-hidden />
+                  <h3 className="text-lg font-semibold text-heading">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-paragraph-secondary">
+                    {item.description}
+                  </p>
+                </article>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

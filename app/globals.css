@@ -165,6 +165,22 @@ h1, h2, h3, h4 {
   border: 1px solid rgba(148, 163, 184, 0.25); /* light grey stroke under the gradient */
 }
 
+@keyframes hero-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero-illustration-float {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
 @keyframes card-border-slide {
   0% {
     background-position: 0% 50%;

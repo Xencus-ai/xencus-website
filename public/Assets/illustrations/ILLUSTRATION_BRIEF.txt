@@ -1,0 +1,80 @@
+Xencus — Illustration brief (Hero images)
+
+Goal
+- Make each page feel like a corporate, trustworthy website.
+- Each page should have a DIFFERENT hero illustration.
+- Style: clean, modern, minimal, brand-friendly (Xencus brand: amber #facc48 + charcoal #151515).
+- Avoid childish cartoons; prefer professional flat/vector or subtle 3D.
+- Background should be mostly light so text remains readable.
+
+General requirements
+- Formats: AVIF preferred (also export WebP fallback if possible).
+- Sizes: at least 2400px wide for landscape heroes; 1600px for portrait.
+- Leave safe space for text (left/center), keep illustration weighted to right side when possible.
+- Orientation: mention below for each page.
+
+Pages created & required hero illustration
+
+1) /solutions
+- Folder: public/Assets/illustrations/solutions/
+- Orientation: Landscape (16:9) + optional wide (21:9)
+- Concept: "Operations backbone" — multiple modules connected (delivery, legal, HR, finance, tech) feeding into one dashboard.
+
+2) /pricing
+- Folder: public/Assets/illustrations/pricing/
+- Orientation: Landscape (16:9)
+- Concept: "Scales with company size" — staircase/ladder from Startup → Growth → Scale → Enterprise with subtle icons and a stable foundation.
+
+3) /about
+- Folder: public/Assets/illustrations/about/
+- Orientation: Landscape (16:9)
+- Concept: "Team + process" — a calm, credible operations team scene (planning board + checklists + timeline), not stock-photo, illustration.
+
+4) /services/corporate-ld
+- Folder: public/Assets/illustrations/services/corporate-ld/
+- Orientation: Landscape (16:9)
+- Concept: "Employee cohort learning" — group of employees learning with progress bars, mentor call, and completion.
+
+5) /services/universities-training-institutions
+- Folder: public/Assets/illustrations/services/universities-training-institutions/
+- Orientation: Landscape (16:9)
+- Concept: "Campus programs" — institution + industry trainer + labs/projects; emphasize industry-ready outcomes.
+
+6) /services/edtech-legal-services
+- Folder: public/Assets/illustrations/services/edtech-legal-services/
+- Orientation: Landscape (16:9)
+- Concept: "Compliance & contracts" — document + signature + shield + checklist; friendly but formal.
+
+7) /services/hr-services-for-edtech
+- Folder: public/Assets/illustrations/services/hr-services-for-edtech/
+- Orientation: Landscape (16:9)
+- Concept: "Hiring pipeline" — candidates funnel, onboarding checklist, team structure.
+
+8) /services/finance-solutions-for-edtech
+- Folder: public/Assets/illustrations/services/finance-solutions-for-edtech/
+- Orientation: Landscape (16:9)
+- Concept: "Finance clarity" — clean charts, reconciliations, compliance calendar; avoid heavy currency symbolism.
+
+9) /services/technical/digital-marketing
+- Folder: public/Assets/illustrations/services/technical/digital-marketing/
+- Orientation: Landscape (16:9)
+- Concept: "Growth engine" — ads → landing page → leads → cohorts; show funnel and metrics.
+
+10) /services/technical/graphic-designing
+- Folder: public/Assets/illustrations/services/technical/graphic-designing/
+- Orientation: Landscape (16:9)
+- Concept: "Creative system" — brand kit, templates, social creatives, design grid.
+
+11) /services/technical/website-designing
+- Folder: public/Assets/illustrations/services/technical/website-designing/
+- Orientation: Landscape (16:9)
+- Concept: "Conversion-first website" — page layout blocks, speed/performance, SEO.
+
+12) /services/technical/mobile-app-development
+- Folder: public/Assets/illustrations/services/technical/mobile-app-development/
+- Orientation: Landscape (16:9)
+- Concept: "Learning app" — mobile screens (course, schedule, progress), stable architecture.
+
+Notes
+- Keep illustration style consistent across all pages.
+- Avoid using real brand logos unless licensed.

@@ -78,6 +78,14 @@ export const pricingFaq = {
       q: "Can we change tiers as we grow?",
       a: "Yes. Many partners start in Startup or Growth and move to Scale or Enterprise as they add programs and learners. We design for that path.",
     },
+    {
+      q: "How do you price when scope changes mid-way?",
+      a: "We keep scope transparent. If you add programs, cohorts, domains, or extra services, we revise the engagement with clear deltas so you stay in control.",
+    },
+    {
+      q: "Do you offer SLAs for larger partners?",
+      a: "Yes. Scale and enterprise engagements can include SLAs, escalation paths, and reporting rhythms depending on your requirements.",
+    },
   ],
 } as const;
 

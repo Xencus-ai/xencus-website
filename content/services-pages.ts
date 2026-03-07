@@ -14,14 +14,49 @@ export type ServicePageContent = {
   icon: { src: string; alt: string };
   heroImage: { src: string; alt: string };
   outcomes: { title: string; description: string }[];
+  subServices?: { title: string; points: string[] }[];
   howItWorks: { step: number; title: string; text: string }[];
   faq: { title: string; items: ServiceFaqItem[] };
   cta: { title: string; description: string; buttonText: string; buttonHref: string };
 };
 
-const sharedHeroImage = {
-  src: "/Assets/edutech/edutech-hero.avif",
-  alt: "Operations and delivery support for education businesses",
+const heroImages = {
+  corporateLd: {
+    src: "/Assets/edutech/illustrations/planning.avif",
+    alt: "Planning and structured learning program delivery",
+  },
+  universities: {
+    src: "/Assets/upcomingclasse/upcomingClass.avif",
+    alt: "A training session and cohort learning environment",
+  },
+  legal: {
+    src: "/Assets/service/legal.svg",
+    alt: "Legal and compliance support",
+  },
+  hr: {
+    src: "/Assets/service/hr.svg",
+    alt: "HR and hiring support",
+  },
+  finance: {
+    src: "/Assets/service/finance.svg",
+    alt: "Finance and compliance support",
+  },
+  digitalMarketing: {
+    src: "/Assets/dashboard/dashboard.png",
+    alt: "Analytics dashboard representing growth and performance tracking",
+  },
+  graphicDesign: {
+    src: "/Assets/edutech/course.png",
+    alt: "Design and content assets for learning programs",
+  },
+  websiteDesign: {
+    src: "/Assets/hero/hero.avif",
+    alt: "A modern website experience for education brands",
+  },
+  mobileApp: {
+    src: "/Assets/edutech/illustrations/analytics.avif",
+    alt: "Mobile and product analytics for learning experiences",
+  },
 } as const;
 
 export const corporateLdPage: ServicePageContent = {
@@ -31,7 +66,7 @@ export const corporateLdPage: ServicePageContent = {
   subtitle:
     "Design, run, and track cohort-based learning for employees—without building a delivery team in-house. We handle trainers, sessions, content ops, and reporting while you lead L&D strategy.",
   icon: { src: "/Assets/service/corporate.svg", alt: "Corporate learning icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.corporateLd,
   outcomes: [
     {
       title: "Role-based cohorts",
@@ -47,6 +82,32 @@ export const corporateLdPage: ServicePageContent = {
       title: "Reporting that leaders use",
       description:
         "Attendance, progress, and completion reports you can share with business heads and HR.",
+    },
+  ],
+  subServices: [
+    {
+      title: "Program design & structure",
+      points: [
+        "Role-based and skill-based learning journeys",
+        "Cohort calendars with milestones and checkpoints",
+        "Alignment with business outcomes and manager expectations",
+      ],
+    },
+    {
+      title: "Delivery operations",
+      points: [
+        "Trainer and mentor scheduling and backups",
+        "Live session links, reminders, and recordings",
+        "Project, assignment, and assessment workflows",
+      ],
+    },
+    {
+      title: "Reporting & stakeholder updates",
+      points: [
+        "Cohort-level and program-level dashboards",
+        "Progress snapshots for managers and leaders",
+        "Templates for internal leadership reviews",
+      ],
     },
   ],
   howItWorks: [
@@ -86,7 +147,7 @@ export const universitiesPage: ServicePageContent = {
   subtitle:
     "Expand domains and delivery capacity without hiring a large training team. We bring trainers, projects, assessments, and operations so students learn from practitioners with consistent quality.",
   icon: { src: "/Assets/service/university.svg", alt: "University icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.universities,
   outcomes: [
     {
       title: "More domains, faster",
@@ -102,6 +163,32 @@ export const universitiesPage: ServicePageContent = {
       title: "Reliable delivery operations",
       description:
         "Scheduling, coordination, recordings, and progress tracking—so programs run without disruption.",
+    },
+  ],
+  subServices: [
+    {
+      title: "Program formats",
+      points: [
+        "Short-term bootcamps and workshops",
+        "Semester-long industry modules",
+        "Capstone projects and portfolio work",
+      ],
+    },
+    {
+      title: "Delivery & assessment",
+      points: [
+        "Trainer assignment per domain and batch",
+        "Project, lab, and assignment execution",
+        "Attendance, participation, and completion tracking",
+      ],
+    },
+    {
+      title: "Coordination & reporting",
+      points: [
+        "Schedules and communication in sync with academic calendar",
+        "Program summaries for academic leadership",
+        "Feedback loops to iteratively improve cohorts",
+      ],
     },
   ],
   howItWorks: [
@@ -141,7 +228,7 @@ export const legalServicesPage: ServicePageContent = {
   subtitle:
     "Contracts, compliance, and ongoing advisory so you scale cohorts and partnerships confidently. We help remove legal bottlenecks from growth and delivery.",
   icon: { src: "/Assets/service/legal.svg", alt: "Legal icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.legal,
   outcomes: [
     {
       title: "Faster partnerships",
@@ -157,6 +244,32 @@ export const legalServicesPage: ServicePageContent = {
       title: "Ongoing advisory",
       description:
         "Practical guidance as you expand domains, geographies, and delivery models.",
+    },
+  ],
+  subServices: [
+    {
+      title: "Contracts & documentation",
+      points: [
+        "Trainer and vendor agreements",
+        "Enterprise and partner MSAs and SOWs",
+        "Learner policies and website terms & privacy",
+      ],
+    },
+    {
+      title: "Compliance & risk",
+      points: [
+        "Operational and data-compliance alignment for programs",
+        "Reviews when you add domains, geographies, or cohorts",
+        "Guidance on risk in new models and partnerships",
+      ],
+    },
+    {
+      title: "Ongoing advisory",
+      points: [
+        "Support for edge cases and escalations",
+        "Periodic document and process reviews",
+        "Input into new business and partnership models",
+      ],
     },
   ],
   howItWorks: [
@@ -196,7 +309,7 @@ export const hrServicesPage: ServicePageContent = {
   subtitle:
     "We help you hire, onboard, and support teams that run education businesses: trainers, ops, support, marketing, and more—plus the policies and processes to scale smoothly.",
   icon: { src: "/Assets/service/hr.svg", alt: "HR icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.hr,
   outcomes: [
     {
       title: "Faster hiring cycles",
@@ -212,6 +325,32 @@ export const hrServicesPage: ServicePageContent = {
       title: "Scalable HR ops",
       description:
         "Policies, templates, and people workflows tuned for modern EdTech teams and contractors.",
+    },
+  ],
+  subServices: [
+    {
+      title: "Hiring support",
+      points: [
+        "JD and role definition tuned for EdTech",
+        "Sourcing and shortlisting per role",
+        "Interview coordination and feedback loops",
+      ],
+    },
+    {
+      title: "Onboarding & people ops",
+      points: [
+        "Checklists and documentation for new joiners",
+        "Policy roll-out and communication",
+        "Basic HR ops (attendance, letters, etc.) as needed",
+      ],
+    },
+    {
+      title: "HR systems & policies",
+      points: [
+        "Templates for contracts and policies",
+        "Adapting policies for contractors vs full-time staff",
+        "Support as your org structure evolves",
+      ],
     },
   ],
   howItWorks: [
@@ -251,7 +390,7 @@ export const financeSolutionsPage: ServicePageContent = {
   subtitle:
     "From bookkeeping to compliance to reporting, we help EdTech teams stay on top of finances so founders can focus on product and growth—not spreadsheets and filings.",
   icon: { src: "/Assets/service/finance.svg", alt: "Finance icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.finance,
   outcomes: [
     {
       title: "Compliance done right",
@@ -267,6 +406,32 @@ export const financeSolutionsPage: ServicePageContent = {
       title: "Founder-ready reporting",
       description:
         "Simple reporting to track financial health and plan growth confidently.",
+    },
+  ],
+  subServices: [
+    {
+      title: "Core finance ops",
+      points: [
+        "Day-to-day bookkeeping and reconciliations",
+        "Invoicing and payment tracking",
+        "Basic payroll coordination with your HR/CA",
+      ],
+    },
+    {
+      title: "Compliance & filings",
+      points: [
+        "Support for tax and statutory filings with your CA",
+        "Tracking due dates and obligations",
+        "Maintaining documentation for audits and investors",
+      ],
+    },
+    {
+      title: "Reporting & planning",
+      points: [
+        "Simple cohort and program revenue views",
+        "Cash-flow snapshots for founders",
+        "Inputs into budget and planning cycles",
+      ],
     },
   ],
   howItWorks: [
@@ -306,11 +471,37 @@ export const digitalMarketingPage: ServicePageContent = {
   subtitle:
     "Campaign planning, creatives, landing pages, and reporting—so you grow efficiently without assembling a full in-house marketing org.",
   icon: { src: "/Assets/service/technology.svg", alt: "Technology icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.digitalMarketing,
   outcomes: [
     { title: "Campaign strategy", description: "Clear channel strategy aligned to your programs, cohorts, and CAC targets." },
     { title: "Creative production", description: "Ad creatives, landing pages, and iteration loops that improve conversion." },
     { title: "Reporting & optimisation", description: "Transparent reporting so spend maps to pipeline and outcomes." },
+  ],
+  subServices: [
+    {
+      title: "Strategy & planning",
+      points: [
+        "Channel and budget planning per program or cohort",
+        "Creative and message strategy",
+        "Tracking and analytics setup",
+      ],
+    },
+    {
+      title: "Execution",
+      points: [
+        "Campaign and ad set creation",
+        "Landing page collaboration and optimisation",
+        "Iterative testing across creatives and audiences",
+      ],
+    },
+    {
+      title: "Reporting",
+      points: [
+        "Weekly performance snapshots and next steps",
+        "Insight sharing with sales and product",
+        "Documentation so you can internalise learnings",
+      ],
+    },
   ],
   howItWorks: [
     { step: 1, title: "Audit & plan", text: "We align your goals, audience, and funnel tracking." },
@@ -340,11 +531,37 @@ export const graphicDesignPage: ServicePageContent = {
   subtitle:
     "Brand assets, marketing creatives, and course visuals—fast turnaround with consistent quality, so your team ships without bottlenecks.",
   icon: { src: "/Assets/service/technology.svg", alt: "Technology icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.graphicDesign,
   outcomes: [
     { title: "Brand consistency", description: "A single visual system across ads, social, decks, and course assets." },
     { title: "Fast creative cycles", description: "Rapid design iterations so campaigns and launches don’t stall." },
     { title: "Conversion-first visuals", description: "Design tuned for performance and clarity—not just aesthetics." },
+  ],
+  subServices: [
+    {
+      title: "Brand & systems",
+      points: [
+        "Brand and UI kits for consistent design",
+        "Template sets for social, ads, decks, and emails",
+        "Guides so your team can extend designs",
+      ],
+    },
+    {
+      title: "Campaign creatives",
+      points: [
+        "Static and motion assets for acquisition and retention",
+        "Creative iteration based on performance data",
+        "Ad, landing page, and email visuals",
+      ],
+    },
+    {
+      title: "Course & product visuals",
+      points: [
+        "Illustrations for modules, tracks, and features",
+        "Icons and micro-visuals for product UI",
+        "Simple systems that scale with new content",
+      ],
+    },
   ],
   howItWorks: [
     { step: 1, title: "Brief", text: "We align on brand and use-cases (ads, decks, course assets)." },
@@ -374,11 +591,37 @@ export const websiteDesignPage: ServicePageContent = {
   subtitle:
     "From landing pages to full marketing sites, we build fast, responsive, conversion-first experiences—aligned to your brand and programs.",
   icon: { src: "/Assets/service/technology.svg", alt: "Technology icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.websiteDesign,
   outcomes: [
     { title: "Landing pages", description: "High-converting pages for cohorts, programs, and campaigns." },
     { title: "Performance & SEO", description: "Fast load times and clean structure that ranks and converts." },
     { title: "Design + build", description: "We handle UI/UX and implementation so you ship end-to-end." },
+  ],
+  subServices: [
+    {
+      title: "Information architecture",
+      points: [
+        "Page and site structures mapped to your offers",
+        "Navigation and key journey planning",
+        "SEO-aware structures where relevant",
+      ],
+    },
+    {
+      title: "Design & UX",
+      points: [
+        "Wireframes and UI designs per page type",
+        "Component library for consistent experiences",
+        "Responsive design for desktop and mobile",
+      ],
+    },
+    {
+      title: "Build & optimisation",
+      points: [
+        "Implementation in a modern stack",
+        "Performance and accessibility improvements",
+        "On-going tweaks based on analytics and feedback",
+      ],
+    },
   ],
   howItWorks: [
     { step: 1, title: "Structure", text: "We map your offer, audience, and page flow." },
@@ -408,11 +651,37 @@ export const mobileAppDevPage: ServicePageContent = {
   subtitle:
     "Build learner-facing apps or internal tools with a reliable delivery partner—from MVP to production—without juggling multiple teams.",
   icon: { src: "/Assets/service/technology.svg", alt: "Technology icon" },
-  heroImage: sharedHeroImage,
+  heroImage: heroImages.mobileApp,
   outcomes: [
     { title: "MVP to launch", description: "Ship an MVP fast, then iterate towards a production-grade app." },
     { title: "Product quality", description: "Clean UX, performance, and stability so learners trust the experience." },
     { title: "Ongoing iterations", description: "Feature delivery and maintenance as you scale usage and scope." },
+  ],
+  subServices: [
+    {
+      title: "Product definition",
+      points: [
+        "MVP and roadmap definition",
+        "Platform and architecture choices",
+        "Scope and milestone planning",
+      ],
+    },
+    {
+      title: "Feature delivery",
+      points: [
+        "Core flows: onboarding, learning, progress tracking",
+        "Integrations with your LMS/CRM/payment stack",
+        "Instrumentation for analytics and feedback",
+      ],
+    },
+    {
+      title: "Launch & maintenance",
+      points: [
+        "Store submission support where needed",
+        "Bug fixes and stability improvements",
+        "New feature cycles as adoption grows",
+      ],
+    },
   ],
   howItWorks: [
     { step: 1, title: "Scope", text: "We align on users, flows, and success metrics." },

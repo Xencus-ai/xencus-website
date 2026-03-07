@@ -22,50 +22,71 @@ export default function PricingPage() {
     <main className="bg-background">
       {/* Hero */}
       <section
-        className="relative flex min-h-[calc(100vh-var(--header-offset))] w-full items-center justify-center overflow-hidden pb-24 pt-20 sm:pb-32 sm:pt-28 lg:pt-32"
+        className="relative isolate flex min-h-[calc(100vh-var(--header-offset))] w-full items-center justify-center overflow-hidden px-6 py-24 sm:py-32 lg:px-8 lg:py-40 -mt-[var(--header-offset)]"
         aria-labelledby="pricing-hero-title"
       >
-        <div className="absolute inset-0">
-          <Image
-            src="/Assets/edutech/edutech-hero.avif"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-            placeholder="blur"
-            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjMiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNmNWYwZTgiLz48L3N2Zz4="
-          />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        >
           <div
-            className="absolute inset-0"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#facc48] to-[#f97316] opacity-40 sm:left-[calc(50%-30rem)] sm:w-[72rem]"
             style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.88) 50%, rgba(255,255,255,0.95) 100%)",
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
             }}
-            aria-hidden
           />
         </div>
-        <div className="relative mx-auto w-full max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
-            {pricingHero.label}
-          </p>
-          <h1
-            id="pricing-hero-title"
-            className="mt-2 text-4xl font-extrabold tracking-tight text-heading sm:text-5xl lg:text-6xl"
-          >
-            {pricingHero.title}
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-paragraph-secondary sm:text-xl">
-            {pricingHero.subtitle}
-          </p>
-          <Link
-            href={pricingHero.ctaHref}
-            className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-secondary shadow-lg shadow-brand/25 transition-all hover:opacity-90 hover:shadow-xl hover:shadow-brand/30"
-          >
-            {pricingHero.ctaText}
-            <ArrowRight className="size-4" aria-hidden />
-          </Link>
+
+        <div className="mx-auto max-w-2xl">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-wider text-brand-secondary">
+              {pricingHero.label}
+            </p>
+            <h1
+              id="pricing-hero-title"
+              className="mt-4 text-5xl font-extrabold tracking-tight text-balance text-heading sm:text-6xl lg:text-7xl"
+            >
+              {pricingHero.title}
+            </h1>
+            <p className="mt-6 text-lg font-medium text-pretty text-paragraph-secondary sm:text-xl">
+              {pricingHero.subtitle}
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <Link
+                href={pricingHero.ctaHref}
+                className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-brand-secondary shadow-sm hover:opacity-90"
+              >
+                {pricingHero.ctaText}
+              </Link>
+              <Link href="/contact" className="text-sm font-semibold text-heading">
+                Talk to our team <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
+
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-[calc(100%-18rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        >
+          <div
+            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36rem] -translate-x-1/2 bg-gradient-to-tr from-[#f97316] to-[#facc48] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72rem]"
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+            }}
+          />
+        </div>
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.92) 55%, #ffffff 100%)",
+          }}
+        />
       </section>
 
       {/* Company size tiers */}
@@ -116,6 +137,41 @@ export default function PricingPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Trust strip */}
+      <section
+        className="scroll-mt-[var(--header-offset)] bg-background py-16 sm:py-20"
+        aria-label="Pricing trust points"
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:grid-cols-3 sm:gap-6 sm:p-8">
+            {[
+              {
+                title: "Transparent scope",
+                text: "You get a clear proposal with deliverables, timelines, and responsibilities before we start.",
+              },
+              {
+                title: "Scales with volume",
+                text: "Pricing aligns to cohorts/programs and services—so costs track usage, not fixed headcount.",
+              },
+              {
+                title: "Enterprise-ready",
+                text: "For larger partners we can add SLAs, reporting rhythms, and escalation paths.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="flex gap-3">
+                <span className="mt-0.5 inline-flex size-9 items-center justify-center rounded-xl bg-brand/15">
+                  <CheckCircle2 className="size-5 text-brand-secondary" aria-hidden />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-heading">{item.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-paragraph-secondary">{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
