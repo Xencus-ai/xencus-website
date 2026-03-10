@@ -537,3 +537,32 @@ h1, h2, h3, h4 {
   );
   animation: cta-spin-rotate 4s infinite linear;
 }
+
+/* ─── Testimonial card — spinning gradient border, NO glow ───────────────── */
+@property --card-spin {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes card-spin-rotate {
+  to { --card-spin: 360deg; }
+}
+
+/* Applied directly on the <figure> — no wrapper div needed, masonry-safe */
+.card-spin-figure {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    conic-gradient(
+      from var(--card-spin) at 52% 49% in oklab,
+      oklch(0.63 0.2 251.22) 27%,
+      oklch(0.67 0.21 25.81) 33%,
+      oklch(0.9 0.19 93.93)  41%,
+      oklch(0.79 0.25 150.49) 49%,
+      oklch(0.63 0.2 251.22) 65%,
+      oklch(0.72 0.21 150.89) 93%,
+      oklch(0.63 0.2 251.22)
+    ) border-box;
+  animation: card-spin-rotate 6s infinite linear;
+}
