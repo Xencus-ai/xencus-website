@@ -86,8 +86,8 @@ export const corporateLdPage: ServicePageContent = {
   icon: { src: "/Assets/service/corporate.svg", alt: "Corporate learning icon" },
   heroImage: heroImages.corporateLd,
   metrics: [
-    { value: "2–3 weeks", label: "From brief to first live cohort, no long onboarding" },
-    { value: "30+ domains", label: "Skill tracks across technology, data, design, and management" },
+    { value: "< 24 hrs", label: "Hours to kick off — no long onboarding required" },
+    { value: "40+ domains", label: "Skill tracks across EdTech, corporate, training institutions, and more" },
     { value: "3-tier reports", label: "Separate summaries for learners, managers, and leadership" },
     { value: "100% your brand", label: "Sessions, certificates, and comms under your identity" },
   ],
@@ -236,8 +236,8 @@ export const universitiesPage: ServicePageContent = {
   icon: { src: "/Assets/service/university.svg", alt: "University and institutions icon" },
   heroImage: heroImages.universities,
   metrics: [
-    { value: "4–8 weeks", label: "From programme brief to first live session" },
-    { value: "10+ domains", label: "Industry tracks ready for immediate deployment" },
+    { value: "< 24 hrs", label: "Hours to get started — first session scheduled fast" },
+    { value: "40+ domains", label: "Industry tracks ready for immediate deployment" },
     { value: "Pilot or full rollout", label: "Start with one batch and expand without re-procurement" },
     { value: "Project-based", label: "Every programme includes hands-on work and assessment" },
   ],
@@ -382,8 +382,8 @@ export const legalServicesPage: ServicePageContent = {
   icon: { src: "/Assets/service/legal.svg", alt: "Legal services icon" },
   heroImage: heroImages.legal,
   metrics: [
-    { value: "5–7 days", label: "Turnaround on most standard agreements and policies" },
-    { value: "Startup to enterprise", label: "Engagement scales with your organisation and deal size" },
+    { value: "< 24 hrs", label: "To kick off — scoping call and brief confirmed same day" },
+    { value: "3–10 days", label: "Typical turnaround — varies by document complexity and counterparty" },
     { value: "3 practice areas", label: "Contracts, compliance documentation, and advisory" },
     { value: "Ongoing retainer", label: "Available beyond one-off drafts as your model evolves" },
   ],
@@ -532,7 +532,7 @@ export const hrServicesPage: ServicePageContent = {
   icon: { src: "/Assets/service/hr.svg", alt: "HR services icon" },
   heroImage: heroImages.hr,
   metrics: [
-    { value: "2–4 weeks", label: "From role brief to a shortlisted set of candidates" },
+    { value: "< 24 hrs", label: "Hours to kick off — sourcing starts the same day" },
     { value: "Full-time + contract", label: "Both hiring models supported in one engagement" },
     { value: "Any team size", label: "From a 2-person founding team to a 100-person organisation" },
     { value: "Day-one ready", label: "Onboarding documentation and checklists from day one" },
@@ -1266,7 +1266,7 @@ export const mobileAppDevPage: ServicePageContent = {
   icon: { src: "/Assets/service/technology.svg", alt: "Mobile app development icon" },
   heroImage: heroImages.mobileApp,
   metrics: [
-    { value: "8–12 weeks", label: "MVP from scoped brief to testable and deployable build" },
+    { value: "< 24 hrs", label: "Hours to kick off — scoping and build plan same day" },
     { value: "iOS + Android", label: "Cross-platform delivery with native-quality performance" },
     { value: "API integrations", label: "LMS, CRM, and payment systems connected" },
     { value: "Post-launch care", label: "Maintenance, updates, and iteration cycles included" },
