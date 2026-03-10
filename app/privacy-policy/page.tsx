@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const LAST_UPDATED = "1 June 2025";
 const COMPANY_NAME = "Xencus";
-const COMPANY_FULL = "Xencus (referred to as "Xencus", "we", "us", or "our")";
+const COMPANY_FULL = `Xencus (referred to as "Xencus", "we", "us", or "our")`;
 const CONTACT_EMAIL = "legal@xencus.com";
 const CONTACT_ADDRESS = "India";
 

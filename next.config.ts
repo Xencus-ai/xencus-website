@@ -14,7 +14,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  ...(isStaticExport && { output: "export" }),
+  ...(isStaticExport && { output: "export", trailingSlash: true }),
   poweredByHeader: false,
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
@@ -31,23 +31,25 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     ...(isStaticExport && { unoptimized: true }),
   },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: securityHeaders,
-      },
-      {
-        source: "/Assets/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-    ];
-  },
+  ...(!isStaticExport && {
+    async headers() {
+      return [
+        {
+          source: "/(.*)",
+          headers: securityHeaders,
+        },
+        {
+          source: "/Assets/(.*)",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "public, max-age=31536000, immutable",
+            },
+          ],
+        },
+      ];
+    },
+  }),
 };
 
 export default nextConfig;
