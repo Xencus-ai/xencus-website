@@ -22,6 +22,8 @@ import {
   RefreshCw,
   Clock,
 } from "lucide-react";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { Container } from "@/components/ui/Container";
 import {
   aboutHero,
   aboutNarrative,
@@ -52,32 +54,6 @@ const fadeUp = {
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
 };
-
-/* ── Shared primitives ───────────────────────────────────────────── */
-function Container({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10 xl:max-w-7xl ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
-      <span aria-hidden className="inline-block h-px w-6 bg-amber-500/50" />
-      {children}
-    </span>
-  );
-}
 
 /* ═══════════════════════════════════════════════════════════════════
    PAGE
