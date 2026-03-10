@@ -243,7 +243,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       {/* ════════════════════════════════════════════════════════════════
           §2  TAGLINE  —  light brand-tinted band
       ════════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-amber-50 py-14 sm:py-20">
+      <section className="relative overflow-hidden bg-amber-50 py-10 sm:py-16">
         {/* centre radial glow */}
         <div
           aria-hidden
@@ -291,7 +291,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="service-problems-title"
-        className="bg-white py-20 sm:py-28 lg:py-32"
+        className="bg-white py-16 sm:py-24 lg:py-28"
       >
         <Container>
           <div className="lg:grid lg:grid-cols-12 lg:gap-16">
@@ -357,7 +357,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="service-outcomes-title"
-        className="bg-white py-20 sm:py-28 lg:py-32"
+        className="bg-white py-16 sm:py-24 lg:py-28"
       >
         <Container>
           <SectionHead
@@ -397,7 +397,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       {content.subServices && content.subServices.length > 0 && (
         <section
           aria-labelledby="service-scope-title"
-          className="bg-white py-20 sm:py-28 lg:py-32"
+          className="bg-white py-16 sm:py-24 lg:py-28"
         >
           <Container>
             <SectionHead
@@ -437,7 +437,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="service-process-title"
-        className="relative overflow-hidden bg-white py-20 sm:py-28 lg:py-32"
+        className="relative overflow-hidden bg-white py-16 sm:py-24 lg:py-28"
       >
 
         <Container className="relative">
@@ -539,7 +539,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="service-audience-title"
-        className="relative overflow-hidden bg-amber-50/60 py-20 sm:py-28 lg:py-32"
+        className="relative overflow-hidden bg-amber-50/60 py-16 sm:py-24 lg:py-28"
       >
         {/* subtle brand radial warmth */}
         <div
@@ -630,7 +630,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="service-fit-title"
-        className="bg-white py-20 sm:py-28 lg:py-32"
+        className="bg-white py-16 sm:py-24 lg:py-28"
       >
         <Container>
           <SectionHead
@@ -689,7 +689,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       ════════════════════════════════════════════════════════════════ */}
       <section
         aria-labelledby="service-faq-title"
-        className="bg-white py-20 sm:py-28 lg:py-32"
+        className="bg-white py-16 sm:py-24 lg:py-28"
       >
         <Container>
           <div className="lg:grid lg:grid-cols-12 lg:gap-16">
@@ -732,7 +732,7 @@ export function ServiceLandingPage({ content }: { content: ServicePageContent })
       {/* ════════════════════════════════════════════════════════════════
           §9  CTA  —  light brand-tinted card
       ════════════════════════════════════════════════════════════════ */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
+      <section className="bg-white py-12 sm:py-16 lg:py-20">
         <Container>
           <div className="relative isolate overflow-hidden rounded-3xl bg-amber-50 px-8 py-16 text-center ring-1 ring-brand/20 shadow-lg sm:px-12 sm:py-20 lg:px-16">
             {/* warm radial glow */}

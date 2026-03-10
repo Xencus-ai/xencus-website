@@ -97,7 +97,7 @@ export default function SolutionsPage() {
 
       {/* Trust */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-white py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-white py-12 sm:py-16"
         aria-labelledby="solutions-trust-title"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -136,7 +136,7 @@ export default function SolutionsPage() {
 
       {/* Who we serve */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-white py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-white py-12 sm:py-16"
         aria-labelledby="solutions-segments-title"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -183,7 +183,7 @@ export default function SolutionsPage() {
 
       {/* What we deliver */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-background py-12 sm:py-16"
         aria-labelledby="solutions-capabilities-title"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -343,7 +343,7 @@ export default function SolutionsPage() {
 
       {/* Xencus vs others */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-white py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-white py-12 sm:py-16"
         aria-labelledby="solutions-comparison-title"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -455,7 +455,7 @@ export default function SolutionsPage() {
 
       {/* How it works */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-background py-12 sm:py-16"
         aria-labelledby="solutions-how-title"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -493,7 +493,7 @@ export default function SolutionsPage() {
 
       {/* What running operations with Xencus actually looks like */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-background py-12 sm:py-16"
         aria-labelledby="solutions-in-practice-title"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -551,7 +551,7 @@ export default function SolutionsPage() {
 
       {/* What makes the model work */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-white py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-white py-12 sm:py-16"
         aria-labelledby="solutions-model-title"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -621,7 +621,7 @@ export default function SolutionsPage() {
 
       {/* Questions people ask before starting */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-background py-12 sm:py-16"
         aria-labelledby="solutions-faq-title"
       >
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -673,7 +673,7 @@ export default function SolutionsPage() {
 
       {/* CTA */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-brand-secondary py-20 sm:py-28 lg:py-32"
+        className="scroll-mt-[var(--header-offset)] bg-brand-secondary py-12 sm:py-16"
         aria-labelledby="solutions-cta-title"
       >
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">

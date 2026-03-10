@@ -182,7 +182,7 @@ export default function PricingPage() {
       {/* Who we work with — 2-column feature layout                        */}
       {/* ------------------------------------------------------------------ */}
       <section
-        className="scroll-mt-[var(--header-offset)] overflow-hidden bg-white py-14 sm:py-20"
+        className="scroll-mt-[var(--header-offset)] overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="pricing-stages-title"
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -245,7 +245,7 @@ export default function PricingPage() {
       {/* Why custom pricing — bento grid                                    */}
       {/* ------------------------------------------------------------------ */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-gray-50 py-14 sm:py-20 lg:py-24"
+        className="scroll-mt-[var(--header-offset)] bg-gray-50 py-12 sm:py-16"
         aria-labelledby="pricing-pillars-title"
       >
         <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -399,7 +399,7 @@ export default function PricingPage() {
       {/* Comparison table                                                    */}
       {/* ------------------------------------------------------------------ */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-white py-14 sm:py-20 lg:py-24"
+        className="scroll-mt-[var(--header-offset)] bg-white py-12 sm:py-16"
         aria-labelledby="pricing-comparison-title"
       >
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -473,7 +473,7 @@ export default function PricingPage() {
       {/* FAQ                                                                 */}
       {/* ------------------------------------------------------------------ */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background py-14 sm:py-20 lg:py-24"
+        className="scroll-mt-[var(--header-offset)] bg-background py-12 sm:py-16"
         aria-labelledby="pricing-faq-title"
       >
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -498,7 +498,7 @@ export default function PricingPage() {
       {/* CTA                                                                 */}
       {/* ------------------------------------------------------------------ */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background py-14 sm:py-20"
+        className="scroll-mt-[var(--header-offset)] bg-background py-12 sm:py-16"
         aria-labelledby="pricing-cta-title"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

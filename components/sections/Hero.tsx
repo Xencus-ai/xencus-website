@@ -47,7 +47,7 @@ export function Hero() {
       />
 
       {/* Content overlay: headline → subtext → stats → CTA. pt on mobile clears nav + extra gap so title isn’t cramped. */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-28 pt-[12rem] sm:px-6 sm:pb-32 sm:pt-32 lg:pt-36 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-20 pt-[10rem] sm:px-6 sm:pb-24 sm:pt-28 lg:pt-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1
             className="text-5xl font-black tracking-tight text-heading sm:text-6xl lg:text-7xl"

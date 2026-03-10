@@ -63,7 +63,7 @@ function Container({
 }) {
   return (
     <div
-      className={`mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 xl:max-w-7xl ${className}`}
+      className={`mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10 xl:max-w-7xl ${className}`}
     >
       {children}
     </div>
@@ -91,7 +91,7 @@ export default function AboutPageContent() {
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
         aria-labelledby="about-hero-title"
-        className="relative flex min-h-screen w-full flex-col justify-center -mt-[var(--header-offset)] pt-[var(--header-offset)]"
+        className="relative flex min-h-screen w-full flex-col items-center justify-center -mt-[var(--header-offset)] pt-[var(--header-offset)]"
         style={{
           background:
             "linear-gradient(135deg, #fffcf0 0%, #ffffff 45%, #fff8ef 75%, #fffdf8 100%)",
@@ -111,21 +111,22 @@ export default function AboutPageContent() {
         {/* Bottom fade */}
         <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent" />
 
-        <div className="relative w-full px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+        <div className="relative w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
           <Container>
             {/* ── Two-column grid ── */}
             <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
 
-              {/* Left: Copy */}
+              {/* Left: Copy — centered on mobile, left-aligned on lg */}
               <motion.div
                 initial="initial"
                 animate="animate"
                 variants={{ animate: { transition: { staggerChildren: 0.09, delayChildren: 0.04 } } }}
+                className="flex flex-col items-center text-center lg:items-start lg:text-left"
               >
                 <motion.h1
                   id="about-hero-title"
                   variants={fadeUp}
-                  className="text-4xl font-extrabold leading-[1.07] tracking-tight text-[#171717] sm:text-5xl lg:text-[clamp(2.6rem,3.8vw,3.8rem)]"
+                  className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[#171717] sm:text-5xl lg:text-[clamp(2.6rem,3.8vw,3.8rem)]"
                 >
                   The operations backbone behind{" "}
                   <span className="relative whitespace-nowrap">
@@ -152,17 +153,17 @@ export default function AboutPageContent() {
 
                 <motion.p
                   variants={fadeUp}
-                  className="mt-4 max-w-lg text-base leading-relaxed text-[#525252] sm:text-lg"
+                  className="mt-4 max-w-lg text-sm leading-relaxed text-[#525252] sm:text-base"
                 >
                   {aboutHero.subtitle}
                 </motion.p>
 
-                <motion.div variants={fadeUp} className="mt-7">
+                <motion.div variants={fadeUp} className="mt-6">
                   <div className="cta-spin-wrap">
                     <div className="cta-spin-border" aria-hidden />
                     <Link
                       href="/services"
-                      className="group relative z-10 inline-flex items-center gap-2 rounded-xl bg-[#151515] px-7 py-3.5 text-sm font-semibold text-white transition-all hover:bg-zinc-800"
+                      className="group relative z-10 inline-flex items-center gap-2 rounded-xl bg-[#151515] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-zinc-800 sm:px-7 sm:py-3.5"
                     >
                       See what we do
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
@@ -171,7 +172,7 @@ export default function AboutPageContent() {
                 </motion.div>
               </motion.div>
 
-              {/* Right: Illustration */}
+              {/* Right: Illustration — desktop only */}
               <motion.div
                 initial={{ opacity: 0, x: 36 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -218,20 +219,20 @@ export default function AboutPageContent() {
           WHY WE EXIST
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="relative overflow-hidden bg-white py-16 sm:py-20"
+        className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-narrative-title"
       >
         <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
 
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Illustration */}
             <motion.div
               initial={{ opacity: 0, x: -28 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
+              className="relative mx-auto w-full max-w-[320px] sm:max-w-[400px] lg:max-w-none"
             >
               <div aria-hidden className="absolute -inset-6 rounded-[3rem] bg-amber-100/50 blur-3xl" />
               <Image
@@ -250,19 +251,20 @@ export default function AboutPageContent() {
               whileInView={fadeUp.animate}
               viewport={{ once: true, margin: "-80px" }}
               transition={fadeUp.transition}
+              className="mx-auto w-full max-w-xl lg:max-w-none"
             >
               <SectionLabel>{aboutNarrative.label}</SectionLabel>
               <h2
                 id="about-narrative-title"
-                className="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-[#171717] sm:text-4xl lg:text-5xl"
+                className="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-[#171717] sm:text-3xl lg:text-4xl"
               >
                 {aboutNarrative.heading}
               </h2>
-              <div className="mt-8 space-y-6">
+              <div className="mt-6 space-y-5">
                 {aboutNarrative.paragraphs.slice(0, 2).map((para, idx) => (
                   <p
                     key={idx}
-                    className="border-l-2 border-amber-400/60 pl-5 text-base leading-8 text-[#525252]"
+                    className="border-l-2 border-amber-400/60 pl-4 text-sm leading-7 text-[#525252] sm:text-base sm:leading-8"
                   >
                     {para}
                   </p>
@@ -277,7 +279,7 @@ export default function AboutPageContent() {
           MISSION & VISION
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="relative overflow-hidden bg-white py-16 sm:py-20"
+        className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-mission-title"
       >
         <Container>
@@ -286,12 +288,12 @@ export default function AboutPageContent() {
             whileInView={fadeUp.animate}
             viewport={{ once: true, margin: "-80px" }}
             transition={fadeUp.transition}
-            className="mb-12"
+            className="mx-auto mb-8 max-w-xl sm:mb-12 lg:max-w-none"
           >
             <SectionLabel>Purpose</SectionLabel>
             <h2
               id="about-mission-title"
-              className="mt-4 text-4xl font-extrabold tracking-tight text-[#171717] sm:text-5xl"
+              className="mt-3 text-3xl font-extrabold tracking-tight text-[#171717] sm:text-4xl"
             >
               Mission &amp; Vision
             </h2>
@@ -303,33 +305,33 @@ export default function AboutPageContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="overflow-hidden rounded-3xl border border-zinc-100 shadow-[0_4px_32px_rgba(0,0,0,0.06)]"
+            className="overflow-hidden rounded-2xl border border-zinc-100 shadow-[0_4px_32px_rgba(0,0,0,0.06)] sm:rounded-3xl"
           >
             <div className="grid divide-y divide-zinc-100 lg:grid-cols-2 lg:divide-x lg:divide-y-0">
               {/* Mission */}
-              <div className="relative overflow-hidden bg-amber-50/60 p-10 sm:p-12">
+              <div className="relative overflow-hidden bg-amber-50/60 p-6 sm:p-10">
                 <div aria-hidden className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-amber-200/30 blur-3xl" />
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-600">
                   Mission
                 </p>
-                <h3 className="mt-4 text-2xl font-extrabold leading-snug text-[#171717] sm:text-3xl">
+                <h3 className="mt-3 text-xl font-extrabold leading-snug text-[#171717] sm:text-2xl">
                   {aboutMission.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#525252]">
+                <p className="mt-3 text-sm leading-7 text-[#525252]">
                   {aboutMission.description}
                 </p>
               </div>
 
               {/* Vision */}
-              <div className="relative overflow-hidden bg-white p-10 sm:p-12">
+              <div className="relative overflow-hidden bg-white p-6 sm:p-10">
                 <div aria-hidden className="pointer-events-none absolute -left-12 -top-12 h-48 w-48 rounded-full bg-zinc-100/60 blur-3xl" />
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-zinc-500">
                   Vision
                 </p>
-                <h3 className="mt-4 text-2xl font-extrabold leading-snug text-[#171717] sm:text-3xl">
+                <h3 className="mt-3 text-xl font-extrabold leading-snug text-[#171717] sm:text-2xl">
                   {aboutVision.title}
                 </h3>
-                <p className="mt-4 text-sm leading-7 text-[#525252]">
+                <p className="mt-3 text-sm leading-7 text-[#525252]">
                   {aboutVision.description}
                 </p>
               </div>
@@ -342,19 +344,19 @@ export default function AboutPageContent() {
           WHAT WE DO
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="relative overflow-hidden bg-white py-16 sm:py-20"
+        className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-what-title"
       >
         <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Illustration */}
             <motion.div
               initial={{ opacity: 0, x: -32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative order-2 lg:order-1"
+              className="relative order-2 mx-auto w-full max-w-[300px] sm:max-w-[380px] lg:order-1 lg:max-w-none"
             >
               <div aria-hidden className="absolute -inset-8 rounded-[3rem] bg-amber-50/80 blur-3xl" />
               <Image
@@ -372,26 +374,26 @@ export default function AboutPageContent() {
               whileInView={fadeUp.animate}
               viewport={{ once: true, margin: "-80px" }}
               transition={fadeUp.transition}
-              className="order-1 lg:order-2"
+              className="order-1 mx-auto w-full max-w-xl lg:order-2 lg:max-w-none"
             >
               <SectionLabel>What we do</SectionLabel>
               <h2
                 id="about-what-title"
-                className="mt-4 text-4xl font-extrabold tracking-tight text-[#171717] sm:text-5xl"
+                className="mt-3 text-3xl font-extrabold tracking-tight text-[#171717] sm:text-4xl"
               >
                 {aboutWhatWeDo.title}
               </h2>
 
-              <ul className="mt-10 space-y-5">
+              <ul className="mt-8 space-y-4">
                 {aboutWhatWeDo.items.map((item, idx) => {
                   const Icon = WHAT_WE_DO_ICONS[idx];
                   return (
-                    <li key={item.title} className="flex gap-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100">
-                        <Icon className="size-5 text-amber-700" aria-hidden />
+                    <li key={item.title} className="flex gap-3 sm:gap-4">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-100 sm:h-10 sm:w-10">
+                        <Icon className="size-4 text-amber-700 sm:size-5" aria-hidden />
                       </span>
                       <div>
-                        <p className="font-semibold text-[#171717]">{item.title}</p>
+                        <p className="text-sm font-semibold text-[#171717] sm:text-base">{item.title}</p>
                         <p className="mt-0.5 text-sm leading-6 text-[#707070]">
                           {item.description}
                         </p>
@@ -409,7 +411,7 @@ export default function AboutPageContent() {
           VALUES
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="relative overflow-hidden bg-white py-16 sm:py-20"
+        className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-values-title"
       >
         <Container>
@@ -418,18 +420,18 @@ export default function AboutPageContent() {
             whileInView={fadeUp.animate}
             viewport={{ once: true, margin: "-80px" }}
             transition={fadeUp.transition}
-            className="mb-12"
+            className="mx-auto mb-8 max-w-xl sm:mb-12 lg:max-w-none"
           >
             <SectionLabel>What we stand for</SectionLabel>
             <h2
               id="about-values-title"
-              className="mt-4 text-4xl font-extrabold tracking-tight text-[#171717] sm:text-5xl"
+              className="mt-3 text-3xl font-extrabold tracking-tight text-[#171717] sm:text-4xl"
             >
               The principles that shape how&nbsp;we&nbsp;work
             </h2>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
             {aboutValues.map((value, idx) => {
               const Icon = VALUE_ICONS[value.id] ?? ShieldCheck;
               return (
@@ -439,7 +441,7 @@ export default function AboutPageContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: idx * 0.07 }}
-                  className="group relative overflow-hidden rounded-2xl bg-[#fafaf8] p-7 transition-colors hover:bg-amber-50/60"
+                  className="group relative overflow-hidden rounded-2xl bg-[#fafaf8] p-6 transition-colors hover:bg-amber-50/60 sm:p-7"
                 >
                   {/* Faint bg number */}
                   <span
@@ -449,10 +451,10 @@ export default function AboutPageContent() {
                     {idx + 1}
                   </span>
                   <div className="relative">
-                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 transition-colors group-hover:bg-amber-200">
+                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 transition-colors group-hover:bg-amber-200">
                       <Icon className="size-5 text-amber-700" aria-hidden />
                     </div>
-                    <h3 className="text-base font-bold text-[#171717]">{value.title}</h3>
+                    <h3 className="text-sm font-bold text-[#171717] sm:text-base">{value.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-[#707070]">
                       {value.description}
                     </p>
@@ -468,31 +470,32 @@ export default function AboutPageContent() {
           HOW WE WORK
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="relative overflow-hidden bg-white py-16 sm:py-20"
+        className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-how-title"
       >
         <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Steps — timeline */}
             <motion.div
               initial={fadeUp.initial}
               whileInView={fadeUp.animate}
               viewport={{ once: true, margin: "-80px" }}
               transition={fadeUp.transition}
+              className="mx-auto w-full max-w-xl lg:max-w-none"
             >
               <SectionLabel>Our operating model</SectionLabel>
               <h2
                 id="about-how-title"
-                className="mt-4 text-4xl font-extrabold tracking-tight text-[#171717] sm:text-5xl"
+                className="mt-3 text-3xl font-extrabold tracking-tight text-[#171717] sm:text-4xl"
               >
                 {aboutHowWeWork.heading}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-[#525252]">
+              <p className="mt-3 text-sm leading-relaxed text-[#525252] sm:text-base">
                 {aboutHowWeWork.description}
               </p>
 
-              <ol className="relative mt-10 space-y-0">
+              <ol className="relative mt-8 space-y-0">
                 {/* Connecting line */}
                 <div
                   aria-hidden
@@ -505,13 +508,13 @@ export default function AboutPageContent() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.09 }}
-                    className="relative flex gap-5 pb-8 last:pb-0"
+                    className="relative flex gap-4 pb-7 last:pb-0 sm:gap-5"
                   >
                     <span className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-amber-400 text-xs font-black text-white ring-4 ring-white">
                       {idx + 1}
                     </span>
                     <div className="pt-1">
-                      <p className="font-semibold text-[#171717]">{step.title}</p>
+                      <p className="text-sm font-semibold text-[#171717] sm:text-base">{step.title}</p>
                       <p className="mt-1 text-sm leading-6 text-[#707070]">{step.description}</p>
                     </div>
                   </motion.li>
@@ -525,7 +528,7 @@ export default function AboutPageContent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative hidden lg:flex lg:items-center lg:justify-center"
+              className="relative mx-auto w-full max-w-[280px] sm:max-w-[360px] lg:flex lg:max-w-none lg:items-center lg:justify-center"
             >
               <div aria-hidden className="absolute -inset-8 rounded-[3rem] bg-amber-50/80 blur-3xl" />
               <Image
@@ -544,38 +547,39 @@ export default function AboutPageContent() {
           WHAT MAKES US DIFFERENT
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="relative overflow-hidden bg-white py-16 sm:py-20"
+        className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-diff-title"
       >
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             <motion.div
               initial={fadeUp.initial}
               whileInView={fadeUp.animate}
               viewport={{ once: true, margin: "-80px" }}
               transition={fadeUp.transition}
+              className="mx-auto w-full max-w-xl lg:max-w-none"
             >
               <SectionLabel>Why Xencus</SectionLabel>
               <h2
                 id="about-diff-title"
-                className="mt-4 text-4xl font-extrabold tracking-tight text-[#171717] sm:text-5xl"
+                className="mt-3 text-3xl font-extrabold tracking-tight text-[#171717] sm:text-4xl"
               >
                 {aboutDifference.heading}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-[#525252]">
+              <p className="mt-3 text-sm leading-relaxed text-[#525252] sm:text-base">
                 {aboutDifference.description}
               </p>
 
-              <ul className="mt-10 space-y-5">
+              <ul className="mt-8 space-y-4">
                 {aboutDifference.items.map((item, idx) => {
                   const Icon = DIFFERENCE_ICONS[idx];
                   return (
-                    <li key={item.title} className="flex gap-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100">
-                        <Icon className="size-5 text-amber-700" aria-hidden />
+                    <li key={item.title} className="flex gap-3 sm:gap-4">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-100 sm:h-10 sm:w-10">
+                        <Icon className="size-4 text-amber-700 sm:size-5" aria-hidden />
                       </span>
                       <div>
-                        <p className="font-semibold text-[#171717]">{item.title}</p>
+                        <p className="text-sm font-semibold text-[#171717] sm:text-base">{item.title}</p>
                         <p className="mt-0.5 text-sm leading-6 text-[#707070]">
                           {item.description}
                         </p>
@@ -592,7 +596,7 @@ export default function AboutPageContent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7 }}
-              className="relative hidden lg:flex lg:items-center lg:justify-center"
+              className="relative mx-auto w-full max-w-[280px] sm:max-w-[360px] lg:flex lg:max-w-none lg:items-center lg:justify-center"
             >
               <div aria-hidden className="absolute -inset-8 rounded-[3rem] bg-amber-50/80 blur-3xl" />
               <Image
@@ -611,31 +615,32 @@ export default function AboutPageContent() {
           CULTURE
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="relative overflow-hidden bg-white py-16 sm:py-20"
+        className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-culture-title"
       >
         <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
             {/* Content */}
             <motion.div
               initial={fadeUp.initial}
               whileInView={fadeUp.animate}
               viewport={{ once: true, margin: "-80px" }}
               transition={fadeUp.transition}
+              className="mx-auto w-full max-w-xl lg:max-w-none"
             >
               <SectionLabel>{aboutCulture.label}</SectionLabel>
               <h2
                 id="about-culture-title"
-                className="mt-4 text-4xl font-extrabold tracking-tight text-[#171717] sm:text-5xl"
+                className="mt-3 text-3xl font-extrabold tracking-tight text-[#171717] sm:text-4xl"
               >
                 {aboutCulture.heading}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-[#525252]">
+              <p className="mt-3 text-sm leading-relaxed text-[#525252] sm:text-base">
                 {aboutCulture.description}
               </p>
 
-              <div className="mt-10 space-y-5">
+              <div className="mt-8 space-y-4">
                 {aboutCulture.traits.map((trait, idx) => {
                   const Icon = CULTURE_ICONS[idx];
                   return (
@@ -645,13 +650,13 @@ export default function AboutPageContent() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: idx * 0.07 }}
-                      className="flex gap-4"
+                      className="flex gap-3 sm:gap-4"
                     >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-100">
-                        <Icon className="size-5 text-amber-700" aria-hidden />
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-100 sm:h-10 sm:w-10">
+                        <Icon className="size-4 text-amber-700 sm:size-5" aria-hidden />
                       </span>
                       <div>
-                        <h3 className="font-semibold text-[#171717]">{trait.title}</h3>
+                        <h3 className="text-sm font-semibold text-[#171717] sm:text-base">{trait.title}</h3>
                         <p className="mt-0.5 text-sm leading-6 text-[#707070]">{trait.description}</p>
                       </div>
                     </motion.div>
@@ -666,7 +671,7 @@ export default function AboutPageContent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative hidden lg:flex lg:items-center lg:justify-center"
+              className="relative mx-auto w-full max-w-[280px] sm:max-w-[360px] lg:flex lg:max-w-none lg:items-center lg:justify-center"
             >
               <div aria-hidden className="absolute -inset-8 rounded-[3rem] bg-amber-50/80 blur-3xl" />
               <Image
@@ -685,7 +690,7 @@ export default function AboutPageContent() {
           CTA — dark closer
       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section
-        className="px-5 py-14 sm:px-8 sm:py-20 lg:px-12"
+        className="px-4 py-12 sm:px-6 sm:py-16 lg:px-8"
         aria-labelledby="about-cta-title"
       >
         <Container>
@@ -694,7 +699,7 @@ export default function AboutPageContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative isolate overflow-hidden rounded-[2rem] bg-[#151515] px-8 py-16 shadow-2xl sm:px-12 sm:py-20 lg:flex lg:items-center lg:gap-16 lg:px-16"
+            className="relative isolate overflow-hidden rounded-2xl bg-[#151515] px-6 py-10 shadow-2xl sm:rounded-[2rem] sm:px-10 sm:py-14 lg:flex lg:items-center lg:gap-12 lg:px-14 lg:py-16"
           >
             <div aria-hidden className="pointer-events-none absolute -top-1/2 left-1/2 -z-10 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-amber-500/15 blur-3xl" />
             <div aria-hidden className="pointer-events-none absolute -bottom-1/3 right-0 -z-10 h-[22rem] w-[22rem] rounded-full bg-amber-400/10 blur-3xl" />
@@ -705,37 +710,38 @@ export default function AboutPageContent() {
               </p>
               <h2
                 id="about-cta-title"
-                className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl"
+                className="mt-3 text-2xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl"
               >
                 {aboutCta.title}
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-zinc-400">
+              <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-400 sm:text-base">
                 {aboutCta.description}
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                 <Link
                   href={aboutCta.buttonHref}
-                  className="group inline-flex items-center gap-2 rounded-xl bg-[#FAAB4E] px-7 py-3.5 text-sm font-bold text-[#151515] transition-all hover:bg-amber-400 hover:shadow-lg hover:shadow-amber-500/20"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#FAAB4E] px-6 py-3 text-sm font-bold text-[#151515] transition-all hover:bg-amber-400 hover:shadow-lg hover:shadow-amber-500/20"
                 >
                   {aboutCta.buttonText}
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
                 </Link>
                 <Link
                   href="/solutions"
-                  className="text-sm font-semibold text-zinc-400 transition hover:text-white"
+                  className="text-center text-sm font-semibold text-zinc-400 transition hover:text-white sm:text-left"
                 >
                   See our solutions <span aria-hidden>→</span>
                 </Link>
               </div>
             </div>
 
-            <div className="mt-12 hidden flex-shrink-0 lg:mt-0 lg:block">
+            {/* Illustration — hidden on small, shown on lg */}
+            <div className="mt-10 hidden flex-shrink-0 lg:mt-0 lg:block">
               <Image
-                src="/Assets/ABOUT/cta.avif"
+                src="/Assets/ABOUT/Good%20team-rafiki.svg"
                 alt="Team collaboration"
                 width={420}
-                height={360}
-                className="w-[26rem] rounded-2xl object-cover"
+                height={420}
+                className="w-[22rem] xl:w-[26rem]"
               />
             </div>
           </motion.div>
