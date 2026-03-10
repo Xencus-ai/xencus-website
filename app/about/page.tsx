@@ -2,17 +2,28 @@ import type { Metadata } from "next";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Layers, Zap, Users, Network, BookOpen, Target, LayoutDashboard, Briefcase, ClipboardList, Globe } from "lucide-react";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Layers,
+  Zap,
+  Users,
+  Network,
+  BookOpen,
+  Target,
+  LayoutDashboard,
+  Briefcase,
+  ClipboardList,
+  Globe,
+} from "lucide-react";
 import { buildPageMetadata } from "@/lib/seo";
 import {
   aboutHero,
-  aboutNarrative,
   aboutMission,
   aboutVision,
   aboutWhatWeDo,
   aboutHowWeWork,
   aboutValues,
-  aboutCulture,
   aboutDifference,
   aboutStats,
   aboutCta,
@@ -31,196 +42,232 @@ const VALUE_ICONS: Record<string, LucideIcon> = {
   speed: Zap,
   partnership: Users,
 };
-
 const DIFFERENCE_ICONS = [Network, BookOpen, Target] as const;
 const WHAT_WE_DO_ICONS = [LayoutDashboard, Briefcase, ClipboardList, Globe] as const;
 
+/* shared container — matches ServiceLandingPage */
+function Container({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`mx-auto w-full max-w-5xl px-5 sm:px-8 lg:px-10 ${className}`}>
+      {children}
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
-    <main className="overflow-hidden bg-background">
-      {/* ------------------------------------------------------------------ */}
-      {/* Hero                                                                */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="relative isolate overflow-hidden bg-background" aria-labelledby="about-hero-title">
-        {/* Ambient top glow */}
+    <main className="overflow-x-hidden bg-white">
+
+      {/* ── Hero — full viewport, starts behind navbar ─────────────────────── */}
+      <section
+        aria-labelledby="about-hero-title"
+        className="relative overflow-hidden bg-white -mt-[var(--header-offset)]"
+        style={{ minHeight: "100dvh" }}
+      >
+        {/* decorative backgrounds */}
         <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(250,171,78,0.18), transparent)",
-          }}
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-4/5 bg-[radial-gradient(ellipse_85%_70%_at_50%_0%,rgba(250,171,78,0.18),transparent_80%)]"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:24px_24px] opacity-20 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_30%,transparent_100%)]"
         />
 
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-x-12">
-            {/* Left — text */}
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-                {aboutHero.label}
-              </p>
-              <h1
-                id="about-hero-title"
-                className="mt-4 text-balance text-4xl font-bold tracking-tight text-heading sm:text-5xl lg:text-6xl"
-              >
-                {aboutHero.title}
-              </h1>
-              <p className="mt-6 max-w-xl text-base/7 text-paragraph-secondary sm:text-lg/8">
-                {aboutHero.subtitle}
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-secondary shadow-sm transition hover:opacity-90"
+        {/* centering wrapper — starts below navbar, fills visible viewport */}
+        <div
+          className="relative flex items-center justify-center px-5 py-10 sm:px-8 sm:py-12 lg:px-10"
+          style={{
+            marginTop: "var(--header-offset)",
+            minHeight: "calc(100dvh - var(--header-offset))",
+          }}
+        >
+          <div className="mx-auto w-full max-w-5xl">
+            <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              {/* Text */}
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
+                  {aboutHero.label}
+                </p>
+                <h1
+                  id="about-hero-title"
+                  className="mt-4 text-balance text-4xl font-extrabold tracking-tight text-heading sm:text-5xl lg:text-6xl"
                 >
-                  Work with us
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-                <Link
-                  href="/solutions"
-                  className="text-sm font-semibold text-heading transition hover:underline"
-                >
-                  See what we do <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </div>
+                  {aboutHero.title}
+                </h1>
+                <p className="mt-5 text-base leading-7 text-paragraph-secondary sm:text-lg">
+                  {aboutHero.subtitle}
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 rounded-full bg-brand-secondary px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-zinc-700"
+                  >
+                    Work with us
+                    <ArrowRight className="size-4" aria-hidden />
+                  </Link>
+                  <Link
+                    href="/solutions"
+                    className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-heading shadow-sm transition hover:bg-gray-50"
+                  >
+                    See what we do
+                  </Link>
+                </div>
 
-            {/* Right — illustration */}
-            <div className="mt-12 flex items-center justify-center lg:mt-0">
-              <Image
-                src="/Assets/ABOUT/Team%20work-pana.svg"
-                alt="Xencus team working together"
-                width={560}
-                height={560}
-                className="w-full max-w-[460px]"
-                priority
-              />
+                {/* Stats — glassmorphism bar */}
+                <div className="mt-8 rounded-2xl border border-white/70 bg-white/60 px-5 py-4 shadow-lg shadow-gray-200/60 backdrop-blur-md sm:px-6 sm:py-5">
+                  <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-0">
+                    {aboutStats.map((stat, i) => (
+                      <div
+                        key={stat.label}
+                        className={`text-center ${i > 0 ? "sm:border-l sm:border-gray-200" : ""}`}
+                      >
+                        <dt className="text-base font-extrabold text-brand-secondary sm:text-lg">
+                          {stat.value}
+                        </dt>
+                        <dd className="mt-0.5 text-[10px] font-medium leading-snug text-paragraph-secondary sm:text-[11px]">
+                          {stat.label}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+
+              {/* Illustration */}
+              <div className="flex items-center justify-center hero-illustration-float">
+                <Image
+                  src="/Assets/ABOUT/Team%20work-pana.svg"
+                  alt="Xencus team working together"
+                  width={520}
+                  height={520}
+                  className="w-full max-w-xs sm:max-w-sm lg:max-w-full"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* Stats                                                               */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="bg-gray-50" aria-label="Key outcomes">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <dl className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-            {aboutStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl bg-white p-6 text-center ring-1 ring-gray-200"
-              >
-                <dt className="text-xl font-bold text-brand-secondary sm:text-2xl">{stat.value}</dt>
-                <dd className="mt-2 text-xs font-medium leading-snug text-paragraph-secondary sm:text-sm">
-                  {stat.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* Why we exist                                                        */}
-      {/* ------------------------------------------------------------------ */}
+      {/* ── Mission + Vision ───────────────────────────────────────────────── */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background"
-        aria-labelledby="about-narrative-title"
-      >
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="lg:grid lg:grid-cols-[1fr_380px] lg:items-center lg:gap-x-16">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-                {aboutNarrative.label}
-              </p>
-              <h2
-                id="about-narrative-title"
-                className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
-              >
-                {aboutNarrative.heading}
-              </h2>
-              <div className="mt-8 space-y-5 text-base/7 text-paragraph-secondary">
-                {aboutNarrative.paragraphs.map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-              </div>
-            </div>
-            <div className="mt-12 flex items-center justify-center lg:mt-0">
-              <Image
-                src="/Assets/ABOUT/At%20the%20office-bro.svg"
-                alt="Xencus team at work"
-                width={400}
-                height={400}
-                className="w-full max-w-sm"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* Mission + Vision                                                    */}
-      {/* ------------------------------------------------------------------ */}
-      <section
-        className="scroll-mt-[var(--header-offset)] bg-gray-50"
+        className="relative overflow-hidden bg-amber-50 py-16 sm:py-20"
         aria-labelledby="about-mission-title"
       >
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <header className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+        {/* edge fades to white */}
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
+
+        <Container className="relative">
+          <div className="mb-10 text-center">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
               Purpose
             </p>
             <h2
               id="about-mission-title"
               className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
             >
-              Mission and vision
+              Mission &amp; vision
             </h2>
-          </header>
+          </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {/* Mission */}
-            <div className="rounded-2xl bg-white p-8 ring-1 ring-gray-200 sm:p-10">
-              <span className="block h-1 w-16 rounded-full bg-brand" aria-hidden="true" />
-              <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-brand">
+          <div className="grid gap-5 lg:grid-cols-2">
+            <div className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-brand/15 sm:p-8">
+              <span className="block h-1 w-12 rounded-full bg-brand" aria-hidden />
+              <p className="mt-5 text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
                 Mission
               </p>
-              <h3 className="mt-2 text-xl font-bold text-heading sm:text-2xl">
-                {aboutMission.title}
-              </h3>
-              <p className="mt-4 text-base/7 text-paragraph-secondary">
+              <h3 className="mt-2 text-lg font-bold text-heading">{aboutMission.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-paragraph-secondary">
                 {aboutMission.description}
               </p>
             </div>
-
-            {/* Vision */}
-            <div className="rounded-2xl bg-white p-8 ring-1 ring-gray-200 sm:p-10">
-              <span className="block h-1 w-16 rounded-full bg-brand" aria-hidden="true" />
-              <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-brand">
+            <div className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-brand/15 sm:p-8">
+              <span className="block h-1 w-12 rounded-full bg-brand" aria-hidden />
+              <p className="mt-5 text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
                 {aboutVision.label}
               </p>
-              <h3 className="mt-2 text-xl font-bold text-heading sm:text-2xl">
-                {aboutVision.title}
-              </h3>
-              <p className="mt-4 text-base/7 text-paragraph-secondary">
+              <h3 className="mt-2 text-lg font-bold text-heading">{aboutVision.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-paragraph-secondary">
                 {aboutVision.description}
               </p>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* Values                                                              */}
-      {/* ------------------------------------------------------------------ */}
+      {/* ── What we do ─────────────────────────────────────────────────────── */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-background"
+        className="bg-white py-16 sm:py-20"
+        aria-labelledby="about-what-title"
+      >
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            {/* Illustration */}
+            <div className="flex items-center justify-center">
+              <Image
+                src="/Assets/ABOUT/Seminar-bro.svg"
+                alt="EdTech delivery operations"
+                width={460}
+                height={380}
+                className="w-full max-w-xs sm:max-w-sm lg:max-w-full"
+              />
+            </div>
+            {/* Content */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
+                What we do
+              </p>
+              <h2
+                id="about-what-title"
+                className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+              >
+                {aboutWhatWeDo.title}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-paragraph-secondary">
+                {aboutWhatWeDo.subtitle}
+              </p>
+              <ul className="mt-8 space-y-5">
+                {aboutWhatWeDo.items.map((item, idx) => {
+                  const Icon = WHAT_WE_DO_ICONS[idx];
+                  return (
+                    <li key={item.title} className="flex items-start gap-4">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand/15">
+                        <Icon className="size-4 text-brand-secondary" aria-hidden />
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-heading">{item.title}</p>
+                        <p className="mt-1 text-sm leading-6 text-paragraph-secondary">
+                          {item.description}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Values ─────────────────────────────────────────────────────────── */}
+      <section
+        className="relative overflow-hidden bg-amber-50 py-16 sm:py-20"
         aria-labelledby="about-values-title"
       >
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <header className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
+
+        <Container className="relative">
+          <div className="mb-10 text-center">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
               What we stand for
             </p>
             <h2
@@ -229,198 +276,38 @@ export default function AboutPage() {
             >
               The principles that shape how we work
             </h2>
-            <p className="mt-4 text-base/7 text-paragraph-secondary">
-              These are not values on a slide deck. They determine what we say yes to, what we say
-              no to, and how we behave when things get difficult.
-            </p>
-          </header>
+          </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {aboutValues.map((value) => {
               const Icon = VALUE_ICONS[value.id] ?? ShieldCheck;
               return (
                 <article
                   key={value.id}
-                  className="group rounded-2xl bg-white p-6 ring-1 ring-gray-200 transition hover:ring-brand/30 hover:shadow-sm"
+                  className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-brand/15 transition hover:shadow-md"
                 >
-                  <div className="mb-5 flex size-11 items-center justify-center rounded-xl bg-brand/10 transition group-hover:bg-brand/20">
-                    <Icon className="size-5 text-brand-secondary" aria-hidden="true" />
+                  <div className="mb-4 flex size-10 items-center justify-center rounded-xl bg-brand/15 transition group-hover:bg-brand/25">
+                    <Icon className="size-5 text-brand-secondary" aria-hidden />
                   </div>
-                  <h3 className="text-base font-semibold text-heading">{value.title}</h3>
-                  <p className="mt-2 text-sm/6 text-paragraph-secondary">{value.description}</p>
+                  <h3 className="text-sm font-bold text-heading">{value.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-paragraph-secondary">
+                    {value.description}
+                  </p>
                 </article>
               );
             })}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* Culture                                                             */}
-      {/* ------------------------------------------------------------------ */}
+      {/* ── How we work — step cards ────────────────────────────────────────── */}
       <section
-        className="scroll-mt-[var(--header-offset)] bg-gray-50"
-        aria-labelledby="about-culture-title"
-      >
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="lg:grid lg:grid-cols-[360px_1fr] lg:items-start lg:gap-x-16">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-brand">
-                {aboutCulture.label}
-              </p>
-              <h2
-                id="about-culture-title"
-                className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
-              >
-                {aboutCulture.heading}
-              </h2>
-              <p className="mt-4 text-base/7 text-paragraph-secondary">
-                {aboutCulture.description}
-              </p>
-              <div className="mt-10 hidden lg:block">
-                <Image
-                  src="/Assets/ABOUT/Team%20spirit-bro.svg"
-                  alt="Xencus team culture"
-                  width={320}
-                  height={320}
-                  className="w-full max-w-xs"
-                />
-              </div>
-            </div>
-
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-0">
-              {aboutCulture.traits.map((trait) => (
-                <div key={trait.title} className="rounded-2xl bg-white p-6 ring-1 ring-gray-200">
-                  <h3 className="text-base font-semibold text-heading">{trait.title}</h3>
-                  <p className="mt-2 text-sm/6 text-paragraph-secondary">{trait.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* What we do                                                          */}
-      {/* ------------------------------------------------------------------ */}
-      <section
-        className="scroll-mt-[var(--header-offset)] relative isolate overflow-hidden bg-background px-6 py-16 sm:py-20 lg:overflow-visible lg:px-0"
-        aria-labelledby="about-what-title"
-      >
-        {/* SVG grid background */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <svg
-            aria-hidden="true"
-            className="absolute top-0 left-[max(50%,25rem)] h-[64rem] w-[128rem] -translate-x-1/2 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-gray-200"
-          >
-            <defs>
-              <pattern
-                id="about-what-grid"
-                x="50%"
-                y={-1}
-                width={200}
-                height={200}
-                patternUnits="userSpaceOnUse"
-              >
-                <path d="M100 200V.5M.5 .5H200" fill="none" />
-              </pattern>
-            </defs>
-            <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
-              <path
-                d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-                strokeWidth={0}
-              />
-            </svg>
-            <rect
-              fill="url(#about-what-grid)"
-              width="100%"
-              height="100%"
-              strokeWidth={0}
-            />
-          </svg>
-        </div>
-
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-          {/* Row 1 — header */}
-          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-            <div className="lg:pr-4">
-              <div className="lg:max-w-lg">
-                <p className="text-base/7 font-semibold text-brand">What we do</p>
-                <h2
-                  id="about-what-title"
-                  className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-heading sm:text-5xl"
-                >
-                  {aboutWhatWeDo.title}
-                </h2>
-                <p className="mt-6 text-xl/8 text-paragraph-secondary">
-                  {aboutWhatWeDo.subtitle}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Sticky image */}
-          <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-            <Image
-              src="/Assets/ABOUT/Seminar-bro.svg"
-              alt="EdTech delivery operations"
-              width={1200}
-              height={900}
-              className="w-[48rem] max-w-none rounded-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-            />
-          </div>
-
-          {/* Row 2 — body + feature list */}
-          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-            <div className="lg:pr-4">
-              <div className="max-w-xl text-base/7 text-paragraph-secondary lg:max-w-lg">
-                <p>
-                  Each function we run is designed around how education businesses actually
-                  operate — not adapted from generic service templates. The work is bundled under
-                  one operating layer so the coordination happens inside Xencus, not inside your
-                  calendar.
-                </p>
-                <ul role="list" className="mt-8 space-y-8">
-                  {aboutWhatWeDo.items.map((item, idx) => {
-                    const Icon = WHAT_WE_DO_ICONS[idx];
-                    return (
-                      <li key={item.title} className="flex gap-x-3">
-                        <Icon
-                          aria-hidden="true"
-                          className="mt-1 size-5 shrink-0 text-brand-secondary"
-                        />
-                        <span>
-                          <strong className="font-semibold text-heading">{item.title}.</strong>{" "}
-                          {item.description}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <h3 className="mt-16 text-2xl font-bold tracking-tight text-heading">
-                  One model. Every function.
-                </h3>
-                <p className="mt-6">
-                  Whether you engage us for delivery alone or for the full stack, the operating
-                  model is the same — aligned scope, weekly reporting, and a single point of
-                  accountability from day one.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* How we work                                                         */}
-      {/* ------------------------------------------------------------------ */}
-      <section
-        className="scroll-mt-[var(--header-offset)] bg-gray-50"
+        className="bg-white py-16 sm:py-20"
         aria-labelledby="about-how-title"
       >
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <header className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand">
+        <Container>
+          <div className="mb-12 text-center">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
               Our operating model
             </p>
             <h2
@@ -429,110 +316,131 @@ export default function AboutPage() {
             >
               {aboutHowWeWork.heading}
             </h2>
-            <p className="mt-4 text-base/7 text-paragraph-secondary">
-              {aboutHowWeWork.description}
-            </p>
-          </header>
-
-          <div className="relative mt-14">
-            {/* Connector line — desktop only */}
-            <div
-              aria-hidden="true"
-              className="absolute top-6 left-6 right-6 hidden h-px bg-gray-200 lg:block"
-            />
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-              {aboutHowWeWork.steps.map((step) => (
-                <div key={step.number}>
-                  <div className="relative z-10 mb-5 inline-flex size-12 items-center justify-center rounded-full bg-brand text-sm font-extrabold text-brand-secondary ring-4 ring-gray-50">
-                    {step.number}
-                  </div>
-                  <h3 className="text-base font-semibold text-heading">{step.title}</h3>
-                  <p className="mt-2 text-sm/6 text-paragraph-secondary">{step.description}</p>
-                </div>
-              ))}
-            </div>
           </div>
-        </div>
+
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {aboutHowWeWork.steps.map((step, idx) => (
+              <li key={step.number} className="group relative flex flex-col">
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+                  {/* ghost large number */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -right-1 -bottom-2 select-none text-[7rem] font-black leading-none text-gray-100"
+                  >
+                    {step.number}
+                  </span>
+
+                  {/* top accent bar */}
+                  <div
+                    className="mb-5 h-0.5 w-full rounded-full"
+                    style={{
+                      background:
+                        idx === 0
+                          ? "linear-gradient(to right, #faab4e, #faab4e60)"
+                          : idx === 1
+                          ? "linear-gradient(to right, #faab4e60, #faab4e, #faab4e60)"
+                          : idx === 2
+                          ? "linear-gradient(to right, #faab4e60, #faab4e, #faab4e60)"
+                          : "linear-gradient(to right, #faab4e60, #faab4e)",
+                    }}
+                    aria-hidden
+                  />
+
+                  {/* step badge */}
+                  <span className="mb-4 inline-flex w-fit items-center gap-1.5 rounded-full bg-brand/20 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-brand-secondary">
+                    Step {step.number}
+                  </span>
+
+                  <h3 className="text-base font-bold leading-snug text-heading sm:text-lg">
+                    {step.title}
+                  </h3>
+                  <p className="relative mt-2 flex-1 text-sm leading-7 text-paragraph-secondary">
+                    {step.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Container>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* What makes us different                                             */}
-      {/* ------------------------------------------------------------------ */}
+      {/* ── What makes us different ────────────────────────────────────────── */}
       <section
-        className="scroll-mt-[var(--header-offset)] overflow-hidden bg-background"
+        className="relative overflow-hidden bg-amber-50 py-16 sm:py-20"
         aria-labelledby="about-diff-title"
       >
-        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-            {/* Left — text + feature list */}
-            <div className="lg:pt-4 lg:pr-8">
-              <div className="lg:max-w-lg">
-                <p className="text-base/7 font-semibold text-brand">Why Xencus</p>
-                <h2
-                  id="about-diff-title"
-                  className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-heading sm:text-5xl"
-                >
-                  {aboutDifference.heading}
-                </h2>
-                <p className="mt-6 text-lg/8 text-paragraph-secondary">
-                  {aboutDifference.description}
-                </p>
-                <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-paragraph-secondary lg:max-w-none">
-                  {aboutDifference.items.map((item, idx) => {
-                    const Icon = DIFFERENCE_ICONS[idx];
-                    return (
-                      <div key={item.title} className="relative pl-9">
-                        <dt className="inline font-semibold text-heading">
-                          <Icon
-                            aria-hidden="true"
-                            className="absolute top-1 left-1 size-5 text-brand-secondary"
-                          />
-                          {item.title}
-                        </dt>{" "}
-                        <dd className="inline">{item.description}</dd>
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent" />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
+
+        <Container className="relative">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            {/* Content */}
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-brand-secondary/40">
+                Why Xencus
+              </p>
+              <h2
+                id="about-diff-title"
+                className="mt-3 text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+              >
+                {aboutDifference.heading}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-paragraph-secondary">
+                {aboutDifference.description}
+              </p>
+              <ul className="mt-8 space-y-5">
+                {aboutDifference.items.map((item, idx) => {
+                  const Icon = DIFFERENCE_ICONS[idx];
+                  return (
+                    <li key={item.title} className="flex items-start gap-4">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-brand/20">
+                        <Icon className="size-4 text-brand-secondary" aria-hidden />
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-heading">{item.title}</p>
+                        <p className="mt-1 text-sm leading-6 text-paragraph-secondary">
+                          {item.description}
+                        </p>
                       </div>
-                    );
-                  })}
-                </dl>
-              </div>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
 
-            {/* Right — illustration with bleed */}
-            <Image
-              src="/Assets/ABOUT/Team%20work-rafiki.svg"
-              alt="How Xencus is different from hiring and agencies"
-              width={1200}
-              height={900}
-              className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0"
-            />
+            {/* Illustration */}
+            <div className="flex items-center justify-center">
+              <Image
+                src="/Assets/ABOUT/Team%20work-rafiki.svg"
+                alt="How Xencus is different"
+                width={460}
+                height={380}
+                className="w-full max-w-xs sm:max-w-sm lg:max-w-full"
+              />
+            </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* CTA                                                                 */}
-      {/* ------------------------------------------------------------------ */}
-      <section
-        className="scroll-mt-[var(--header-offset)] bg-background"
-        aria-labelledby="about-cta-title"
-      >
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-          <div className="relative isolate overflow-hidden rounded-3xl bg-gray-900 px-8 py-16 text-center shadow-2xl sm:px-16 sm:py-20">
+      {/* ── CTA ────────────────────────────────────────────────────────────── */}
+      <section className="bg-white px-5 py-16 sm:px-8 sm:py-20 lg:px-10" aria-labelledby="about-cta-title">
+        <div className="mx-auto max-w-5xl">
+          <div className="relative isolate overflow-hidden rounded-3xl bg-gray-900 px-8 py-16 text-center shadow-2xl sm:px-12 sm:py-20">
             <div
-              aria-hidden="true"
-              className="absolute -top-1/2 left-1/2 -z-10 size-[40rem] -translate-x-1/2 rounded-full bg-brand/20 blur-3xl"
+              aria-hidden
+              className="pointer-events-none absolute -top-1/2 left-1/2 -z-10 size-[36rem] -translate-x-1/2 rounded-full bg-brand/20 blur-3xl"
             />
             <div
-              aria-hidden="true"
-              className="absolute -bottom-1/3 right-0 -z-10 size-[28rem] rounded-full bg-brand/10 blur-3xl"
+              aria-hidden
+              className="pointer-events-none absolute -bottom-1/3 right-0 -z-10 size-[24rem] rounded-full bg-brand/10 blur-3xl"
             />
             <h2
               id="about-cta-title"
-              className="text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl"
+              className="text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl"
             >
               {aboutCta.title}
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-base/7 text-gray-300">
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-300 sm:text-base">
               {aboutCta.description}
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -541,13 +449,13 @@ export default function AboutPage() {
                 className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3.5 text-sm font-semibold text-brand-secondary shadow-lg shadow-brand/20 transition hover:opacity-90"
               >
                 {aboutCta.buttonText}
-                <ArrowRight className="size-4" aria-hidden="true" />
+                <ArrowRight className="size-4" aria-hidden />
               </Link>
               <Link
                 href="/solutions"
                 className="text-sm font-semibold text-gray-300 transition hover:text-white"
               >
-                See our solutions <span aria-hidden="true">→</span>
+                See our solutions <span aria-hidden>→</span>
               </Link>
             </div>
           </div>

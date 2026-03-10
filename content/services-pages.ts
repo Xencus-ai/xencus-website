@@ -10,12 +10,22 @@ export type ServicePageContent = {
   label: string;
   title: string;
   subtitle: string;
-  /** A bold, opinionated positioning statement shown in a dark band below the hero. */
+  /**
+   * Short 3–6 word phrase displayed as the LARGE gradient hero heading
+   * (the "poster line" — unique per service, punchy and benefit-led).
+   */
+  heroAccent: string;
+  /** A bold, opinionated positioning statement shown in a tinted band below the hero. */
   tagline: string;
   icon: { src: string; alt: string };
   heroImage: { src: string; alt: string };
   /** Four key metrics specific to this service. */
   metrics: { value: string; label: string }[];
+  /**
+   * Real pain points this service solves. Shown before Outcomes so visitors
+   * immediately recognise their own situation.
+   */
+  problems: { title: string; description: string }[];
   outcomes: { title: string; description: string }[];
   subServices?: { title: string; points: string[] }[];
   howItWorks: { step: number; title: string; text: string }[];
@@ -68,6 +78,7 @@ export const corporateLdPage: ServicePageContent = {
   slug: "/services/corporate-ld",
   label: "Corporate L&D",
   title: "Upskilling programmes, delivered end to end",
+  heroAccent: "Cohort delivery at scale",
   subtitle:
     "Design, run, and track cohort-based learning for your employees without building an internal delivery team. We handle trainers, sessions, content operations, and reporting while your L&D leaders stay focused on strategy and business outcomes.",
   tagline:
@@ -75,10 +86,32 @@ export const corporateLdPage: ServicePageContent = {
   icon: { src: "/Assets/service/corporate.svg", alt: "Corporate learning icon" },
   heroImage: heroImages.corporateLd,
   metrics: [
-    { value: "2 to 3 weeks", label: "From alignment to first live cohort" },
-    { value: "Weekly", label: "Reporting to managers and business stakeholders" },
-    { value: "Your brand", label: "All learner touchpoints remain under your identity" },
-    { value: "3 levels", label: "Reporting for learners, managers, and leadership" },
+    { value: "2–3 weeks", label: "From brief to first live cohort, no long onboarding" },
+    { value: "30+ domains", label: "Skill tracks across technology, data, design, and management" },
+    { value: "3-tier reports", label: "Separate summaries for learners, managers, and leadership" },
+    { value: "100% your brand", label: "Sessions, certificates, and comms under your identity" },
+  ],
+  problems: [
+    {
+      title: "Freshers and laterals need domain training but you have no internal trainer",
+      description:
+        "Most Indian companies, especially startups and mid-size businesses, hire from tier-2 and tier-3 colleges where practical skills are limited. Building an internal L&D team is expensive and most organisations cannot justify it until they are much larger.",
+    },
+    {
+      title: "You rely on one-off workshops that produce no measurable outcome",
+      description:
+        "A two-day external workshop every quarter does not build skills. Without structured cohorts, assessments, and follow-through, the spend rarely translates into improvement in how employees do their actual work.",
+    },
+    {
+      title: "L&D is managed manually through spreadsheets and WhatsApp groups",
+      description:
+        "HR teams spend hours every week coordinating trainers, tracking attendance, and compiling reports. This manual overhead means programmes never scale beyond a handful of cohorts without dedicated ops bandwidth.",
+    },
+    {
+      title: "Programmes stall when a trainer cancels with no backup plan",
+      description:
+        "Finding, vetting, and retaining good domain trainers is a full-time job. When a trainer drops out mid-cohort, learners lose momentum and HR has no contingency. Without backup trainer systems, this happens far more often than it should.",
+    },
   ],
   outcomes: [
     {
@@ -161,20 +194,24 @@ export const corporateLdPage: ServicePageContent = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Can you work with our existing LMS and HR systems?",
-        a: "Yes. We plug into your existing LMS, HRIS, and reporting tools. If you are starting from scratch, we recommend a simple setup that grows with your programmes without creating technical debt.",
+        q: "Can you work with our existing LMS, Zoho People, or internal HR systems?",
+        a: "Yes. We plug into your existing LMS, HRMS, and reporting tools. If you are starting from scratch, we can recommend a cost-effective setup that grows with your programmes without adding unnecessary technical complexity.",
       },
       {
-        q: "Can you run programmes across multiple geographies and time zones?",
-        a: "Yes. We build trainer schedules and session plans that account for geography and time zone constraints, keeping the operations layer consistent regardless of where your employees are located.",
+        q: "Do you issue certificates that are GST-compliant and usable for compliance records?",
+        a: "Yes. We generate completion certificates that include the necessary details for your internal HR records. For GST purposes, we can structure the engagement so invoicing and documentation align with your finance team's requirements.",
       },
       {
-        q: "Is this only for technology and engineering teams?",
-        a: "No. We support upskilling across technology, data, design, management, communication, and other functional areas. The operating model is the same regardless of domain.",
+        q: "How do you handle trainers from a contractual and tax perspective?",
+        a: "Trainers are engaged as independent contractors under proper agreements that include IP assignment, confidentiality, and scope of work clauses. TDS is handled correctly based on the nature of payment. We take care of this so you do not have to manage individual contractor relationships.",
       },
       {
-        q: "What is the minimum size of a cohort you can support?",
-        a: "We work with cohorts of varying sizes. For very small groups we often recommend blended formats that optimise for learning quality and cost. We will advise on the right structure based on your goals.",
+        q: "Can you support programmes for teams across multiple cities in India?",
+        a: "Yes. We run programmes for teams in metros, tier-2, and tier-3 cities. Sessions are online or hybrid depending on what works best for your learner profile, and the operations model stays consistent regardless of geography.",
+      },
+      {
+        q: "We are a startup with fewer than 50 employees. Is this for us?",
+        a: "Absolutely. We work with companies at all stages. Startups often benefit most from structured upskilling because the team is small and the cost of someone not knowing how to do their job is high. We can start with a single cohort and scale from there.",
       },
     ],
   },
@@ -191,6 +228,7 @@ export const universitiesPage: ServicePageContent = {
   slug: "/services/universities-training-institutions",
   label: "Universities and Training Institutions",
   title: "Industry-led programmes for students, at scale",
+  heroAccent: "Industry learning for students",
   subtitle:
     "Expand your domain coverage and delivery capacity without building a large internal training team. We bring vetted industry trainers, structured projects, hands-on assessments, and operations so your students learn from practitioners who are doing the work today.",
   tagline:
@@ -198,10 +236,32 @@ export const universitiesPage: ServicePageContent = {
   icon: { src: "/Assets/service/university.svg", alt: "University and institutions icon" },
   heroImage: heroImages.universities,
   metrics: [
-    { value: "10 plus domains", label: "Available for immediate deployment" },
-    { value: "4 to 8 weeks", label: "Lead time from brief to first live session" },
-    { value: "Academic calendar", label: "Delivery aligned to your institutional schedule" },
-    { value: "Full ops", label: "Scheduling, coordination, and student reporting handled" },
+    { value: "4–8 weeks", label: "From programme brief to first live session" },
+    { value: "10+ domains", label: "Industry tracks ready for immediate deployment" },
+    { value: "Pilot or full rollout", label: "Start with one batch and expand without re-procurement" },
+    { value: "Project-based", label: "Every programme includes hands-on work and assessment" },
+  ],
+  problems: [
+    {
+      title: "Students have degrees but cannot clear industry interviews or get placed in good roles",
+      description:
+        "The gap between what Indian universities teach and what companies actually need has never been wider. Students graduating with B.Tech, BCA, or BBA degrees often lack the practical skills, portfolio work, and domain knowledge that employers in technology, finance, and product roles require.",
+    },
+    {
+      title: "Faculty teach theory but have not worked in industry for a decade or more",
+      description:
+        "A professor who last worked in software in 2012 cannot teach cloud architecture, data engineering, or product management. Industry-relevant skills require active practitioners, and most institutions cannot afford to hire full-time industry faculty for every emerging domain.",
+    },
+    {
+      title: "Placement teams struggle because students are not interview-ready despite good grades",
+      description:
+        "Strong academic scores do not translate to strong interview performance. Students who have never worked on a real problem, built a project from scratch, or articulated their thinking to a technical interviewer consistently underperform in campus placements.",
+    },
+    {
+      title: "NEP 2020 requires industry integration but there is no practical execution support",
+      description:
+        "The National Education Policy 2020 specifically mandates industry linkages and experiential learning. Most institutions understand the requirement and want to comply but do not have a structured partner to bring industry trainers, projects, and certification into the actual curriculum.",
+    },
   ],
   outcomes: [
     {
@@ -284,20 +344,20 @@ export const universitiesPage: ServicePageContent = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Can you align the programme content with our existing curriculum?",
-        a: "Yes. We map our delivery to your curriculum requirements and add practical components that deepen understanding and improve employment outcomes. We work alongside your faculty, not over them.",
+        q: "Can you align the programme content with our existing curriculum and AICTE or UGC requirements?",
+        a: "Yes. We map our delivery to your curriculum and add practical components that deepen understanding without conflicting with your academic calendar or regulatory requirements. We have worked within AICTE and UGC aligned frameworks and understand what documentation institutions need.",
       },
       {
-        q: "Do you provide assessments and grading support?",
-        a: "Yes. We design and run quizzes, assignments, project evaluations, and rubric-based grading depending on the programme structure. We can also produce grade reports in formats your academic system requires.",
+        q: "Do the programmes help with placement preparation specifically?",
+        a: "Yes. Our programmes are designed with placement outcomes in mind. Projects, assessments, and mentor feedback are structured so students build portfolio work they can present in technical interviews. We can also run specific placement preparation tracks as part of the engagement.",
       },
       {
-        q: "Can you support multiple campuses running the same programme?",
-        a: "Yes. We can run multi-campus delivery with a consistent operating model, shared assessments, and unified reporting so academic leadership has a single view of outcomes across locations.",
+        q: "Can you support multiple campuses or departments running the same programme?",
+        a: "Yes. We run multi-campus delivery with consistent operating models, shared assessments, and unified reporting. This is common for institutions with multiple campuses across states who want consistent quality without duplicating coordination effort at each location.",
       },
       {
-        q: "How do you handle student doubt support between sessions?",
-        a: "We set up structured doubt sessions and async support channels so students are not blocked between live classes. The format depends on programme length and intensity.",
+        q: "Do your trainers have experience working with Indian students specifically?",
+        a: "Yes. All our trainers have experience in the Indian education context. They understand the starting point of most Indian engineering or commerce graduates and structure their teaching accordingly, which produces better outcomes than international trainers who assume a different baseline.",
       },
     ],
   },
@@ -314,6 +374,7 @@ export const legalServicesPage: ServicePageContent = {
   slug: "/services/edtech-legal-services",
   label: "EdTech Legal Services",
   title: "Legal clarity built for EdTech operations",
+  heroAccent: "Legal clarity for EdTech",
   subtitle:
     "Contracts, compliance documentation, and ongoing advisory designed around how EdTech businesses actually run. We help you remove legal bottlenecks from growth and delivery so partnerships close faster and programmes launch with confidence.",
   tagline:
@@ -321,10 +382,32 @@ export const legalServicesPage: ServicePageContent = {
   icon: { src: "/Assets/service/legal.svg", alt: "Legal services icon" },
   heroImage: heroImages.legal,
   metrics: [
-    { value: "5 to 7 days", label: "Standard turnaround on most agreements" },
-    { value: "EdTech-first", label: "Documents built for cohort and programme models" },
-    { value: "Ongoing", label: "Advisory as your business model evolves" },
-    { value: "3 areas", label: "Contracts, compliance, and operational risk covered" },
+    { value: "5–7 days", label: "Turnaround on most standard agreements and policies" },
+    { value: "Startup to enterprise", label: "Engagement scales with your organisation and deal size" },
+    { value: "3 practice areas", label: "Contracts, compliance documentation, and advisory" },
+    { value: "Ongoing retainer", label: "Available beyond one-off drafts as your model evolves" },
+  ],
+  problems: [
+    {
+      title: "You are using copy-paste contracts from the internet that are not valid under Indian law",
+      description:
+        "Most Indian startups and education businesses use free templates from international websites. These contracts often reference foreign law, lack clauses required under the Indian Contract Act 1872, and create disputes about jurisdiction that are expensive to resolve in Indian courts.",
+    },
+    {
+      title: "You are not sure whether your educational services attract GST at 18 percent or are exempt",
+      description:
+        "GST treatment of educational services in India is genuinely complex. Some programmes qualify for exemption, others are taxable. Getting this wrong means either overcharging students, creating a GST liability you were not aware of, or triggering a notice from the tax department.",
+    },
+    {
+      title: "Your trainer agreements have no IP assignment clause and no clarity on content ownership",
+      description:
+        "When a trainer creates curriculum, assessments, or video content for your platform, who legally owns it? Most Indian education businesses operate without a clear IP assignment agreement, which creates expensive disputes if the trainer leaves or joins a competitor.",
+    },
+    {
+      title: "Your website has no DPDP Act 2023 compliant privacy policy or consent mechanism",
+      description:
+        "The Digital Personal Data Protection Act 2023 requires specific disclosures, consent flows, and data handling practices. A privacy policy copied from another website does not fulfil these requirements. As enforcement begins, this creates regulatory risk for any business collecting user data.",
+    },
   ],
   outcomes: [
     {
@@ -407,20 +490,24 @@ export const legalServicesPage: ServicePageContent = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "What kinds of documents do you handle?",
-        a: "We handle trainer and vendor agreements, enterprise and institutional contracts, SOWs, MSAs, learner-facing policies, and compliance documentation. If you are not sure whether something falls in scope, just ask us.",
+        q: "Do you draft agreements under Indian law specifically?",
+        a: "Yes. All documents we prepare are drafted under and compliant with Indian law, including the Indian Contract Act 1872, the Information Technology Act, and relevant sector-specific regulations. We do not use international templates that require significant rework for the Indian context.",
       },
       {
-        q: "Do you work alongside our existing in-house legal team?",
-        a: "Yes. We can support your legal team with drafting, review, and operational context without replacing their role. Many of our clients have a legal team that handles complex transactions while we handle the operational documentation layer.",
+        q: "Can you help us become DPDP Act 2023 compliant?",
+        a: "Yes. We help you draft a privacy policy, consent mechanisms, and data handling practices that align with the Digital Personal Data Protection Act 2023. This includes reviewing your current website and app data collection practices and advising on what needs to change.",
       },
       {
-        q: "Can you prioritise urgent reviews?",
-        a: "Yes. When you have a partnership or client agreement with a tight deadline, we prioritise accordingly. We are set up to operate at a business pace, not a traditional law firm pace.",
+        q: "Do you understand the GST implications for educational services?",
+        a: "Yes. Educational services in India have specific GST treatment depending on the type of programme, the provider, and who the recipients are. We can advise on whether your specific offering qualifies for exemption and help you structure agreements and invoicing accordingly.",
       },
       {
-        q: "How do you handle domain-specific compliance, such as data privacy?",
-        a: "We approach compliance from an operational perspective, making sure your practices and documentation are aligned. For complex regulatory matters we work alongside specialist counsel rather than substituting for them.",
+        q: "Can you handle urgent contract reviews when a deal is closing quickly?",
+        a: "Yes. We are structured to operate at business pace, not at a traditional law firm pace. When a partnership or enterprise deal has a tight timeline, we prioritise the review and turnaround the document within the timeframe your business requires.",
+      },
+      {
+        q: "We are an early-stage startup. Do you work with small companies?",
+        a: "Yes. Many of our clients are early-stage companies that need proper legal foundations without the cost of a full retainer with a law firm. We scale the engagement to your current stage and complexity.",
       },
     ],
   },
@@ -437,6 +524,7 @@ export const hrServicesPage: ServicePageContent = {
   slug: "/services/hr-services-for-edtech",
   label: "HR Services for EdTech",
   title: "Hiring and people operations for education businesses",
+  heroAccent: "Hire, onboard and grow",
   subtitle:
     "We help you build and manage the teams that run education businesses: trainers, operations, support, marketing, and leadership. This includes the policies, onboarding workflows, and people processes to grow without the chaos that typically accompanies rapid hiring.",
   tagline:
@@ -444,10 +532,32 @@ export const hrServicesPage: ServicePageContent = {
   icon: { src: "/Assets/service/hr.svg", alt: "HR services icon" },
   heroImage: heroImages.hr,
   metrics: [
-    { value: "2 to 4 weeks", label: "End-to-end hiring cycle for most roles" },
-    { value: "Full-time and contract", label: "Both employment models supported" },
-    { value: "Role-specific", label: "JD and scorecard templates per function" },
-    { value: "Day-one ready", label: "Onboarding checklists from first day of employment" },
+    { value: "2–4 weeks", label: "From role brief to a shortlisted set of candidates" },
+    { value: "Full-time + contract", label: "Both hiring models supported in one engagement" },
+    { value: "Any team size", label: "From a 2-person founding team to a 100-person organisation" },
+    { value: "Day-one ready", label: "Onboarding documentation and checklists from day one" },
+  ],
+  problems: [
+    {
+      title: "You are hiring through personal networks and missing good candidates on Naukri and LinkedIn",
+      description:
+        "Most early-stage Indian companies rely on founder networks for hiring. This produces a shallow candidate pool, misses qualified people who are not in the network, and creates bias toward familiar profiles rather than the best fit for the actual role.",
+    },
+    {
+      title: "New employees join without proper appointment letters, contracts, or NDAs",
+      description:
+        "Many Indian startups onboard employees informally without appointment letters, employment contracts, or non-disclosure agreements. This creates serious legal exposure if a dispute arises and makes it harder to maintain professional standards as the team grows.",
+    },
+    {
+      title: "You do not know when PF and ESI registration becomes mandatory or how to structure it",
+      description:
+        "Provident Fund registration is mandatory once you have 20 or more employees. ESI applies at different thresholds. Many founders are unaware of these obligations, the applicable salary limits, and the contribution rates. Non-compliance attracts penalties and employee disputes.",
+    },
+    {
+      title: "Your full-time employees and contractors are structured identically, creating tax and compliance risk",
+      description:
+        "In India, the distinction between an employee and an independent contractor has significant TDS, PF, and labour law implications. Using the same structure for both creates liability that surfaces during an audit or when a contractor claims employment benefits.",
+    },
   ],
   outcomes: [
     {
@@ -530,20 +640,20 @@ export const hrServicesPage: ServicePageContent = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Do you support both full-time and contractor hiring?",
-        a: "Yes. We handle both employment models and understand the structural differences that matter when hiring trainers and contractors versus full-time team members.",
+        q: "Do you source candidates on Naukri, LinkedIn, and other Indian platforms?",
+        a: "Yes. We source across Naukri, LinkedIn, Apna, and other platforms relevant to the role and seniority. We write JDs optimised for each platform and manage the full sourcing and screening process so you only spend time with qualified shortlisted candidates.",
       },
       {
-        q: "Can you help us build HR policies and documentation from scratch?",
-        a: "Yes. We can provide policy templates and tune them to your team size, delivery model, and employment structure. If you have existing policies that need reviewing, we can do that too.",
+        q: "Can you help us set up PF and ESI registration and compliance?",
+        a: "Yes. We advise on PF and ESI registration requirements based on your employee count and salary structure, help you set up the compliance process, and coordinate with your CA or payroll system so deductions and filings are handled correctly from the start.",
       },
       {
-        q: "Do you support ongoing HR operations after the initial hiring phase?",
-        a: "Yes. We can continue as your people operations partner as you grow, covering regular HR admin, policy updates, and new hiring cycles as they arise.",
+        q: "Do you draft appointment letters and employment contracts for Indian law?",
+        a: "Yes. We prepare appointment letters, employment agreements, and NDA templates compliant with Indian employment law. These include the relevant clauses for notice periods, IP ownership, non-solicitation, and grounds for termination that Indian employers need.",
       },
       {
-        q: "What roles do you typically hire for in EdTech businesses?",
-        a: "We have experience hiring for delivery roles including trainers and programme managers, operations roles, support and customer success, marketing, and leadership. We adjust the sourcing strategy to the specific role.",
+        q: "We are a three-person startup. Is this too early to engage HR support?",
+        a: "Not at all. Getting the foundations right early is much cheaper than fixing problems after you have grown. We help early-stage teams define roles, structure compensation, and put basic documentation in place so you are not scrambling when you need to scale quickly.",
       },
     ],
   },
@@ -560,6 +670,7 @@ export const financeSolutionsPage: ServicePageContent = {
   slug: "/services/finance-solutions-for-edtech",
   label: "Finance Solutions for EdTech",
   title: "Finance operations that match how education revenue actually works",
+  heroAccent: "Finance built for cohorts",
   subtitle:
     "From bookkeeping and reconciliations to compliance filings and founder-ready reporting, we help EdTech teams maintain clean financials and stay on top of statutory obligations so founders can focus on product and growth rather than spreadsheets and tax calendars.",
   tagline:
@@ -567,10 +678,32 @@ export const financeSolutionsPage: ServicePageContent = {
   icon: { src: "/Assets/service/finance.svg", alt: "Finance solutions icon" },
   heroImage: heroImages.finance,
   metrics: [
-    { value: "Monthly", label: "Bookkeeping, reconciliation, and reporting cycles" },
-    { value: "Cohort-level", label: "Revenue tracking aligned to your delivery model" },
-    { value: "Timely filings", label: "Statutory obligations coordinated with your CA" },
-    { value: "Investor-ready", label: "Reporting structure suited for funding conversations" },
+    { value: "Monthly cycle", label: "Bookkeeping, reconciliation, and reporting on schedule" },
+    { value: "Seed to growth", label: "Scales from early-stage books to investor-grade reporting" },
+    { value: "Cohort-accurate", label: "Revenue tracked the way education businesses actually earn" },
+    { value: "Filing support", label: "Statutory deadlines coordinated with your CA or auditor" },
+  ],
+  problems: [
+    {
+      title: "GST filings are delayed, filed incorrectly, or not filed at all",
+      description:
+        "GSTR-1 and GSTR-3B must be filed every month. Late or incorrect filing attracts penalties, blocks input tax credit for your vendors, and can trigger a notice from the GST department. Many Indian startups do not have a process that guarantees timely, accurate filing.",
+    },
+    {
+      title: "TDS is not being deducted on trainer and contractor payments, creating audit risk",
+      description:
+        "Payments to trainers, freelancers, and professional service providers in India attract TDS under Section 194C or 194J depending on the nature of work. Not deducting TDS at all or deducting at the wrong rate creates a liability that surfaces during an income tax assessment or CA-led audit.",
+    },
+    {
+      title: "You have no monthly P&L or cash flow view and are making decisions on the bank balance alone",
+      description:
+        "Running a business without a monthly profit and loss statement means you cannot see if you are actually making money or just generating revenue. Decisions about hiring, marketing spend, and new programmes made on the bank balance alone frequently lead to cash flow crises.",
+    },
+    {
+      title: "Your books are not ready for due diligence and you are approaching a fundraise",
+      description:
+        "When an angel investor or fund asks for financial statements, many founders discover their books have not been maintained properly, reconciliations are months behind, and the figures their CA produces do not tell a coherent story. Cleaning up books under due diligence pressure is expensive and stressful.",
+    },
   ],
   outcomes: [
     {
@@ -653,20 +786,24 @@ export const financeSolutionsPage: ServicePageContent = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Do you support both early-stage startups and larger EdTech businesses?",
-        a: "Yes. We structure the engagement based on your revenue volume and complexity. Early-stage companies typically need lean, reliable operations whereas larger businesses need more structured reporting and compliance coverage.",
+        q: "Can you handle GST filing including GSTR-1 and GSTR-3B every month?",
+        a: "Yes. Monthly GST filing is a core part of what we do. We maintain a compliance calendar, coordinate with your CA where needed, and ensure GSTR-1 and GSTR-3B are filed accurately and on time every month. We also advise on input tax credit reconciliation and GST treatment specific to educational services.",
       },
       {
-        q: "Do you work with our existing CA or in-house finance team?",
-        a: "Yes. We operate as a complement to your CA or internal finance team, handling operational finance work so specialists can focus on complex matters.",
+        q: "Can you manage TDS deductions and quarterly TDS returns?",
+        a: "Yes. We track all payments attracting TDS, ensure correct deduction at source under the applicable section, and coordinate with your CA for quarterly TDS return filing. This covers trainer payments, professional fees, rent, and other applicable categories.",
       },
       {
-        q: "Can you create reporting for leadership and investors?",
-        a: "Yes. We produce clean, structured reporting that founders and leadership can use in decision-making and investor conversations without extensive preparation.",
+        q: "Do you work with Tally, Zoho Books, or QuickBooks?",
+        a: "Yes. We work with Tally, Zoho Books, QuickBooks, and other common accounting tools used in India. If you are not using any tool yet, we can recommend the most appropriate one based on your transaction volume and reporting needs.",
       },
       {
-        q: "What tools and systems do you work with?",
-        a: "We are tool-agnostic and work with your existing accounting, invoicing, and banking tools. If you need tool recommendations or setup, we can advise on that too.",
+        q: "Can you work alongside our existing CA instead of replacing them?",
+        a: "Yes. Many of our clients have a CA who handles their annual audit, income tax returns, and complex statutory matters. We handle the ongoing operational finance work, including bookkeeping, reconciliation, and GST, so your CA can focus on the work that requires their expertise.",
+      },
+      {
+        q: "We are a private limited company. What annual compliances do we need and can you support them?",
+        a: "Pvt Ltd companies in India need to file Form AOC-4 and MGT-7 annually with the Ministry of Corporate Affairs, maintain statutory registers, hold board meetings, and file income tax returns. We coordinate all of this with your CA so nothing is missed and no penalties are incurred.",
       },
     ],
   },
@@ -683,6 +820,7 @@ export const digitalMarketingPage: ServicePageContent = {
   slug: "/services/technical/digital-marketing",
   label: "Digital Marketing",
   title: "Performance marketing designed for education growth",
+  heroAccent: "Marketing that converts learners",
   subtitle:
     "Campaign planning, channel management, creative production, and weekly reporting so you can grow your programme enrolments efficiently without assembling a full in-house marketing operation. We function as an embedded growth team rather than an external agency.",
   tagline:
@@ -690,10 +828,32 @@ export const digitalMarketingPage: ServicePageContent = {
   icon: { src: "/Assets/service/technology.svg", alt: "Digital marketing icon" },
   heroImage: heroImages.digitalMarketing,
   metrics: [
-    { value: "All channels", label: "Meta, Google, organic, email, and more" },
-    { value: "Weekly", label: "Performance reporting with clear next actions" },
-    { value: "CAC-focused", label: "Spend optimisation tied to cost per enrolment" },
-    { value: "Creative included", label: "Ads, landing pages, and copy in scope" },
+    { value: "All channels", label: "Meta, Google, organic, email, and programmatic" },
+    { value: "Weekly reports", label: "Performance updates with prioritised next actions" },
+    { value: "CAC-first", label: "Spend tied to cost per lead and cost per conversion" },
+    { value: "Creative included", label: "Ad visuals, copy, and landing pages in scope" },
+  ],
+  problems: [
+    {
+      title: "You are spending on Meta and Google ads but cannot tell which campaigns are generating enrolments",
+      description:
+        "Most Indian education businesses run paid campaigns without proper conversion tracking. Leads come in but there is no way to connect them to specific campaigns, creatives, or audience segments. Spend decisions are made on incomplete data, which means budget is consistently wasted on what does not work.",
+    },
+    {
+      title: "Your cost per lead is high and most leads do not convert to paid enrolments",
+      description:
+        "Without structured audience testing, creative iteration, and landing page optimisation, cost per lead stays stubbornly high. Improving it requires a systematic approach to finding the right message for the right audience, which most small teams do not have the bandwidth to run properly.",
+    },
+    {
+      title: "Your creatives look generic and disappear into a crowded feed of EdTech ads",
+      description:
+        "Indian learners see dozens of education ads every day. A generic banner with a course logo and a discount offer is invisible. Converting requires creatives that speak specifically to a learner's goal and outcomes, and most companies do not have the creative strategy or production capacity to produce that consistently.",
+    },
+    {
+      title: "You have no WhatsApp nurture strategy and leads that do not convert immediately go cold",
+      description:
+        "WhatsApp is the primary communication channel for most Indian learners. Without a structured WhatsApp follow-up sequence alongside email and retargeting, leads that do not enrol within the first 48 hours are effectively lost. This wastes a significant portion of what you spent to acquire them.",
+    },
   ],
   outcomes: [
     {
@@ -776,20 +936,20 @@ export const digitalMarketingPage: ServicePageContent = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Do you handle creative production as well as campaign management?",
-        a: "Yes. Creative production including ad visuals, copy, and landing page content is included in the engagement. We do not expect you to source creatives separately.",
+        q: "Do you run WhatsApp marketing campaigns alongside Meta and Google?",
+        a: "Yes. WhatsApp is a critical channel for Indian education audiences and we integrate WhatsApp campaigns into the overall marketing strategy. This includes broadcast campaigns, drip sequences for leads, and re-engagement for past inquiries.",
       },
       {
-        q: "Can you work alongside our internal marketing team?",
-        a: "Yes. We can run execution entirely or work as a specialist partner to an existing team. We define the model at the start based on your team structure and goals.",
+        q: "Do you set up conversion tracking including Meta Pixel and Google Tag Manager?",
+        a: "Yes. We set up or audit your full tracking infrastructure before any spend begins. This includes Meta Pixel, Google Tag Manager, GA4, and goal configuration so every rupee of spend is measurable against actual enrolments rather than vanity metrics.",
       },
       {
-        q: "How do you approach attribution and conversion tracking?",
-        a: "We set up or audit your tracking infrastructure from the start so performance data is reliable. Without accurate attribution, campaign optimisation is guesswork.",
+        q: "Can you manage campaigns in Hindi or regional languages as well?",
+        a: "Yes. If you are targeting audiences in Hindi, Tamil, Telugu, Kannada, or other regional languages, we can create and manage campaigns in those languages. Regional language campaigns often deliver significantly lower CPLs than English-only campaigns for the right audience.",
       },
       {
-        q: "What channels do you cover?",
-        a: "We work across paid social, paid search, email, and organic. The channel mix is determined by your programme economics and audience rather than our preferences.",
+        q: "How do you approach SEO for Indian education search queries?",
+        a: "We focus on high-intent search queries relevant to your programmes and audience, including queries specific to certifications, placements, and job outcomes that Indian learners search for. We combine technical SEO with content that answers the specific questions your prospective learners are asking.",
       },
     ],
   },
@@ -806,6 +966,7 @@ export const graphicDesignPage: ServicePageContent = {
   slug: "/services/technical/graphic-designing",
   label: "Graphic Design",
   title: "Design that builds trust at every learner touchpoint",
+  heroAccent: "Design that earns trust",
   subtitle:
     "Brand assets, marketing creatives, and course visuals produced on short turnarounds with consistent quality. We remove design bottlenecks so your campaigns launch on schedule, your brand stays coherent, and your product looks as professional as the experience it delivers.",
   tagline:
@@ -813,10 +974,32 @@ export const graphicDesignPage: ServicePageContent = {
   icon: { src: "/Assets/service/technology.svg", alt: "Graphic design icon" },
   heroImage: heroImages.graphicDesign,
   metrics: [
-    { value: "48 hours", label: "Standard asset turnaround from approved brief" },
-    { value: "Brand to campaign", label: "System design and creative production covered" },
-    { value: "Template systems", label: "Built for your team to extend and reuse" },
-    { value: "All formats", label: "Digital, presentation, and motion assets produced" },
+    { value: "48-hr turnaround", label: "Standard assets delivered from an approved brief" },
+    { value: "Brand + campaign", label: "Visual systems and creative production both covered" },
+    { value: "Template kits", label: "Reusable design systems your team can extend" },
+    { value: "Startup to scale", label: "From a first brand identity to a full campaign programme" },
+  ],
+  problems: [
+    {
+      title: "Your brand looks different on every channel and nothing feels professional",
+      description:
+        "When your Instagram page looks different from your website, your website looks different from your pitch deck, and your deck looks different from your course materials, prospects lose confidence before they even consider your product. Brand inconsistency is one of the clearest signals that a company is not yet operating professionally.",
+    },
+    {
+      title: "Your in-house team takes days to produce a single creative and campaigns are delayed",
+      description:
+        "Small teams with one designer or no dedicated designer create a bottleneck that slows every campaign. When a webinar promotion needs to go out within 24 hours and the designer is tied up, the campaign goes out late or with assets that look rushed.",
+    },
+    {
+      title: "You have no template system and every new asset starts from scratch",
+      description:
+        "Without a proper visual system, every social post, email banner, and presentation requires building from scratch. This is slow, expensive, and produces inconsistent results. A properly built template kit lets any team member produce on-brand assets in minutes.",
+    },
+    {
+      title: "Your marketing materials look good but do not convert because they do not communicate value clearly",
+      description:
+        "Indian learners make enrolment decisions based on specific outcomes, recognisable proof points, and clear programme details. Design that looks visually impressive but buries the value proposition behind aesthetics consistently underperforms in Indian markets.",
+    },
   ],
   outcomes: [
     {
@@ -929,6 +1112,7 @@ export const websiteDesignPage: ServicePageContent = {
   slug: "/services/technical/website-designing",
   label: "Website Design and Development",
   title: "Websites built to convert learners and build trust",
+  heroAccent: "Websites that earn enrolments",
   subtitle:
     "From programme landing pages to full marketing sites, we design and build fast, responsive, conversion-focused experiences that are aligned to your brand and optimised for the specific decisions your audience is trying to make.",
   tagline:
@@ -936,10 +1120,32 @@ export const websiteDesignPage: ServicePageContent = {
   icon: { src: "/Assets/service/technology.svg", alt: "Website design icon" },
   heroImage: heroImages.websiteDesign,
   metrics: [
-    { value: "Mobile-first", label: "Responsive across all screen sizes and orientations" },
-    { value: "Performance built in", label: "Core Web Vitals and SEO from the start" },
-    { value: "End to end", label: "Design and development delivered together" },
-    { value: "Iterative", label: "Post-launch improvements built into the engagement" },
+    { value: "End-to-end", label: "Design and development delivered by one team" },
+    { value: "Mobile-first", label: "Built for every screen size from day one" },
+    { value: "SEO-ready", label: "Core Web Vitals and search structure from the start" },
+    { value: "Post-launch support", label: "Iteration and improvements built into the engagement" },
+  ],
+  problems: [
+    {
+      title: "Your website is slow on mobile and most of your visitors are browsing on their phones",
+      description:
+        "More than 70 percent of internet users in India primarily browse on mobile. A website that takes more than three seconds to load on a 4G connection loses most of its visitors before they see the content. Fast, lightweight, mobile-first websites are not optional in the Indian market.",
+    },
+    {
+      title: "A first-time visitor cannot understand what you offer within the first 10 seconds",
+      description:
+        "Many Indian education websites assume visitors already understand the product. Someone landing on your page for the first time should immediately understand what you offer, who it is for, and why it is worth their time. Most websites fail this test and lose leads that paid advertising spent money to bring.",
+    },
+    {
+      title: "Contact form leads are not being followed up because there is no system connecting them to your sales process",
+      description:
+        "A website that collects leads without a proper CRM integration, WhatsApp notification, or automated follow-up is a wasted acquisition investment. Indian businesses lose a large portion of leads simply because the follow-up process is slow, manual, or completely absent.",
+    },
+    {
+      title: "Your website was built two years ago and no longer reflects what your business does",
+      description:
+        "Businesses evolve faster than websites get updated. A website showing outdated services, old pricing, and content that no longer reflects the company creates confusion and erodes credibility, especially when a referral visits your site to validate their decision to reach out.",
+    },
   ],
   outcomes: [
     {
@@ -1052,6 +1258,7 @@ export const mobileAppDevPage: ServicePageContent = {
   slug: "/services/technical/mobile-app-development",
   label: "Mobile App Development",
   title: "Learning apps built to earn and retain user trust",
+  heroAccent: "Apps learners come back to",
   subtitle:
     "From MVP to production-grade mobile product, we build learner-facing apps and internal tools with a reliable delivery partner who understands both product quality and education business requirements.",
   tagline:
@@ -1059,10 +1266,32 @@ export const mobileAppDevPage: ServicePageContent = {
   icon: { src: "/Assets/service/technology.svg", alt: "Mobile app development icon" },
   heroImage: heroImages.mobileApp,
   metrics: [
-    { value: "8 to 12 weeks", label: "MVP delivery from scoped brief to testable build" },
-    { value: "iOS and Android", label: "Cross-platform delivery supported" },
-    { value: "Integrations", label: "LMS, CRM, and payment systems connected" },
-    { value: "Ongoing", label: "Post-launch maintenance and iteration included" },
+    { value: "8–12 weeks", label: "MVP from scoped brief to testable and deployable build" },
+    { value: "iOS + Android", label: "Cross-platform delivery with native-quality performance" },
+    { value: "API integrations", label: "LMS, CRM, and payment systems connected" },
+    { value: "Post-launch care", label: "Maintenance, updates, and iteration cycles included" },
+  ],
+  problems: [
+    {
+      title: "Learners access your content through a browser which creates high dropout rates",
+      description:
+        "Browser-based learning competes with every other open tab and notification on a learner's phone. A dedicated app with progress tracking, push notifications, and an offline mode creates a focused environment that significantly improves completion rates and learner retention.",
+    },
+    {
+      title: "Your existing app has one-star reviews and learners complain about crashes and slow loading",
+      description:
+        "A poorly built app is worse than no app. One-star reviews on the Play Store are visible to every prospective learner. Apps built quickly by freelancers without structured testing accumulate bugs that erode trust faster than any marketing campaign can rebuild.",
+    },
+    {
+      title: "You want to accept UPI, Razorpay EMI, and net banking but your current platform does not support it",
+      description:
+        "Indian learners expect to pay through UPI, net banking, and EMI options. Platforms that support only international payment gateways or credit cards create friction at the point of conversion that directly reduces paid enrolments, particularly from tier-2 and tier-3 city audiences.",
+    },
+    {
+      title: "Your app does not work well on slow connections and you are losing learners in tier-2 and tier-3 cities",
+      description:
+        "A growing segment of the Indian learner market is in cities and towns with inconsistent mobile connectivity. Apps requiring fast connections to load video and content create an experience that excludes this audience entirely. Offline mode and lightweight builds are essential for this segment.",
+    },
   ],
   outcomes: [
     {
@@ -1145,20 +1374,20 @@ export const mobileAppDevPage: ServicePageContent = {
     title: "Frequently asked questions",
     items: [
       {
-        q: "Do you build for iOS, Android, or both?",
-        a: "We can support both platforms using cross-platform development approaches, or native where requirements demand it. The recommendation depends on your audience and performance requirements.",
+        q: "Can you integrate Razorpay, PayU, or other Indian payment gateways into the app?",
+        a: "Yes. We integrate Razorpay, PayU, Cashfree, and other Indian payment gateways including UPI, net banking, and EMI options. Proper payment integration is one of the most important conversion levers for Indian learner audiences and we treat it as a core part of the product, not an afterthought.",
       },
       {
-        q: "Can you integrate with our existing backend and APIs?",
-        a: "Yes. We work with your existing backend infrastructure and APIs. We can also help design API contracts if new endpoints are needed for mobile-specific functionality.",
+        q: "Do you build for Android first given the Indian market?",
+        a: "Yes. We build mobile-first with Android as the primary platform for most Indian education audiences. We use cross-platform development so iOS is also covered without duplicating the entire development effort. The final recommendation depends on your specific learner profile.",
       },
       {
-        q: "How do you handle app maintenance after launch?",
-        a: "We offer ongoing maintenance engagements covering bug fixes, OS updates, dependency management, and feature additions. The structure depends on how much ongoing work you anticipate.",
+        q: "Can you build an offline mode for learners in areas with poor connectivity?",
+        a: "Yes. Offline access for video content and course materials is achievable and significantly improves completion rates in tier-2 and tier-3 city markets. We scope and implement offline functionality based on the type of content your learners access.",
       },
       {
-        q: "Do you provide UI and UX design as part of the engagement?",
-        a: "Yes. Product design is included in the engagement. We can work from your existing design system or create a mobile design system from scratch if one does not exist.",
+        q: "Do you submit the app to the Play Store and App Store?",
+        a: "Yes. We handle the complete submission process for both the Google Play Store and the Apple App Store, including compliance with store policies, metadata optimisation, and any review responses required during the approval process.",
       },
     ],
   },

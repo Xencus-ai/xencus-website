@@ -205,53 +205,77 @@ export default function SolutionsPage() {
 
           {/* Bento grid overview */}
           <div className="mt-14 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
-            {/* Delivery operations (left, tall) */}
+            {/* ── Delivery operations (left, tall 2-row) ── */}
             <div className="relative lg:row-span-2">
               <div className="absolute inset-px rounded-2xl bg-white lg:rounded-l-3xl" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-2xl lg:rounded-l-3xl">
+                {/* text */}
                 <div className="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
                   <p className="mt-1 text-lg font-semibold tracking-tight text-heading max-lg:text-center">
                     Delivery operations
                   </p>
                   <p className="mt-3 max-w-lg text-sm leading-relaxed text-paragraph-secondary max-lg:text-center">
                     Live classes, trainers, LMS operations, projects, assessments, and certifications
-                    delivered under your brand—with a single team accountable for outcomes.
+                    delivered under your brand with a single team accountable for outcomes.
                   </p>
                 </div>
+                {/* illustration fills the remaining card space */}
                 <div className="relative min-h-[18rem] w-full grow max-lg:mx-auto max-lg:max-w-sm">
-                  <div className="absolute inset-x-8 top-8 bottom-6 overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-gray-200">
-                    <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(250,204,72,0.16),_transparent_60%)]" />
-                  </div>
+                  {/* warm glow behind image */}
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_60%,rgba(250,204,72,0.14),transparent_80%)]"
+                  />
+                  <Image
+                    src="/Assets/edutech/illustrations/planning.avif"
+                    alt="Structured learning programme delivery illustration"
+                    fill
+                    sizes="(max-width: 1024px) 80vw, 33vw"
+                    className="object-contain p-6 sm:p-8 drop-shadow-md"
+                  />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-2xl shadow-sm ring-1 ring-black/5 lg:rounded-l-3xl" />
             </div>
 
-            {/* Legal & HR (top middle) */}
+            {/* ── Legal & HR (top middle) ── */}
             <div className="relative max-lg:row-start-1">
               <div className="absolute inset-px rounded-2xl bg-white max-lg:rounded-t-3xl" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-2xl max-lg:rounded-t-3xl">
                 <div className="px-8 pt-8 sm:px-10 sm:pt-10">
                   <p className="mt-1 text-lg font-semibold tracking-tight text-heading max-lg:text-center">
-                    Legal and HR for EdTech
+                    Legal and HR
                   </p>
                   <p className="mt-3 max-w-lg text-sm leading-relaxed text-paragraph-secondary max-lg:text-center">
-                    EdTech-specific contracts, policies, compliance, and people operations that keep
-                    your programs and teams running safely.
+                    Contracts, compliance, policies, and people operations that keep your programmes
+                    and teams running without legal or HR surprises.
                   </p>
                 </div>
-                <div className="flex flex-1 items-center justify-center px-8 pb-8 pt-4 sm:px-10 lg:pb-4">
-                  <ul className="space-y-2 text-sm text-paragraph-secondary">
-                    <li>• Trainer and vendor agreements aligned to your model</li>
-                    <li>• HR processes for both full-time and contract roles</li>
-                    <li>• Compliance support for learners, partners, and data</li>
-                  </ul>
+                {/* side-by-side legal + HR illustrations */}
+                <div className="flex flex-1 items-center justify-center gap-4 px-8 pb-6 pt-4 sm:px-10 lg:pb-4">
+                  <div className="relative h-20 w-20 shrink-0 sm:h-24 sm:w-24">
+                    <Image
+                      src="/Assets/service/legal.svg"
+                      alt="Legal services illustration"
+                      fill
+                      className="object-contain drop-shadow-sm"
+                    />
+                  </div>
+                  <span aria-hidden className="h-12 w-px bg-gray-200" />
+                  <div className="relative h-20 w-20 shrink-0 sm:h-24 sm:w-24">
+                    <Image
+                      src="/Assets/service/hr.svg"
+                      alt="HR services illustration"
+                      fill
+                      className="object-contain drop-shadow-sm"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-2xl shadow-sm ring-1 ring-black/5 max-lg:rounded-t-3xl" />
             </div>
 
-            {/* Finance (bottom middle) */}
+            {/* ── Finance (bottom middle) ── */}
             <div className="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
               <div className="absolute inset-px rounded-2xl bg-white" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-2xl">
@@ -260,29 +284,30 @@ export default function SolutionsPage() {
                     Finance and reporting
                   </p>
                   <p className="mt-3 max-w-lg text-sm leading-relaxed text-paragraph-secondary max-lg:text-center">
-                    Finance operations and reporting that match how education revenue works—cohorts,
-                    subscriptions, and instalments.
+                    GST, TDS, bookkeeping, and monthly reporting designed for how education
+                    businesses actually earn.
                   </p>
                 </div>
-                <div className="flex flex-1 flex-wrap items-center justify-center gap-3 px-6 pb-6 pt-4 lg:pb-4">
-                  <div className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-2 text-center">
-                    <p className="text-sm font-semibold text-heading">Clean books</p>
-                    <p className="mt-1 text-xs text-paragraph-secondary">Reconciled to your tools</p>
-                  </div>
-                  <div className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-2 text-center">
-                    <p className="text-sm font-semibold text-heading">Compliance</p>
-                    <p className="mt-1 text-xs text-paragraph-secondary">Filings and documentation</p>
-                  </div>
-                  <div className="rounded-xl border border-gray-200 bg-gray-50 px-4 py-2 text-center">
-                    <p className="text-sm font-semibold text-heading">Reporting</p>
-                    <p className="mt-1 text-xs text-paragraph-secondary">Views leaders can use</p>
+                {/* finance illustration centred in remaining space */}
+                <div className="relative flex flex-1 items-center justify-center px-8 pb-6 pt-3 lg:pb-4">
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(250,204,72,0.10),transparent_75%)]"
+                  />
+                  <div className="relative h-28 w-28 sm:h-32 sm:w-32">
+                    <Image
+                      src="/Assets/service/finance.svg"
+                      alt="Finance operations illustration"
+                      fill
+                      className="object-contain drop-shadow-sm"
+                    />
                   </div>
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-2xl shadow-sm ring-1 ring-black/5" />
             </div>
 
-            {/* Technical services (right, tall) */}
+            {/* ── Technical services (right, tall 2-row) ── */}
             <div className="relative lg:row-span-2">
               <div className="absolute inset-px rounded-2xl bg-white max-lg:rounded-b-3xl lg:rounded-r-3xl" />
               <div className="relative flex h-full flex-col overflow-hidden rounded-2xl max-lg:rounded-b-3xl lg:rounded-r-3xl">
@@ -295,15 +320,19 @@ export default function SolutionsPage() {
                     experience and go-to-market motion.
                   </p>
                 </div>
+                {/* illustration fills remaining card space */}
                 <div className="relative min-h-[18rem] w-full grow">
-                  <div className="absolute top-8 right-6 bottom-6 left-8 overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-gray-200">
-                    <div className="flex h-full items-center justify-center px-6 py-4">
-                      <p className="text-sm font-medium leading-relaxed text-paragraph-secondary text-center">
-                        Campaigns, creatives, and products run by a team that understands how education
-                        businesses grow.
-                      </p>
-                    </div>
-                  </div>
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_60%,rgba(250,204,72,0.12),transparent_80%)]"
+                  />
+                  <Image
+                    src="/Assets/dashboard/dashboard.png"
+                    alt="Performance marketing and analytics dashboard illustration"
+                    fill
+                    sizes="(max-width: 1024px) 80vw, 33vw"
+                    className="object-contain p-6 sm:p-8 drop-shadow-md"
+                  />
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-2xl shadow-sm ring-1 ring-black/5 max-lg:rounded-b-3xl lg:rounded-r-3xl" />
