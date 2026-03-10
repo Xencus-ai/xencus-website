@@ -37,11 +37,11 @@ export type ServicePageContent = {
 
 const heroImages = {
   corporateLd: {
-    src: "/Assets/edutech/illustrations/planning.avif",
+    src: "/Assets/service/corporate.svg",
     alt: "Structured learning programme delivery for corporate teams",
   },
   universities: {
-    src: "/Assets/upcomingclasse/upcomingClass.avif",
+    src: "/Assets/service/university.svg",
     alt: "Industry trainers delivering sessions to university students",
   },
   legal: {
@@ -57,19 +57,19 @@ const heroImages = {
     alt: "Finance operations and reporting for education businesses",
   },
   digitalMarketing: {
-    src: "/Assets/dashboard/dashboard.png",
+    src: "/Assets/service/technology.svg",
     alt: "Performance marketing analytics for EdTech growth",
   },
   graphicDesign: {
-    src: "/Assets/edutech/course.png",
+    src: "/Assets/service/technology.svg",
     alt: "Brand and campaign design assets for education companies",
   },
   websiteDesign: {
-    src: "/Assets/hero/hero.avif",
+    src: "/Assets/service/technology.svg",
     alt: "Modern conversion-focused website for an education brand",
   },
   mobileApp: {
-    src: "/Assets/edutech/illustrations/analytics.avif",
+    src: "/Assets/service/technology.svg",
     alt: "Mobile learning app product analytics and delivery",
   },
 } as const;

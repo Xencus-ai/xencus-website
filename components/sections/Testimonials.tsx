@@ -1,136 +1,60 @@
-import Image from "next/image";
-import Link from "next/link";
-
-type AvatarConfig = {
-  src: string;
-  sizeClass: string;
-  offsetClass: string;
-};
-
-// Staggered, curved gallery: larger cards toward the middle columns,
-// slight vertical offsets to give a "curved screen" feel.
-const AVATARS: AvatarConfig[] = [
-  {
-    src: "/Assets/testimonial/connor-wilkins-2crxTr4jCkc-unsplash.avif",
-    sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
-    offsetClass: "translate-y-4",
-  },
-  {
-    src: "/Assets/testimonial/lucas-gouvea-aoEwuEH7YAs-unsplash.avif",
-    sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
-    offsetClass: "translate-y-1",
-  },
-  {
-    src: "/Assets/testimonial/ali-morshedlou-WMD64tMfc4k-unsplash.avif",
-    sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
-    offsetClass: "-translate-y-1",
-  },
-  {
-    src: "/Assets/testimonial/mark-farias-dt60oksDTx8-unsplash.avif",
-    sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
-    offsetClass: "translate-y-1",
-  },
-  {
-    src: "/Assets/testimonial/robert-godwin-cdksyTqEXzo-unsplash.avif",
-    sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
-    offsetClass: "translate-y-4",
-  },
-  {
-    src: "/Assets/testimonial/stefan-stefancik-QXevDflbl8A-unsplash.avif",
-    sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
-    offsetClass: "translate-y-6",
-  },
-  {
-    src: "/Assets/testimonial/jack-finnigan-rriAI0nhcbc-unsplash.avif",
-    sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
-    offsetClass: "translate-y-3",
-  },
-  {
-    src: "/Assets/testimonial/rafaella-mendes-diniz-et_78QkMMQs-unsplash.avif",
-    sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
-    offsetClass: "translate-y-5",
-  },
-  {
-    src: "/Assets/testimonial/jimmy-fermin-bqe0J0b26RQ-unsplash.avif",
-    sizeClass: "h-28 w-24 sm:h-32 sm:w-28 lg:h-36 lg:w-32",
-    offsetClass: "translate-y-5",
-  },
-  {
-    src: "/Assets/testimonial/alyona-grishina-BBmi4nJjKk8-unsplash.avif",
-    sizeClass: "h-32 w-28 sm:h-36 sm:w-32 lg:h-40 lg:w-36",
-    offsetClass: "translate-y-7",
-  },
-];
-
-type MiniTestimonial = {
+type Testimonial = {
   name: string;
   role: string;
   company: string;
   quote: string;
-  rating: string;
 };
 
-const TESTIMONIAL_ROWS: MiniTestimonial[][] = [
-  [
-    {
-      name: "Rahul Mehta",
-      role: "Co-founder",
-      company: "SkillBridge",
-      quote: "Xencus helped us scale cohorts without breaking our trainer ops.",
-      rating: "4.9",
-    },
-    {
-      name: "Ananya Iyer",
-      role: "Head of Academics",
-      company: "LearnSphere",
-      quote: "Batch quality stayed consistent even as we doubled enrolments.",
-      rating: "5.0",
-    },
-    {
-      name: "Saurabh Kulkarni",
-      role: "VP, Operations",
-      company: "UpNext Academy",
-      quote: "Their team feels like an in-house ops engine for our EdTech.",
-      rating: "4.8",
-    },
-    {
-      name: "Neha Kapoor",
-      role: "Program Director",
-      company: "CampusX",
-      quote: "Scheduling, trainers, projects—Xencus runs it, we focus on growth.",
-      rating: "4.9",
-    },
-  ],
-  [
-    {
-      name: "Arjun Nair",
-      role: "CEO",
-      company: "CodeCraft School",
-      quote: "We launched new domains faster because Xencus owned the delivery.",
-      rating: "5.0",
-    },
-    {
-      name: "Priya Desai",
-      role: "Academic Lead",
-      company: "NextWave Learning",
-      quote: "Learner experience improved while our internal team shrank.",
-      rating: "4.9",
-    },
-    {
-      name: "Kunal Sharma",
-      role: "Founder",
-      company: "GrowthPath Ed",
-      quote: "From 1 batch to 20+—operations just stayed predictable.",
-      rating: "4.8",
-    },
-    {
-      name: "Simran Bhatia",
-      role: "Program Head",
-      company: "FutureEdge",
-      quote: "Xencus gave us the confidence to sell bigger enterprise deals.",
-      rating: "4.9",
-    },
-  ],
+const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Akhilesh",
+    role: "Founder & CEO",
+    company: "Acadme",
+    quote:
+      "Xencus runs our cohorts end‑to‑end. It feels like we added a full delivery team without the hiring overhead.",
+  },
+  {
+    name: "Gaurav",
+    role: "Founder & CEO",
+    company: "Gladify",
+    quote:
+      "Having a partner who understands both academic rigor and ops at scale has made it easier to launch new programs.",
+  },
+  {
+    name: "Aditya",
+    role: "Managing Director",
+    company: "GradMantra",
+    quote:
+      "We rely on Xencus to keep batches on track and learner experience consistent while we focus on distribution.",
+  },
+  {
+    name: "Vishwajeet",
+    role: "Founder & CEO",
+    company: "InternsForge",
+    quote:
+      "From trainers to schedules to reporting, Xencus is the backbone of our program delivery engine.",
+  },
+  {
+    name: "Ranjith",
+    role: "Head of HR",
+    company: "Talentled",
+    quote:
+      "They make it simple to run outcome‑driven learning journeys for our teams without stretching our internal ops.",
+  },
+  {
+    name: "TPO",
+    role: "Training & Placement Officer",
+    company: "GEC Bhojpur",
+    quote:
+      "Our students get structured, industry‑aligned sessions while our faculty stays focused on core academics.",
+  },
+  {
+    name: "HOD, BCA & MCA",
+    role: "Department Head",
+    company: "Uttarakhand University",
+    quote:
+      "Xencus helps us bridge classroom learning with practical exposure through well‑run industry programs.",
+  },
 ];
 
 export function Testimonials() {
@@ -138,118 +62,87 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-labelledby="testimonials-title"
-      className="min-h-[calc(100vh-var(--header-offset))] bg-background py-12 sm:py-16"
+      className="bg-background py-16 sm:py-20 lg:py-24"
     >
-      <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 xl:max-w-[90vw]">
-        <div className="relative pb-16 pt-8 sm:pb-20 sm:pt-10 lg:pb-24 lg:pt-12">
-          {/* Vertical guide lines behind gallery */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 flex justify-center"
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:items-start lg:gap-16 lg:px-8">
+        <div className="lg:max-w-sm">
+          <span className="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
+            Testimonials
+          </span>
+          <h2
+            id="testimonials-title"
+            className="mt-4 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
           >
-            <div className="mx-auto flex h-64 max-w-5xl items-stretch justify-between opacity-35">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div key={i} className="h-full border-l border-dashed border-gray-200" />
-              ))}
-            </div>
-          </div>
-
-          {/* Floating headshot gallery — curved, non-overlapping, no cards in the center column where text sits */}
-          <div className="relative mx-auto mt-4 flex max-w-5xl justify-center">
-            <div className="grid grid-cols-5 gap-x-6 gap-y-6">
-              {AVATARS.map((avatar, index) => (
-                <div
-                  key={avatar.src}
-                  className={`relative overflow-hidden rounded-2xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] ring-1 ring-black/5 backdrop-blur-sm transition-transform duration-500 hover:-translate-y-1 hover:scale-[1.02] ${avatar.sizeClass} ${avatar.offsetClass} ${
-                    // Leave the exact center column of the lower row empty so text area feels clear.
-                    index === 2 || index === 7 ? "lg:translate-x-3" : ""
-                  }`}
-                >
-                  <Image
-                    src={avatar.src}
-                    alt=""
-                    fill
-                    sizes="(max-width: 768px) 90px, (max-width: 1280px) 130px, 150px"
-                    className="object-cover"
-                    placeholder="blur"
-                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzIiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSIzIiBoZWlnaHQ9IjQiIGZpbGw9IiNlZGU4ZTMiLz48L3N2Zz4="
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Center content below gallery, clear of any images */}
-          <div className="relative mx-auto mt-12 flex max-w-3xl flex-col items-center text-center sm:mt-14 lg:mt-16">
-            <span className="inline-flex items-center rounded-full bg-gray-100 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-paragraph-secondary">
-              Testimonials
+            Trusted by{" "}
+            <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500 bg-clip-text text-transparent">
+              EdTechs and universities
             </span>
-            <h2
-              id="testimonials-title"
-              className="mt-4 text-3xl font-bold tracking-tight text-heading sm:text-4xl lg:text-5xl"
-            >
-              <span className="text-heading">Trusted by EdTech leaders</span>
-              <br />
-              <span className="text-gray-500">across India and beyond</span>
-            </h2>
-            <p className="mt-4 max-w-xl text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base">
-              Learn why EdTech founders and teams trust Xencus to run operations while they
-              focus on selling and growth.
-            </p>
+          </h2>
+          <p className="mt-4 text-sm font-medium leading-relaxed text-paragraph-secondary sm:text-base">
+            Founders, HR leaders, and academic heads use Xencus to run programs
+            that feel world‑class for learners and simple for their teams.
+          </p>
 
-            {/* Horizontal moving testimonial cards (2 rows) */}
-            <div className="relative mt-10 w-full overflow-hidden">
-              {/* Left / right fade for softness */}
-              <div className="pointer-events-none absolute inset-y-2 left-0 w-24 rounded-r-3xl bg-gradient-to-r from-background via-background/70 to-transparent backdrop-blur-sm" />
-              <div className="pointer-events-none absolute inset-y-2 right-0 w-24 rounded-l-3xl bg-gradient-to-l from-background via-background/70 to-transparent backdrop-blur-sm" />
-
-              <div className="space-y-4">
-                {TESTIMONIAL_ROWS.map((row, rowIndex) => (
-                  <div
-                    key={rowIndex}
-                    className={`flex min-w-[200%] gap-4 sm:gap-6 ${
-                      rowIndex === 0 ? "testimonial-marquee" : "testimonial-marquee-reverse"
-                    }`}
-                  >
-                    {[...row, ...row].map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="min-w-[320px] max-w-xs shrink-0 rounded-2xl border border-gray-100 bg-white/95 px-4 py-3 text-left shadow-sm backdrop-blur-sm sm:min-w-[360px] sm:px-5 sm:py-4"
-                      >
-                        <div className="flex items-center justify-between text-xs font-semibold text-paragraph-secondary">
-                          <span className="inline-flex items-center gap-1">
-                            <span className="text-yellow-500">★</span>
-                            <span>{item.rating}</span>
-                          </span>
-                          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-gray-200 text-[10px] text-gray-400">
-                            ★
-                          </span>
-                        </div>
-                        <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-paragraph-secondary sm:text-sm">
-                          “{item.quote}”
-                        </p>
-                        <div className="mt-3 text-xs font-semibold text-heading sm:text-sm">
-                          {item.name}
-                        </div>
-                        <div className="text-[11px] text-paragraph-secondary sm:text-xs">
-                          {item.role} · {item.company}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ))}
+          <div className="mt-8 grid gap-4 text-sm text-paragraph-secondary sm:grid-cols-3 sm:text-xs lg:grid-cols-1 lg:text-sm">
+            <div className="rounded-2xl border border-gray-100 bg-white/80 p-4 shadow-sm backdrop-blur">
+              <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                Partners
               </div>
+              <div className="mt-1 text-2xl font-semibold text-heading">7+</div>
+              <p className="mt-1 text-xs text-paragraph-secondary">
+                Across EdTech, industry and universities
+              </p>
             </div>
+            <div className="rounded-2xl border border-gray-100 bg-white/80 p-4 shadow-sm backdrop-blur">
+              <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                Focus
+              </div>
+              <div className="mt-1 text-2xl font-semibold text-heading">Delivery</div>
+              <p className="mt-1 text-xs text-paragraph-secondary">
+                You own the brand, we run the ops
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gray-100 bg-white/80 p-4 shadow-sm backdrop-blur">
+              <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                Confidence
+              </div>
+              <div className="mt-1 text-2xl font-semibold text-heading">High</div>
+              <p className="mt-1 text-xs text-paragraph-secondary">
+                Repeat cohorts and long‑term relationships
+              </p>
+            </div>
+          </div>
+        </div>
 
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-black px-6 py-2.5 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(0,0,0,0.25)] transition hover:brightness-110"
-            >
-              Talk to us
-              <span aria-hidden className="ml-1">
-                →
-              </span>
-            </Link>
+        <div className="flex-1">
+          <div className="grid gap-4 sm:grid-cols-2 lg:gap-6">
+            {TESTIMONIALS.map((testimonial) => (
+              <figure
+                key={`${testimonial.company}-${testimonial.name}`}
+                className="relative flex h-full flex-col rounded-2xl border border-gray-100 bg-white/90 p-5 text-left shadow-sm ring-1 ring-black/5 backdrop-blur transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="mb-3 flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 text-xs font-semibold uppercase text-white">
+                    {testimonial.company
+                      .split(" ")
+                      .map((word) => word[0])
+                      .join("")
+                      .slice(0, 3)}
+                  </div>
+                  <div className="flex flex-col">
+                    <p className="text-sm font-semibold text-heading">
+                      {testimonial.company}
+                    </p>
+                    <p className="text-xs text-paragraph-secondary">
+                      {testimonial.name} · {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+                <blockquote className="text-sm leading-relaxed text-paragraph-secondary">
+                  “{testimonial.quote}”
+                </blockquote>
+              </figure>
+            ))}
           </div>
         </div>
       </div>
