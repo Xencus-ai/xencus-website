@@ -446,3 +446,94 @@ h1, h2, h3, h4 {
 .edtech-card {
   contain: layout paint;
 }
+
+/* ─── About Hero — rotating conic gradient glow ────────────────────────── */
+@property --about-spin {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes about-spin-rotate {
+  to { --about-spin: 360deg; }
+}
+
+.about-hero-spin {
+  animation: about-spin-rotate 10s infinite linear;
+  background: conic-gradient(
+    from var(--about-spin) at 52% 49% in oklab,
+    oklch(0.9 0.19 93.93)  0%,
+    oklch(0.82 0.18 70)   22%,
+    oklch(0.97 0.05 85)   40%,
+    oklch(0.88 0.17 55)   58%,
+    oklch(0.9 0.19 93.93) 75%,
+    oklch(0.85 0.15 75)   90%,
+    oklch(0.9 0.19 93.93) 100%
+  );
+}
+
+/* ─── Hero CTA — spinning gradient border (Gemini-style) ────────────────── */
+@property --cta-spin {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes cta-spin-rotate {
+  to { --cta-spin: 360deg; }
+}
+
+.cta-spin-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 0.75rem;
+  isolation: isolate;
+}
+
+/* Blurred glow behind the button */
+.cta-spin-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--cta-spin) at 52% 49% in oklab,
+    oklch(0.63 0.2 251.22) 27%,
+    oklch(0.67 0.21 25.81) 33%,
+    oklch(0.9 0.19 93.93)  41%,
+    oklch(0.79 0.25 150.49) 49%,
+    oklch(0.63 0.2 251.22) 65%,
+    oklch(0.72 0.21 150.89) 93%,
+    oklch(0.63 0.2 251.22)
+  );
+  animation: cta-spin-rotate 4s infinite linear;
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+/* Sharp gradient border layer */
+.cta-spin-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.cta-spin-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    from var(--cta-spin) at 52% 49% in oklab,
+    oklch(0.63 0.2 251.22) 27%,
+    oklch(0.67 0.21 25.81) 33%,
+    oklch(0.9 0.19 93.93)  41%,
+    oklch(0.79 0.25 150.49) 49%,
+    oklch(0.63 0.2 251.22) 65%,
+    oklch(0.72 0.21 150.89) 93%,
+    oklch(0.63 0.2 251.22)
+  );
+  animation: cta-spin-rotate 4s infinite linear;
+}

@@ -32,6 +32,30 @@ export const metadata: Metadata = {
     path: "/",
   }),
   metadataBase: new URL(BASE_URL),
+  icons: {
+    icon: "/Assets/favicon.ico",
+    shortcut: "/Assets/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "icon",
+        url: "/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#facc48",
+      },
+    ],
+  },
 };
 
 const organizationJsonLd = getOrganizationSchema();
