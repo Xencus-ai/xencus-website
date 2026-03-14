@@ -1352,6 +1352,11 @@ export const mobileAppDevPage: ServicePageContent = {
       title: "We support launch and iterate post-release",
       text: "We handle the final testing, release preparation, and store submission process. After launch, we move into a maintenance and iteration cycle, shipping improvements based on user feedback and your evolving product strategy.",
     },
+    {
+      step: 4,
+      title: "We keep the product healthy long-term",
+      text: "Ongoing OS updates, dependency upgrades, performance monitoring, and new feature cycles are handled under a predictable retainer. You retain a partner who knows the codebase rather than re-onboarding a new team every time the product needs work.",
+    },
   ],
   targetAudience: [
     {
