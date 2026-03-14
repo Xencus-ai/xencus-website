@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
-import { ServiceLandingPage } from "@/components/services/ServiceLandingPage";
-import { mobileAppDevPage } from "@/content/services-pages";
+import MobileAppPageContent from "./MobileAppPageContent";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Mobile App Development",
@@ -11,6 +10,6 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function MobileAppDevelopmentPage() {
-  return <ServiceLandingPage content={mobileAppDevPage} />;
+  return <MobileAppPageContent />;
 }
 
