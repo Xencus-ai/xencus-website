@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/seo";
-import { ServiceLandingPage } from "@/components/services/ServiceLandingPage";
-import { digitalMarketingPage } from "@/content/services-pages";
+import DigitalMarketingPageContent from "./DigitalMarketingPageContent";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Digital Marketing",
@@ -11,6 +10,6 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function DigitalMarketingPage() {
-  return <ServiceLandingPage content={digitalMarketingPage} />;
+  return <DigitalMarketingPageContent />;
 }
 

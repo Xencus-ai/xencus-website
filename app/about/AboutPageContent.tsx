@@ -90,14 +90,14 @@ export default function AboutPageContent() {
         <div className="relative w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
           <Container>
             {/* ── Two-column grid ── */}
-            <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
+            <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
 
               {/* Left: Copy — centered on mobile, left-aligned on lg */}
               <motion.div
                 initial="initial"
                 animate="animate"
                 variants={{ animate: { transition: { staggerChildren: 0.09, delayChildren: 0.04 } } }}
-                className="flex flex-col items-center text-center lg:items-start lg:text-left"
+                className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left"
               >
                 <motion.h1
                   id="about-hero-title"
@@ -148,42 +148,45 @@ export default function AboutPageContent() {
                 </motion.div>
               </motion.div>
 
-              {/* Right: Illustration — desktop only */}
+              {/* Right: Illustration — all screens */}
               <motion.div
                 initial={{ opacity: 0, x: 36 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
-                className="relative hidden items-center justify-center lg:flex"
+                className="relative order-1 flex items-center justify-center lg:order-2"
               >
-                {/* Decorative rings */}
-                <div aria-hidden className="absolute inset-0 flex items-center justify-center">
+                {/* Decorative rings — desktop only (too large for mobile) */}
+                <div aria-hidden className="absolute inset-0 hidden items-center justify-center lg:flex">
                   <div className="h-[520px] w-[520px] rounded-full border border-amber-200/40" />
                 </div>
-                <div aria-hidden className="absolute inset-0 flex items-center justify-center">
+                <div aria-hidden className="absolute inset-0 hidden items-center justify-center lg:flex">
                   <div className="h-[630px] w-[630px] rounded-full border border-amber-100/25" />
                 </div>
                 {/* Glow */}
-                <div aria-hidden className="absolute h-80 w-80 rounded-full bg-gradient-to-br from-amber-200/50 via-amber-100/30 to-transparent blur-3xl" />
+                <div aria-hidden className="absolute h-56 w-56 rounded-full bg-gradient-to-br from-amber-200/50 via-amber-100/30 to-transparent blur-3xl sm:h-80 sm:w-80" />
 
-                <Image
-                  src="/Assets/ABOUT/about.svg"
-                  alt="Xencus operating backbone for scalable EdTech"
-                  width={680}
-                  height={680}
-                  className="relative z-10 w-full max-w-[600px]"
-                  priority
-                />
+                {/* Image + badge wrapped together so badge stays anchored to image */}
+                <div className="relative w-full max-w-[260px] sm:max-w-[360px] lg:max-w-[600px]">
+                  <Image
+                    src="/Assets/ABOUT/about.svg"
+                    alt="Xencus operating backbone for scalable EdTech"
+                    width={680}
+                    height={680}
+                    className="relative z-10 w-full"
+                    priority
+                  />
 
-                {/* Glass badge — top-right */}
-                <motion.div
-                  initial={{ opacity: 0, y: -14, scale: 0.92 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ delay: 0.85, duration: 0.5 }}
-                  className="absolute right-4 top-0 rounded-2xl border border-amber-200/60 bg-amber-50/80 px-5 py-3.5 shadow-xl shadow-amber-900/8 backdrop-blur-xl"
-                >
-                  <p className="text-lg font-extrabold text-amber-900">1 partner</p>
-                  <p className="mt-0.5 text-xs text-amber-700/80">For all operations</p>
-                </motion.div>
+                  {/* Glass badge — anchored to top-right of image */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -14, scale: 0.92 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ delay: 0.85, duration: 0.5 }}
+                    className="absolute -right-2 top-4 z-20 rounded-2xl border border-amber-200/60 bg-amber-50/80 px-3 py-2 shadow-xl backdrop-blur-xl sm:-right-4 sm:top-6 sm:px-4 sm:py-3"
+                  >
+                    <p className="text-xs font-extrabold text-amber-900 sm:text-base">1 partner</p>
+                    <p className="mt-0.5 text-[9px] text-amber-700/80 sm:text-[11px]">For all operations</p>
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
 
@@ -198,7 +201,6 @@ export default function AboutPageContent() {
         className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-narrative-title"
       >
-        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
 
         <Container>
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
@@ -323,7 +325,6 @@ export default function AboutPageContent() {
         className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-what-title"
       >
-        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
         <Container>
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Illustration */}
@@ -449,7 +450,6 @@ export default function AboutPageContent() {
         className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-how-title"
       >
-        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
         <Container>
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
             {/* Steps — timeline */}
@@ -594,7 +594,6 @@ export default function AboutPageContent() {
         className="relative overflow-hidden bg-white py-12 sm:py-16"
         aria-labelledby="about-culture-title"
       >
-        <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-200/60 to-transparent" />
         <Container>
           <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
             {/* Content */}
